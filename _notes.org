@@ -1,0 +1,345 @@
+#+SETUPFILE: theme.setup
+#+TITLE: Org-mode Notes
+#+SUBTITLE: sub title
+#+LINK: bing http://cn.bing.com/search?q=%s
+#+PROPERTY: NDisks_ALL 1 2 3 4
+#+PROPERTY: Effort_ALL 0 0:10 0:30 1:00 2:00 3:00 4:00 5:00 6:00 7:00
+#+COLUMNS: %25ITEM %TODO %3PRIORITY %TAGS
+
+* TODO MISC tmux etc
+        - Emacs 的 =C-[x {2/3}]= <==> Tmux: =C-b {"/%}= split window
+        其实不必要 =C-[x {2/3}= (C-2 和 2 一样的)。但这个不会 create your tempo。
+* Emacs basics
+        1. 别看多，其实都是简单的内容。
+        2. **=C-/= (undo)**, Emacs 没有 redo, 但是这个 undo 功能完虐 redo
+        3. =C-[x c]= (close)，如果你试了一下，可以用 =C-g= 取消
+        4. =C-[x f]= (open file), =C-[x s]= (save file)
+        5. =C-w= 是剪切, =M-w= 是复制
+        6. **=C-h {a, c/k, f, v, i, m}= 帮助!!! Emacs 必知必会.**
+        1) **a**: search for command
+        2) **c**: describe key briefly
+        3) **k**: describe key
+        4) **f**: describe function
+        5) **v**: describe varible
+        6) **i**: info doc
+        7) **m**: describe mode
+        7. 记得有事没事看看下面有没有提示，因为 Emacs 还是很 considerate 的。
+        比如打开帮助窗口后，它会用“ =C-w C-o= / =C-x 1= ” (delete-other-windows) 提醒你如何关闭。
+            =C-x 0= 可以关闭当前窗口， =C-x b= (switch-to-buffer) 可以返回原来的窗口（如果你被新弹出的窗口打扰了的话。）
+        9. =M-x cmd= (exec command)
+        10. =ESC ?, M-?= 两者等价, 前者好按, 后者便于连续使用。所以，你可以用 =ESC x= 代替 =M-x= 了。
+            （虽然你用了 evil-mode 的话，这个功能也不能用了）
+        11. ={C,M}-{f/b}= (char, word), ={C,M}-{a/e}= (line, sentence), ={C,M}-{n/p}= (line, ?), **M 比 C 层次更粗/高**
+        12. 鉴于你是用的是 neo 键盘布局， =C-{f/b}= （等于 =left/right= ）和 =C-{a/e}= （等于 =home/end= ）没什么卵用。
+            而且，你用了 evil-mode 后，用 vim 的特性就行。如果不知道自己的键绑定是怎样的，用 =C-h c= 来查看。
+        13. =M-{f/b}= 移动单词倒是可以，不过相比 =C-left/right= 也没啥优势。
+        14. 唯一牛逼的，可能就是 =M-{a/e}=
+        15. ={C,M}-{d,k}= (delete next char, word), (delete line, sentence)
+        16. =C-u <num>= 数字前缀(作为参数)
+        17. =C-g= (取消, 建议把 =C-M-g= 也设置为取消, 不然老按错)
+            =(global-set-key (kbd "C-M-g") 'keyboard-quit)=
+        18. =C-l= (上中下)，会拽住当前行一起移动。
+        19. =DEL=, =Backpace=
+        20. =C-SPC= ([de]mark), =C-w= (剪切), ={C,M}-y= (粘贴, 奇怪的是在 Vim 里, yank 是复制...)
+        21. =C-[x b]=, =C-x b= (切换 buffer)，前者列出所有的 buffer，后者直接跳转到上一个 buffer。
+        22. =C-x {1,0,2,3}= (窗口操作), =C-M-v= (另一个窗口滚屏), 如何关闭帮助窗口?: =C-x 1=, =C-{w o}=
+        23. =C-x 4 C-f= (在另一个窗口 find-file)，find-file 就是打开 file。
+        24. =C-[x s]= =(save-buffer)=, =C-x s= =(save-some-buffers)=
+        25. **=C-[x q]=: toggle buffer! readonly (只读模式太好用!).** =C-k=: kill buffer
+        26. **记住, 有些地方只读模式可以用 =q= 退出 buffer, 挺方便. (这是 help-mode 的功能)**
+        27. =M-x revert-buffer=, like =:e!= in Vim，其实就是重新载入。
+        28. =M-x recover-file= (Crash 后用, 如果你那么不幸的话...)
+        29. **Echo Area**, **Mode Line**, **Mini Buffer**
+        30. =[C-s KEYWORDS {RET(正好命中), C-g(取消), Left(差点命中), Right(差点命中), DEL (错了, 重新输入)}]=
+            搜索什么的, =C-r= 是反向搜索. **=M-s= 是 regexp 搜**
+        31. =C-S-Backspace= =(kill-whole-line)=，但是没有 HOME + C-k 好用。
+        32. ** =C-SPC=: set marks =set-mark-command= (用两次, 不然就成了 Shift 选中功能), 返回**
+            鉴于蛋疼的 neo 布局在 win 上的情况，可以用 =C-@= 代替。
+            mark: 用 =C-{u,x} C-SPC=, 还有 =C-x SPC= (rectangle-mark-mode)
+** MISC 1
+        1. =C-[x f]= (find-file), =C-[x v]= (find-alternate-file), 如果你
+            刚才 find 错了 file 的话, 就用这个重新打开一个文件)
+        2. =C-x i= =(insert-file)= to current position, 插入一个文件
+        3. =C-[x s]= (save-buffer): save, 保存
+        4. =C-[x w]= (write-file): save as, 另存
+        5. =C-[x c]= (save-buffers-kill-emacs), =y= → save&exit, =n= → nothing, 关闭
+        6. =F10= =(menu-bar-open)=
+        7. =M-x clipboard-yank= (paste), =(clipboard-kill-ring-save)= (copy),
+            =(clipboard-kill-region)= (cut)
+        8. =M-x revert-buffer=
+        9. run cmd: =M-!=, or =ESC !=
+        10. =M-h=: mark paragraph, 超级好用!!!
+        11. =M-h M-| tr -d ' ' RET=: (shell-command-on-region) sort & output to mini buffer
+            比如 =M-h M-| wc -c= 可以统计字符数目。
+        12. =C-u ESC ! date +%s RET=: 1454333299, 就像 Vim 里的 =:r!date +%s=
+        13. 综上,
+            - ** =M-!= (exclamation 对比 execute)是 shell 脚本, **
+            - ** =M-&= (ampersand 对比 async) 是异步的, **
+            - ** =M-|= (bar 对比 buffer) 会把选中的 region 重定向作为输入. **
+        14. shell mode, Emacs 里有三种 Shell.
+            - =(setq shell-file-name "/bin/zsh")=
+            - for password input: =(send-invisible)=
+    ** dired mode
+        1. dired mode ** =M-x dired= or =C-x d= (重要!!!) **
+        如果你用了 =C-[x d]= 会用 brief 模式打开路径，比起 dired 功能弱一些。
+            2. ={,C}-{n/p}=, =SPC=
+            3. =v= (dired-view-file), 只读模式打开查看
+        1) =q= =(View-quit)= 关闭查看
+        2) ~=~ =(what-line)= 显示自己现在的行号
+        4. =d= =(dired-flag-file-deletion)=, =x= =(dired-do-flagged-delete)=,
+            =m=, =D=, 注意 =dx= 和 =mD= 这两种搭配.
+            5. =R= (rename)
+            6. =C= (copy), 3C copy three files
+            7. =i= 和 =RET= 不一样。=i= 是在当前 dired buffer 里打开子目录,
+            而 =ENTER= 是新建一个 新建一个 buffer 打开
+            8. =Z=: compressing & uncompressing (in place),
+            =(auto-compression-mode)= (这个命令太粗暴)
+            9. =!=: execute command, e.g. =!sort=, =!sort * > output=, =*= 是当前选中的文件的文件名
+            10. =#=: flag emacs autosaved file, 类似 =#filename#=, 方便地处理 Emacs 自己的"垃圾",
+                同理还有 =~= 文件
+            11. =dpu=: delete, up, undo (撤销删除标记)
+            12. 几中标记
+            * =**=: mark executable, 这几个 mark 很有意思
+            * =*/=: mark dir
+            * =*@=: mark symbolic
+            * =%m=: mark reg match files (filename), 按照文件名 reg 择取
+            * =%g=: mark reg match files (file content), 按照内容 reg 择取, 这个太刁
+            13. =+=: create dir, 新建目录, 好像没有 create file 的命令, 可以考虑用 =!touch file=
+            14. =R=: multiple files? then mv (to a dir)
+        15. =M-x print-buffer=: send to printer (好像没什么用...)
+        16. =M-x man=: man page
+** Calendar
+        1. =M-x calendar=: 日历模式, 也很刁
+        2. =C-x []=, year, 去年/明年
+        3. =C-x {}=, month, 上月/下月
+        4. =gd=: goto date, 指定日期
+        5. 写 diary
+        - =id=: insert daily diary, 四个 insert, day/week/month/year
+        - =iw=: insert weekly diary
+        - =im=: insert monthly diary
+        - =iy=: insert year diary
+        6. and a lot more hacks
+** Text Editing
+        1. =C-[x e]= =(eval-last-sexp)= is an interactive compiled Lisp function
+        2. =C-q TAB= (edit-tab-stops) → a literal tab, 这叫 Verbatim 插入.
+        3. =(setq-default tab-width 4)=
+        4. =(setq-default indent-tabs-mode nil)=
+        5. =C-x h= (mark-whole-buffer) 选中全部, 记得选中本段吗? =M-h=
+        6. =M-x untabify=, =M-x tabify=, 类似 Vim 里的 =:set [no]expandtab= 再 =:retab=
+        7. text-mode
+        8. =S-{left/right}=: 在 =+=, =-=, =*=, =1)=, etc, 方便地切换 bullet 样式
+        9. =M-m=: =(back-to-indentation)=, 其实不一定是 back, 类似 Vim 的 =^=
+        10. =ESC C-o=: =(split-line)= (C-o 是 open-line, 还有一个
+                picture-open-line, 但是不总可用)
+        11. ={increase/decrease}-{left/right}-margin=, =defvar=
+        12. =(standard-indent)=
+        13. =(auto-fill-mode)=
+        14. =C-x .=: =(set-fill-prefix)=, 可以把本行光标前的字符设置为 prefix,
+                再用 =M-q= =(fill-paragraph)=
+        15. =center-region=, =center-paragraph=, =center-line=,
+                =set-justification-center=
+        16. outline-mode, 其中 =C-[cp]= 和 =C-[cf]= 用得最多.
+            + =C-[c {f/b}]=
+            + =C-[c {n/p}]=
+        17. Rectangle commands
+        18. Picture mode
+            + left, right, up, down: =C-c {<,>,^,.}=
+            + upright, upleft, downleft, down right: =C-c {',`,/,\}=
+            + =C-[c {f,b}]=: move cursor
+            + =C-o=: blank line (注意 =(picture-open-line)= 和 =(open-line)= 的区别)
+            + 发现一个有趣的现象，ESC RET 如果在行末，那就是在下面添加
+                entry，否则是上面。
+        19. Artist mode
+            + =C-[c a o]: =(artist-select-operation)=
+            + spray-can, 有快捷键 =C-[ca] S=
+            + eclipse, =C-[c a] e=
+            + line
+            + circle
+            + =C-c C-a C-f=: artist-select-fill-char, 设置一个 fill 的字符
+            + =C-c C-a C-k=: 剪切
+            + =C-c C-a M-w=: 复制
+            + =C-c C-a C-y=: 粘贴(每点击一次,就粘贴)
+            + =C-c C-a   v=: vaporize-line, 就是删除线条
+            + =C-c C-a C-d=: delete char, 和鼠标右键一样
+** Language Support
+      1. =indent-region=
+      2. =c-set-style=
+      3. =c-toggle-auto-state=
+      4. =c-toggle-auto-hungry-state=
+      5. =c++-mode-hook=
+      6. java support =(jde-global-classpath)=
+      7. =cperl-mode=, =perl-mode=
+** Version Control
+        1. =C-x v v=: commit & save, =(vc-next-action)=, 提交修改
+        2. =C-x C-c=: commit commit message
+        3. =C-x v u=: undo, revert from staged, =(vc-revert-buffer)=
+        4. ~C-x v =~: =(vc-diff)= 牛逼到爆!! 后面还讲了 ediff, 更牛逼的样子
+        5. =C-x v d=: (vc-directory), 有点 git status 的感觉
+        6. =C-x v l=: print log, 跟 git log 类似, 不知道是否可以切换 ~pretty=oneline~
+        7. 所有的 VC 相关函数都绑定在 =C-x v= 前缀, 你会很快熟悉. 只要记住
+            一个字母就够了.
+        8. =C-x v i=: =(vc-register), 把当前文件加到版本控制中, insert?
+        9. 一个使用流程, 把代码下载, register (就是用 VC 管理), 然后修改,
+            然后 "C-u C-x v =" 产生一个 patch, 方便打补丁.
+        10. =C-x v ~=: =(vc-revision-other-window)=, 就是把以前的版本 retrieve 出来
+        11. =(vc-rename-file)=
+        12. =C-x v a=: =(vc-update-change-log)=, Git 不可用.
+        13. =(vc-clear-context)=: 重启 VC
+        14. =(ediff-revision)=
+
+* Org-mode
+
+#+caption: Beginning of one of the contents files.
+
+#+begin_src org
+  ,#+startup: beamer
+
+  ,* Workshop introduction
+  ,** Workshop introduction
+  ,*** Workshop goals
+  ,**** Teach synthesis techniques by experimentation
+       - SC lets us take apart synthesizer components, and put them back together.
+       - SC's /Just-In-Time library/ makes it easy to re-patch components interactively.
+  ,**** Teach techniques for live control and performance
+       - Control by graphic interfaces and external devices.
+       - End goal: A group composition, to perform together.
+
+  ,#+BEGIN_SRC emacs-lisp
+  (+ 23 3)
+  ,#+END_SRC
+  ,#+RESULTS:
+  : 26
+
+  ,**** *Have fun programming!*
+       - Emphasis on /play/ over /correctness/.
+#+end_src
+
+#+begin_src latex
+% Created 2014-05-01 Thu 16:05
+\documentclass[ignorenonframetext,presentation]{beamer}
+\begin{document}
+
+\section{Section head}
+\label{sec-1}
+\subsection{Subsection head}
+\label{sec-1-1}
+\begin{frame}[label=sec-1-1-1]{Frame title}
+\begin{block}{Block header}
+Text.
+\begin{itemize}
+\item Bullet point.
+\end{itemize}
+\end{block}
+\end{frame}
+
+Here, we explain points from the previous frame in more
+detail. This text will always appear in the exported \LaTeX{}, but
+the \emph{ignorenonframetext} class option will prevent it from being
+rendered in the presentation.
+\end{document}
+#+end_src
+
+#+BEGIN_SRC c
+  #include <stdio.h>
+
+  int main( int argc, char **argv)
+  {
+      int a = atoi( argv[1] );
+      int b = atoi( argv[2] );
+      printf( "a + b = %d + %d = %d\n", a, b, a+b );
+      return 0;
+  }
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp
+  (org-babel-do-load-languages
+    'org-babel-load-languages
+    '((dot . t)))
+#+END_SRC
+
+#+BEGIN_SRC dot :file images/graphviz-example.png :exports both
+  digraph G {
+          subgraph cluster_0 {
+                  style=filled;
+                  color=lightgrey;
+                  node [style=filled,color=white];
+                  a0 -> a1 -> a2 -> a3;
+                  label = "process #1";
+          }
+
+          subgraph cluster_1 {
+                  node [style=filled];
+                  b0 -> b1 -> b2 -> b3;
+                  label = "process #2";
+                  color=blue
+          }
+          start -> a0;
+          start -> b0;
+          a1 -> b3;
+          b2 -> a3;
+          a3 -> a0;
+          a3 -> end;
+          b3 -> end;
+
+          start [shape=Mdiamond];
+          end [shape=Msquare];
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:images/graphviz-example.png]]
+
+#+BEGIN_SRC dot :file images/binary-search-tree.png :exports both
+  digraph g {
+    node [shape = record,height=.1];
+    node0[label = "<f0> |<f1> G|<f2> "];
+    node1[label = "<f0> |<f1> E|<f2> "];
+    node2[label = "<f0> |<f1> B|<f2> "];
+    node3[label = "<f0> |<f1> F|<f2> "];
+    node4[label = "<f0> |<f1> R|<f2> "];
+    node5[label = "<f0> |<f1> H|<f2> "];
+    node6[label = "<f0> |<f1> Y|<f2> "];
+    node7[label = "<f0> |<f1> A|<f2> "];
+    node8[label = "<f0> |<f1> C|<f2> "];
+    "node0":f2 -> "node4":f1;
+    "node0":f0 -> "node1":f1;
+    "node1":f0 -> "node2":f1;
+    "node1":f2 -> "node3":f1;
+    "node2":f2 -> "node8":f1;
+    "node2":f0 -> "node7":f1;
+    "node4":f2 -> "node6":f1;
+    "node4":f0 -> "node5":f1;
+  }
+#+END_SRC
+
+#+RESULTS:
+[[file:images/binary-search-tree.png]]
+
+#+BEGIN_SRC emacs-lisp
+  (defadvice org-html-paragraph (before org-html-paragraph-advice
+                                        (paragraph contents info) activate)
+    "Join consecutive Chinese lines into a single long line without
+  unwanted space when exporting org-mode to html."
+    (let* ((origin-contents (ad-get-arg 1))
+           (fix-regexp "[[:multibyte:]]")
+           (fixed-contents
+            (replace-regexp-in-string
+             (concat
+              "\\(" fix-regexp "\\) *\n *\\(" fix-regexp "\\)") "\\1\\2" origin-contents)))
+
+      (ad-set-arg 1 fixed-contents)))
+#+END_SRC
+
+* Footnotes
+
+[fn:1] my first definition.
+
+[fn:2] 现插入 [text] 然后按 C-c C-x f, 就可以插入了. 完了按 C-c & 返回.
+
+[fn:3] unique.
+
+[fn:4] 这里是 footnote
+
+[fn:5] footnote
+
+[fn:6] 这是一个脚注.
