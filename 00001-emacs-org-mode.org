@@ -264,18 +264,6 @@ foobar(1, [1, 1, 1]). % --> false
 {{{end-hidden}}}
 {{{end-hidden}}}
 * 扩展功能
-先配置 Emacs 打开扩展:
-#+BEGIN_SRC emacs-lisp
-(org-babel-do-load-languages
-    'org-babel-load-languages
-    '(
-    (dot . t)
-    (sh . t)
-    (ditaa . t)
-    (plantuml . t))))
-
-(setq org-plantuml-jar-path "~/bin/plantuml.jar")
-#+END_SRC
 ** Beyond Basics
 1. =C-[x f]= (find-file), =C-[x v]= (find-alternate-file), 如果你
     刚才 find 错了 file 的话, 就用这个重新打开一个文件)
@@ -427,61 +415,129 @@ foobar(1, [1, 1, 1]). % --> false
   - [X]  drink
   - [X]  take
 - M-S-RET: checkbox, c-[cc] toggle
+- M-up/down: move up/down list item, M-S-up/down: move up/down tree stem
+- c-[c x v]: toggle preview image
+- 注释，不显示在页面上的内容：
+  
+  #+BEGIN_EXAMPLE
+  example
+  #+BEGIN_COMMENT
+  aoeit aoientr 
+  #+END_COMMENT
+  #+END_EXAMPLE
+  
+  =<e: example, <c: code, <q: quote=
+- nav.org 里面的内容：
+  #+INCLUDE: nav.org src org
+- C-[c j] jump
+- C-c *: list -> stem
+- C-c ^: sort
+- C-c |: insert table
+- 关于对齐：
+  #+BEGIN_SRC org
+    ,#+BEGIN_SRC c
+      printf("hello world\n");
+    ,#+END_SRC
+  #+END_SRC
+- Easy templates
+  #+BEGIN_EXAMPLE
+    s   #+BEGIN_SRC ... #+END_SRC 
+    e   #+BEGIN_EXAMPLE ... #+END_EXAMPLE 
+    q   #+BEGIN_QUOTE ... #+END_QUOTE 
+    v   #+BEGIN_VERSE ... #+END_VERSE 
+    c   #+BEGIN_CENTER ... #+END_CENTER 
+    C   #+BEGIN_COMMENT ... #+END_COMMENT 
+    l   #+BEGIN_EXPORT latex ... #+END_EXPORT
+    L   #+LATEX: 
+    h   #+BEGIN_EXPORT html ... #+END_EXPORT 
+    H   #+HTML: 
+    a   #+BEGIN_EXPORT ascii ... #+END_EXPORT
+    A   #+ASCII: 
+    i   #+INDEX: line 
+    I   #+INCLUDE: line 
+  #+END_EXAMPLE
 ** Special SRC: Images
 #+BEGIN_SRC dot :file images/graphviz-example.png :exports both
-digraph G {
-        subgraph cluster_0 {
-                style=filled;
-                color=lightgrey;
-                node [style=filled,color=white];
-                a0 -> a1 -> a2 -> a3;
-                label = "process #1";
-        }
+  digraph G {
+          subgraph cluster_0 {
+                  style=filled;
+                  color=lightgrey;
+                  node [style=filled,color=white];
+                  a0 -> a1 -> a2 -> a3;
+                  label = "process #1";
+          }
 
-        subgraph cluster_1 {
-                node [style=filled];
-                b0 -> b1 -> b2 -> b3;
-                label = "process #2";
-                color=blue
-        }
-        start -> a0;
-        start -> b0;
-        a1 -> b3;
-        b2 -> a3;
-        a3 -> a0;
-        a3 -> end;
-        b3 -> end;
+          subgraph cluster_1 {
+                  node [style=filled];
+                  b0 -> b1 -> b2 -> b3;
+                  label = "process #2";
+                  color=blue
+          }
+          start -> a0;
+          start -> b0;
+          a1 -> b3;
+          b2 -> a3;
+          a3 -> a0;
+          a3 -> end;
+          b3 -> end;
 
-        start [shape=Mdiamond];
-        end [shape=Msquare];
-}
+          start [shape=Mdiamond];
+          end [shape=Msquare];
+  }
 #+END_SRC
 
 #+RESULTS:
 [[file:images/graphviz-example.png]]
 
 #+BEGIN_SRC dot :file images/binary-search-tree.png :exports both
-digraph g {
-    node [shape = record,height=.1];
-    node0[label = "<f0> |<f1> G|<f2> "];
-    node1[label = "<f0> |<f1> E|<f2> "];
-    node2[label = "<f0> |<f1> B|<f2> "];
-    node3[label = "<f0> |<f1> F|<f2> "];
-    node4[label = "<f0> |<f1> R|<f2> "];
-    node5[label = "<f0> |<f1> H|<f2> "];
-    node6[label = "<f0> |<f1> Y|<f2> "];
-    node7[label = "<f0> |<f1> A|<f2> "];
-    node8[label = "<f0> |<f1> C|<f2> "];
-    "node0":f2 -> "node4":f1;
-    "node0":f0 -> "node1":f1;
-    "node1":f0 -> "node2":f1;
-    "node1":f2 -> "node3":f1;
-    "node2":f2 -> "node8":f1;
-    "node2":f0 -> "node7":f1;
-    "node4":f2 -> "node6":f1;
-    "node4":f0 -> "node5":f1;
-}
+  digraph g {
+      node [shape = record,height=.1];
+      node0[label = "<f0> |<f1> G|<f2> "];
+      node1[label = "<f0> |<f1> E|<f2> "];
+      node2[label = "<f0> |<f1> B|<f2> "];
+      node3[label = "<f0> |<f1> F|<f2> "];
+      node4[label = "<f0> |<f1> R|<f2> "];
+      node5[label = "<f0> |<f1> H|<f2> "];
+      node6[label = "<f0> |<f1> Y|<f2> "];
+      node7[label = "<f0> |<f1> A|<f2> "];
+      node8[label = "<f0> |<f1> C|<f2> "];
+      "node0":f2 -> "node4":f1;
+      "node0":f0 -> "node1":f1;
+      "node1":f0 -> "node2":f1;
+      "node1":f2 -> "node3":f1;
+      "node2":f2 -> "node8":f1;
+      "node2":f0 -> "node7":f1;
+      "node4":f2 -> "node6":f1;
+      "node4":f0 -> "node5":f1;
+  }
 #+END_SRC
 
 #+RESULTS:
 [[file:images/binary-search-tree.png]]
+** Draw Images
+*** TODO code snippets
+[[http://orgmode.org/worg/org-contrib/babel/languages.html][Babel Languages: emacs-lisp, C, awk, etc]]
+*** TODO draw images
+#+BEGIN_SRC ditaa :file images/cycle.png :exports both
+  /-------------+-------------\
+  |cRED RED     |cBLU BLU     |
+  +-------------+-------------+
+  |cGRE GRE     |cPNK PNK     |
+  +-------------+-------------+
+  |cBLK BLK     |cYEL YEL     |
+  \-------------+-------------/
+#+END_SRC
+
+#+RESULTS:
+[[file:images/cycle.png]]
+
+#+BEGIN_SRC plantuml :file images/uml.png :exports both
+  Alice -> Bob: synchronous call
+  Alice ->> Bob: asynchronous call
+#+END_SRC
+
+#+RESULTS:
+[[file:images/uml.png]]
+* 配置 Emacs
+  我的 =.emacs= 文件：
+  #+INCLUDE: ./.emacs src emacs-lisp

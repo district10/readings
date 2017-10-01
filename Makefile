@@ -10,7 +10,7 @@ watch: jwatch.jar
 jwatch.jar:
 	curl http://whudoc.qiniudn.com/2016/jwatch.jar > jwatch.jar
 clean:
-	rm -f *.html
+	rm *\* *~ *#
 gh:
 	git add -A; git commit -m "`uname`"; git push;
 %.html: %.org nav.org theme.setup

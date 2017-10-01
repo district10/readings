@@ -1,0 +1,34 @@
+
+ditaa version 0.9, Copyright (C) 2004--2009  Efstathios (Stathis) Sideris
+
+usage: java -jar ditaa.jar <inpfile> [outfile] [-A] [-d] [-E] [-e
+       <ENCODING>] [-h] [--help] [-o] [-r] [-S] [-s <SCALE>] [-t <TABS>]
+       [-v]
+ -A,--no-antialias          Turns anti-aliasing off.
+ -d,--debug                 Renders the debug grid over the resulting
+                            image.
+ -E,--no-separation         Prevents the separation of common edges of
+                            shapes.
+ -e,--encoding <ENCODING>   The encoding of the input file.
+ -h,--html                  In this case the input is an HTML file. The
+                            contents of the <pre class="textdiagram"> tags
+                            are rendered as diagrams and saved in the
+                            images directory and a new HTML file is
+                            produced with the appropriate <img> tags.
+    --help                  Prints usage help.
+ -o,--overwrite             If the filename of the destination image
+                            already exists, an alternative name is chosen.
+                            If the overwrite option is selected, the image
+                            file is instead overwriten.
+ -r,--round-corners         Causes all corners to be rendered as round
+                            corners.
+ -S,--no-shadows            Turns off the drop-shadow effect.
+ -s,--scale <SCALE>         A natural number that determines the size of
+                            the rendered image. The units are fractions of
+                            the default size (2.5 renders 1.5 times bigger
+                            than the default).
+ -t,--tabs <TABS>           Tabs are normally interpreted as 8 spaces but
+                            it is possible to change that using this
+                            option. It is not advisable to use tabs in
+                            your diagrams.
+ -v,--verbose               Makes ditaa more verbose.
