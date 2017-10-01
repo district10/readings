@@ -13,7 +13,7 @@ clean:
 	rm -f *.html
 gh:
 	git add -A; git commit -m "`uname`"; git push;
-%.html: %.org
+%.html: %.org nav.org theme.setup
 	@mkdir -p $(@D)
 	emacs --batch $< \
 			--eval '(org-html-export-to-html)'
