@@ -1,0 +1,3 @@
+* ☰
+- [[./index.org][Main Entry]]
+- [[./_notes.org][Org-mode Notes]]

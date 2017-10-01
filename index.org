@@ -1,5 +1,5 @@
-#SETUPFILE: theme.setup
+#+TITLE: Reading Notes of TZX
+#+SETUPFILE: theme.setup
+#+INCLUDE: ./nav.org
 
-* good
-
-** niceSETUPFILE: theme-bigblow.setup
+* TODO Methodology

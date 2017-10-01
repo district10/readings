@@ -10,10 +10,11 @@
         box-shadow: 0px 0px 4px rgba(0,0,0,0.23);
     }
 
-    div.summary h2 {
+    div.summary strong {
         padding: 0;
         margin: 0;
         border: none;
+        font-size: 150%;
     }
     div.summary ul li {
         list-style-type: square;
@@ -21,5 +22,17 @@
     table: {
         overflow-y: auto;
         max-width: 100%;
+    }
+
+    .hidden {
+        margin-left: 20px;
+        padding: 10px;
+        border: 1px solid lightblue;
+        cursor: pointer !important;
+    }
+    .hidden > .hidden-content {
+        padding-left: 1px;
+        margin-left: 1px;
+        border-left: 3px solid red;
     }
 }
