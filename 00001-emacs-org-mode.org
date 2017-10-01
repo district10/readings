@@ -423,6 +423,10 @@ foobar(1, [1, 1, 1]). % --> false
 - *c-[c t]: rotate todo state*
 - c-c .: timestamp, <2019-10-01 Tue>
 - *c-[c q]: set tags*
+- [100%] todo
+  - [X]  drink
+  - [X]  take
+- M-S-RET: checkbox, c-[cc] toggle
 ** Special SRC: Images
 #+BEGIN_SRC dot :file images/graphviz-example.png :exports both
 digraph G {

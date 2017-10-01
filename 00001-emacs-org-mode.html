@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacs/Org-mode Notes</title>
-<!-- 2017-10-01 Sun 13:19 -->
+<!-- 2017-10-01 Sun 14:21 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="TANG ZhiXiong" />
@@ -1200,6 +1200,16 @@ entry，否则是上面。
 </li>
 <li><b>c-[c q]: set tags</b>
 </li>
+<li><code>[100%]</code> todo
+<ul class="org-ul">
+<li><code>[X]</code> drink
+</li>
+<li><code>[X]</code> take
+</li>
+</ul>
+</li>
+<li>M-S-RET: checkbox, c-[cc] toggle
+</li>
 </ul>
 </div>
 </div>
@@ -1209,30 +1219,30 @@ entry，否则是上面。
 <div class="org-src-container">
 
 <pre class="src src-dot">digraph G {
-	subgraph cluster_0 {
-		style=filled;
-		color=lightgrey;
-		node [style=filled,color=white];
-		a0 -&gt; a1 -&gt; a2 -&gt; a3;
-		label = "process #1";
-	}
+        subgraph cluster_0 {
+                style=filled;
+                color=lightgrey;
+                node [style=filled,color=white];
+                a0 -&gt; a1 -&gt; a2 -&gt; a3;
+                label = "process #1";
+        }
 
-	subgraph cluster_1 {
-		node [style=filled];
-		b0 -&gt; b1 -&gt; b2 -&gt; b3;
-		label = "process #2";
-		color=blue
-	}
-	start -&gt; a0;
-	start -&gt; b0;
-	a1 -&gt; b3;
-	b2 -&gt; a3;
-	a3 -&gt; a0;
-	a3 -&gt; end;
-	b3 -&gt; end;
+        subgraph cluster_1 {
+                node [style=filled];
+                b0 -&gt; b1 -&gt; b2 -&gt; b3;
+                label = "process #2";
+                color=blue
+        }
+        start -&gt; a0;
+        start -&gt; b0;
+        a1 -&gt; b3;
+        b2 -&gt; a3;
+        a3 -&gt; a0;
+        a3 -&gt; end;
+        b3 -&gt; end;
 
-	start [shape=Mdiamond];
-	end [shape=Msquare];
+        start [shape=Mdiamond];
+        end [shape=Msquare];
 }
 </pre>
 </div>
@@ -1279,8 +1289,8 @@ entry，否则是上面。
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: TANG ZhiXiong</p>
-<p class="date">Created: 2017-10-01 Sun 13:19</p>
-<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
+<p class="date">Created: 2017-10-01 Sun 14:21</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>
