@@ -84,8 +84,8 @@
                              "~/Documents/GoogleDriveSync/review.org"))
 (setq org-src-fontify-natively t
       org-confirm-babel-evaluate nil)
-(setq org-ditaa-jar-path "~/git/readings/vendor/plantuml.1.2017.16.jar")
-(setq org-plantuml-jar-path "~/git/readings/vendor/ditaa0_9.jar")
+(setq org-ditaa-jar-path "~/git/readings/vendor/ditaa0_9.jar")
+(setq org-plantuml-jar-path "~/git/readings/vendor/plantuml.1.2017.16.jar")
 (require 'ob)
 (org-babel-do-load-languages
     'org-babel-load-languages
