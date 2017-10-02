@@ -4,6 +4,7 @@
 
 * 前言 / Preface
 - Douglas Crockford
+- [[https://book.douban.com/subject/3590768/][JavaScript: The Good Parts]]
 * 第 1 章 精华 / Good Parts
 {{{begin-summary}}}
 - class-free: 直接从其他对象继承属性
@@ -234,7 +235,18 @@
 - hasOwnProperty
 - Object
 * 附录 B: 鸡肋 / Bad Parts
+- ~==~ 用 ~===~
+- eval
+- continue (?? why)
+- switch fall through
+- block-less statements
+- ++, --
+- bitwise operators
+- function statements versus the function function expression
+- typed wrappers: use [], {}, new, void
 * 附录 C: JSLint
+- unreachable code
+- not looked for (不检查的内容): inited or not
 * 附录 D: 语法图
 * 附录 E: JSON
 * 索引

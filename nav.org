@@ -1,4 +1,8 @@
 * ☰
 - [[./index.org][Main Entry]]
+** Meta Notes
 - [[./00001-emacs-org-mode.org][Emacs/Org-mode Notes]]
-- [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]] 
+** Books
+- [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]]
+- [[./00003-effective-java.org][Effective Java]]
+- [[./00004-domain-specific-languages.org][Domain Specific Languages]]
