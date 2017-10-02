@@ -1,9 +1,9 @@
 $(document).ready(function(){
 
-    $('.hidden > .hidden-content').hide();
-    $('.hidden').click(function(e) {
+    $('.tzx-folder > .tzx-foldable').hide();
+    $('.tzx-folder').click(function(e) {
         if(getSelection().toString()){ return; }
-        $(this).find('> .hidden-content').toggle();
+        $(this).find('> .tzx-foldable').toggle();
         e.stopPropagation();
     });
 
@@ -17,5 +17,23 @@ $(document).ready(function(){
         $('#ui-id-2').click();
         setTimeout(function() { $(window).scrollTop(0); }, 100);
     }
+
+    $('#postamble > p.author').click((function() {
+        toggleHideShow = (function() {
+            var isHiding = true;
+            var $hidable = $('.tzx-hide');
+            function hide() { $hidable.removeClass('tzx-show').addClass('tzx-hide'); }
+            function show() { $hidable.removeClass('tzx-hide').addClass('tzx-show'); }
+            return function() {
+                isHiding? show(): hide();
+                isHiding = !isHiding;
+            };
+        })();
+        return function() { if(getSelection().toString() === 'TANG'){ toggleHideShow(); } };
+    })());
+
+    $('div.org-src-container pre.src').each(function(i, block) {
+        hljs.highlightBlock(block);
+    });
 
 });

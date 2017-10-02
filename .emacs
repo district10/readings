@@ -1,3 +1,5 @@
+;; Usage: ln ~/git/readings/.emacs .emacs
+
 ;; How to Install Package? (if not sure, better check out EmacsWiki)
 ;;      M-x package-refresh-contents
 ;;      M-x package-install RET evil
@@ -17,6 +19,15 @@
 (setq column-number-mode t)
 (setq-default tab-width 4)
 (setq-default indent-tabs-mode nil)
+(add-hook 'before-save-hook 'delete-trailing-whitespace)
+
+;; This HAS to come before (require 'org)
+(setq org-emphasis-regexp-components
+      '("     ('\"{“”"
+        "-   .,!?;''“”\")}/\\“”"
+        "    \r\n,"
+        "."
+        1))
 
 (global-set-key (kbd "C-M-g") 'keyboard-quit)
 (global-set-key (kbd "C-x C-g") 'keyboard-quit)
@@ -93,6 +104,7 @@
       (sh . t)))
 (setq org-confirm-babel-evaluate nil)
 (add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
+
 ;; < p TAB to expand
 (add-to-list 'org-structure-template-alist
              (list "p" (concat ":PROPERTIES:\n"

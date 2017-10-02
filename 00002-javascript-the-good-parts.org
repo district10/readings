@@ -1,0 +1,246 @@
+#+TITLE: JavaScript: The Good Parts
+#+SETUPFILE: theme.setup
+#+INCLUDE: ./nav.org
+
+* 前言 / Preface
+- Douglas Crockford
+* 第 1 章 精华 / Good Parts
+{{{begin-summary}}}
+- class-free: 直接从其他对象继承属性
+{{{end-summary}}}
+** 为什么是 JAVASCRIPT?
+** 分析 JAVASCRIPT
+** 一个简单的试验场 / A Simple Testing Ground
+* 第 2 章 语法 / Grammer
+{{{begin-summary}}}
+- railroad diagram
+{{{end-summary}}}
+** 空白 / Whitespace
+- NaN 是一个数值并且不等于任何一个数值, 且不等于自己 (这个很合理), 用 ~isNan(num)~ 来测试
+** 标识符 / Names
+** 数字 / Numbers
+** 字符串 / Strings
+- 16 位 Unicode, ~"A" === "\u0041"~
+- string.length
+** 语句 / Statements
+- falsy
+  + ~false/null~
+  + ~undefined~
+  + " " (space)
+  + ~0~
+  + ~NaN~
+** 表达式 / Expressions
+- typeof:
+  + number
+  + string
+  + boolean
+  + undefined
+  + function
+  + object: 包括 array, ~null~
+** 字面量 / Literals
+** 函数 / Functions
+* 第 3 章 对象 / Objects
+{{{begin-summary}}}
+- 属性值可以是 undefined 之外任何值
+- 原型链
+{{{end-summary}}}
+** 对象字面量 / Object Literals
+** 检索 / Retrieval
+- 用短路语句避免对 null 找属性
+** 更新 / Update
+** 引用 / Reference
+** 原型 / Prototype                                                    :best:
+- Object.prototype
+  #+BEGIN_SRC js
+    if (typeof Object.create !== 'function') {
+        Object.create = function (o) {
+            var F = function () {};
+            F.prototype = o;
+            return new F();
+        }
+    }
+  #+END_SRC
+- 一层一层从 ~.proto~ 找, 直到 Object.
+** 反射 / Reflection
+- typeof flight.constructor ('function')
+- flight.hasOwnProperty(prop)
+** 枚举 / Enumeration
+- for (prop in flight)
+** 删除 / Delete
+- delete flight.name (set to ~undefined~), 如果是数组, 形成空洞
+** 减少全局变量污染 / Global Abatement
+- 通过绑定到属性的方法, 把一堆杂七杂八的变量统领到一个变量下
+* 第 4 章 函数 / Functions
+{{{begin-summary}}}
+- 编程: 把需求分解成一组函数与数据结果的技能.
+{{{end-summary}}}
+** 函数对象 / Function Objects
+- 函数就是对象
+- Function.prototype -> Object.prototype
+** 函数字面量 / Function Literals
+- 通过函数字面量创建的函数对象包含一个连到外部上下文的连接. Closure.
+** 调用 / Invocation                                                   :best:
+- 两个额外参数: this 和 arguments (array-like, 只有 length 属性)
+- 缺失的参数 -> undefined
+- 四种调用模式
+  + The Method Invocation Pattern: 方法调用: object 的 (public) method 的调用. this 绑定到了对象.
+  + The Function Invocation Pattern: 函数调用: ~var sum = add(3,4)~, this 绑定到了全局.
+  + The Constructor Invocation Pattern: 构造器调用: ~new Func();~, this 绑定到了 new 出来的对象.
+  + The Apply Invocation Pattern: apply 调用: ~func.apply(context, arguments)~, this 绑定到了第一个参数.
+** 参数 / Arguments
+- arguments is 'array-like'
+** 返回 / Return
+- 函数总是返回, 如果没有返回值, 就返回 undefined
+- new Func(), 如果 Func 返回的不是对象, 则返回 this (一个新对象)
+** 异常 / Exceptions
+** 给类型增加方法 / Augmenting Types
+- Function.prototype.<method> = function(...) {...}
+  #+BEGIN_SRC js
+    Function.prototype.method = function (name, func) {
+        if (!this.prototype[name]) {
+            this.prototype[name] = func;
+        }
+    }
+
+    Number.method('interger', function () {
+        return Math[this < 0 ? 'ceil' : 'floor'](this);
+    });
+
+    String.method('trim', function() {
+        return this.replace(/^\s+|\s+$/g, '');
+    });
+  #+END_SRC
+** 递归 / Recursion
+** 作用域 / Scope
+** 闭包 / Closure
+** 回调 / Callbacks
+** 模块 / Module
+- closure
+** 级联 / Cascade
+- 就是 chaining
+** 科里化 / Curry
+- better curry than java 8
+  #+BEGIN_SRC js
+    Function.method('curry', function() {
+        var slice = Array.prototype.slice,
+            args = slice.apply(arguments),
+            that = this;
+        return function() {
+            return that.apply(null, args.concat(slice.apply(arguments)));
+        };
+    });
+  #+END_SRC
+** 记忆 / Memoization
+* 第 5 章 继承 / Inheritance
+** 伪类 / Pseudoclassical
+- 构造器函数, 最好大写字母开头
+** 对象说明符 / Object Specifiers
+** 原型 / Prototypal
+** 函数化 / Functional
+- +给私有对象起一个奇怪的名字, 来防止别人使用它+
+- 如果对象的状态都是私有的, 则 tamper-proof (防伪)
+- durable 的对象: 只有函数, 没有状态 (不会被入侵)
+** 部件 / Parts
+* 第 6 章 数组 / Arrays
+{{{begin-summary}}}
+- 不是真正的 array, 只是 array-like (因为内存不连续)
+{{{end-summary}}}
+** 数组字面量 / Array Literals
+- [...]
+- {'0': ..., ...}
+** 长度 / Length
+- 很容易形成空洞
+** 删除 / Delete
+- delete array[index]
+- inplace cut off: array.splice(startPos, nElementToCutOff)
+** 枚举 / Enumeration
+** 混淆的地方 / Confusion
+- [].constructor === Array
+** 方法 / Methods
+- reduce
+  #+BEGIN_SRC js
+    Array.method('reduce', function (f, value) {
+        for (var i = 0; i < this.length; i++) {
+            value = f(this[i], value);
+        }
+        return value;
+    });
+  #+END_SRC
+** 维度 / Dimensions
+* 第 7 章 正则表达式 / Regular Expressions
+** 一个例子 / An Example
+- regex.exec
+- regex.test
+- string.match
+- string.replace
+- string.search
+- string.split
+- 不要尝试写一个大而全的 regex
+** 结构 / Construction
+- ~/regex/~
+- i, g, m
+** 元素 / Elements
+*** 正则表达式分支 / Regexp Choice
+- (a|b), choose a or b
+*** 正则表达式序列 / Regexp Sequence
+- regexp factor, regexp quantifier: x{min,max}
+*** 正则表达式因子 / Regexp Factor
+- regexp factor, regexp quantifier: x{min,max}
+*** 正则表达式转义 / Regexp Escape
+- \d: digits, \D: non-digits
+- \s: whitespaces, \S: non-whitespaces
+- \b: boundry
+- \1: captured group #1
+** 正则表达式分组 / Regexp Group
+- capturing
+- noncapturing
+- positive lookahead
+- negative lookahead
+* TODO 第 8 章 方法
+- 这部分查文档
+* 第 9 章 代码风格 / Style
+* 第 10 章 优美的特性 / Beautiful Features
+* 附录 A: 毒瘤 / Awful Parts
+- global variables: 没有 linker, 全局变量
+- scope: 语法上有 block scope, 实际上没有
+- semicolon insertion
+- reserved words
+- unicode
+- typeof: ~typeof null === object~
+- parseInt, 小心进制问题, 尤其在处理时间上
+- + 不仅还是个单目运算符, 可以转化字符串成数字
+- Floating point
+- NaN: 是 number, isFinite
+- Phony arrays
+- Falsy values: 0, false, null, undefined, ' '
+- undefined 和 NaN 是全局变量, 可能被修改, lodash 库里为了防止别人修改了这个值, 用 ~var undefined;~ 来保证它是 undefined.
+
+  令人惊讶的是所有的没有初始化对象都相等...
+
+  #+BEGIN_SRC js
+    var x
+    // undefined
+    x
+    // undefined
+    var y
+    // undefined
+    x === y
+    // true
+    var undefined
+    // undefined
+    x === undefined
+    // true
+  #+END_SRC
+- hasOwnProperty
+- Object
+* 附录 B: 鸡肋 / Bad Parts
+* 附录 C: JSLint
+* 附录 D: 语法图
+* 附录 E: JSON
+* 索引
+- 译者说为了方便读者对着索引看原文, 索引不翻译... 这个解释太牵强. 我有原书, 那我也有它的索引啊.
+  明明是自己懒得生成中文的索引. (或者只能手工, 搞不定)
+
+
+(setq org-html-htmlize-output-type 'css)
+(setq org-html-htmlize-font-prefix "org-")

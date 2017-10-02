@@ -1,6 +1,11 @@
 @media all
 {
-    div.summary {
+    table: {
+        overflow-y: auto;
+        max-width: 100%;
+    }
+
+    div.tzx-summary {
         padding: 15px;
         border:1px solid #CCC;
         border-radius:10px;
@@ -10,29 +15,85 @@
         box-shadow: 0px 0px 4px rgba(0,0,0,0.23);
     }
 
-    div.summary strong {
+    div.tzx-summary > strong {
         padding: 0;
         margin: 0;
         border: none;
         font-size: 150%;
     }
-    div.summary ul li {
+    div.tzx-summary ul li {
         list-style-type: square;
     }
-    table: {
-        overflow-y: auto;
-        max-width: 100%;
-    }
 
-    .hidden {
+    div.tzx-folder {
         margin-left: 20px;
         padding: 10px;
         border: 1px solid lightblue;
         cursor: pointer !important;
     }
-    .hidden > .hidden-content {
+    div.tzx-folder > div.tzx-foldable {
         padding-left: 1px;
         margin-left: 1px;
         border-left: 3px solid red;
     }
+
+    div.tzx-hide { display: none; }
+    div.tzx-show { display: auto; border: 1px solid red; }
+
+
+
+
+The solution for this spans elisp, org-mode and css customization.
+
+elisp
+
+By default, the fontification information is embedded in the exported html file. We need to disable that and tell org-mode that we are planning to specify the font formatting information using an external css file.
+
+I have chosen to prefix the html class names with org- string.
+
+;; (setq org-html-htmlize-output-type 'inline-css) ;; default
+(setq org-html-htmlize-output-type 'css)
+;; (setq org-html-htmlize-font-prefix "") ;; default
+(setq org-html-htmlize-font-prefix "org-")
+org-mode
+
+In the org-file, you then specify which css file to use. This file will contain information on how you want to format each org- class.
+
+# My custom fontification theme
+#+HTML_HEAD: <link href="path/to/your/custom/theme.css" rel="stylesheet">
+css
+
+Here is my custom theme css file in which I have copied the color codes from the leuven-theme. You can find the latest version of the below css from my git.
+
+    /* Set the colors in <pre> blocks from the Leuven theme */
+    pre                                      {background-color:#FFFFFF;}
+    pre span.org-builtin                     {color:#006FE0;font-weight:bold;}
+    pre span.org-string                      {color:#008000;}
+    pre span.org-keyword                     {color:#0000FF;}
+    pre span.org-variable-name               {color:#BA36A5;}
+    pre span.org-function-name               {color:#006699;}
+    pre span.org-type                        {color:#6434A3;}
+    pre span.org-preprocessor                {color:#808080;font-weight:bold;}
+    pre span.org-constant                    {color:#D0372D;}
+    pre span.org-comment-delimiter           {color:#8D8D84;}
+    pre span.org-comment                     {color:#8D8D84;font-style:italic}
+    pre span.org-outshine-level-1            {color:#8D8D84;font-style:italic}
+    pre span.org-outshine-level-2            {color:#8D8D84;font-style:italic}
+    pre span.org-outshine-level-3            {color:#8D8D84;font-style:italic}
+    pre span.org-outshine-level-4            {color:#8D8D84;font-style:italic}
+    pre span.org-outshine-level-5            {color:#8D8D84;font-style:italic}
+    pre span.org-outshine-level-6            {color:#8D8D84;font-style:italic}
+    pre span.org-outshine-level-7            {color:#8D8D84;font-style:italic}
+    pre span.org-outshine-level-8            {color:#8D8D84;font-style:italic}
+    pre span.org-outshine-level-9            {color:#8D8D84;font-style:italic}
+    pre span.org-rainbow-delimiters-depth-1  {color:#707183;}
+    pre span.org-rainbow-delimiters-depth-2  {color:#7388d6;}
+    pre span.org-rainbow-delimiters-depth-3  {color:#909183;}
+    pre span.org-rainbow-delimiters-depth-4  {color:#709870;}
+    pre span.org-rainbow-delimiters-depth-5  {color:#907373;}
+    pre span.org-rainbow-delimiters-depth-6  {color:#6276ba;}
+    pre span.org-rainbow-delimiters-depth-7  {color:#858580;}
+    pre span.org-rainbow-delimiters-depth-8  {color:#80a880;}
+    pre span.org-rainbow-delimiters-depth-9  {color:#887070;}
+    pre span.org-sh-quoted-exec              {color:#FF1493;}
 }

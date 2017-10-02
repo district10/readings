@@ -172,6 +172,8 @@
     - [[(argv)][第 (argv) 行]] 的 ~argc~ 是 count of args (arguments), ~argv~ 是
     arguments 数组.
     - [[(atoi)][第 (atoi) 行]] 的 ~atoi~ 把 ~char *~ 转化为 ~int~.
+** MISC
+- untabify
 * 公式
 *Just LaTeX/MathJax*
 
@@ -215,6 +217,15 @@ From [[http://en.m.wikipedia.org/wiki/File:3D_Convolution_Animation.gif][Wikiped
 #+END_CENTER
 * 自定义宏
 定义宏可以极大简便笔记的生成。
+** TODO hide 宏
+{{{begin-hide}}}
+显示/隐藏部分内容。使用方法：
+#+BEGIN_SRC 
+{{{begin-hide}}}
+内容添加到这里
+{{{end-hide}}}
+#+END_SRC
+{{{end-hide}}}
 ** summary 宏
 用来生成一个特定格式的总结块。使用方法：
 #+BEGIN_SRC 
@@ -236,12 +247,12 @@ From [[http://en.m.wikipedia.org/wiki/File:3D_Convolution_Animation.gif][Wikiped
 3. $P(h)$ is the "prior" of a hypothesis (cause/explanation) $h$.
 4. $P(h|e)$ is the "posterior" of $h$, given evidence $e$ is observed.
 {{{end-summary}}}
-** hidden 宏
-隐藏部分内容。折叠起来。使用方法：
+** fold 宏
+折叠部分内容。使用方法：
 #+BEGIN_SRC 
-{{{begin-hidden(标题写在这里)}}}
+{{{begin-fold(标题写在这里)}}}
 内容添加到这里
-{{{end-hidden}}}
+{{{end-fold}}}
 #+END_SRC
 
 #+BEGIN_SRC prolog
@@ -251,7 +262,7 @@ foobar(1, [1, 2, 3]).
 foobar(1, [1, 1, 1]).
 #+END_SRC
 
-{{{begin-hidden(点我查看答案)}}}
+{{{begin-fold(点我查看答案)}}}
 #+BEGIN_SRC prolog
 member(5, [1, 2, 3]). % --> false
 member(X, [1, 2, 3]). % --> X = 1 or 2 or 3
@@ -259,10 +270,10 @@ foobar(1, [1, 2, 3]). % --> true
 foobar(1, [1, 1, 1]). % --> false
 #+END_SRC
 
-{{{begin-hidden(当然可以嵌套)}}}
+{{{begin-fold(当然可以嵌套)}}}
 提纲挈领
-{{{end-hidden}}}
-{{{end-hidden}}}
+{{{end-fold}}}
+{{{end-fold}}}
 * 扩展功能
 ** Beyond Basics
 1. =C-[x f]= (find-file), =C-[x v]= (find-alternate-file), 如果你

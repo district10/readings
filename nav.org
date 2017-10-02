@@ -1,3 +1,4 @@
 * ☰
 - [[./index.org][Main Entry]]
 - [[./00001-emacs-org-mode.org][Emacs/Org-mode Notes]]
+- [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]] 
