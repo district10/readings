@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>JavaScript: The Good Parts</title>
-<!-- 2017-10-02 Mon 14:56 -->
+<!-- 2017-10-02 Mon 22:27 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="TANG ZhiXiong" />
@@ -585,13 +585,13 @@ for the JavaScript code in this tag.
 </li>
 <li>四种调用模式
 <ul class="org-ul">
-<li>The Method Invocation Pattern: 方法调用: object 的 (public) method 的调用. this 绑定到了对象.
+<li>The <b><b>Method</b></b> Invocation Pattern: 方法调用: object 的 (public) method 的调用. this 绑定到了对象.
 </li>
-<li>The Function Invocation Pattern: 函数调用: <code>var sum = add(3,4)</code>, this 绑定到了全局.
+<li>The <b><b>Function</b></b> Invocation Pattern: 函数调用: <code>var sum = add(3,4)</code>, this 绑定到了全局.
 </li>
-<li>The Constructor Invocation Pattern: 构造器调用: <code>new Func();</code>, this 绑定到了 new 出来的对象.
+<li>The <b><b>Constructor</b></b> Invocation Pattern: 构造器调用: <code>new Func();</code>, this 绑定到了 new 出来的对象.
 </li>
-<li>The Apply Invocation Pattern: apply 调用: <code>func.apply(context, arguments)</code>, this 绑定到了第一个参数.
+<li>The <b><b>Apply</b></b> Invocation Pattern: apply 调用: <code>func.apply(context, arguments)</code>, this 绑定到了第一个参数.
 </li>
 </ul>
 </li>
@@ -634,13 +634,16 @@ for the JavaScript code in this tag.
     }
 }
 
+// typeof Number === 'function'
 Number.method('interger', function () {
     return Math[this &lt; 0 ? 'ceil' : 'floor'](this);
 });
+// (12.34).interger()
 
 String.method('trim', function() {
     return this.replace(/^\s+|\s+$/g, '');
 });
+// " abc ".trim()
 </pre>
 </div>
 </li>
@@ -1038,7 +1041,7 @@ x === undefined
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: TANG ZhiXiong</p>
-<p class="date">Created: 2017-10-02 Mon 14:56</p>
+<p class="date">Created: 2017-10-02 Mon 22:27</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

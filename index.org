@@ -5,9 +5,9 @@
 * TODO Methodology
 
 #+BEGIN_QUOTE
-有困难解决困难。没有困难创造困难，然后解决困难。
+  有困难解决困难。没有困难创造困难，然后解决困难。
 #+END_QUOTE
 
-** Project-based Living
+** Project-based Learning
 ** Structured Thinking
 ** Deliberate Practice
