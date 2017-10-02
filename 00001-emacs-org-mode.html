@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacs/Org-mode Notes</title>
-<!-- 2017-10-02 Mon 11:16 -->
+<!-- 2017-10-02 Mon 13:36 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="TANG ZhiXiong" />
@@ -282,6 +282,8 @@ for the JavaScript code in this tag.
 <li><a href="./00002-javascript-the-good-parts.html">JavaScript: The Good Parts</a>
 </li>
 <li><a href="./00003-effective-java.html">Effective Java</a>
+</li>
+<li><a href="./00004-domain-specific-languages.html">Domain Specific Languages</a>
 </li>
 </ul>
 </div>
@@ -1278,6 +1280,7 @@ aoeit aoientr
 ** Books
 - [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]]
 - [[./00003-effective-java.org][Effective Java]]
+- [[./00004-domain-specific-languages.org][Domain Specific Languages]]
 </pre>
 </div>
 </li>
@@ -1523,8 +1526,11 @@ Alice -&gt;&gt; Bob: asynchronous call
 
 ;; org-mode
 (setq org-log-done t
-      org-todo-keywords '((sequence "TODO" "INPROGRESS" "DONE"))
-      org-todo-keyword-faces '(("INPROGRESS" . (:foreground "violet" :weight bold))))
+      org-todo-keywords '((sequence "TODO" "INPROGRESS" "P1" "P2" "P3" "DONE"))
+      org-todo-keyword-faces '(("P1" . (:foreground "lightcoral" :weight bold))
+                               ("P2" . (:foreground "gray" :weight bold))
+                               ("P3" . (:foreground "lightgray" :weight bold))
+                               ("INPROGRESS" . (:foreground "violet" :weight bold))))
 (global-set-key (kbd "C-c a") 'org-agenda)
 (setq org-agenda-show-log t
       org-agenda-todo-ignore-scheduled t
@@ -1566,7 +1572,7 @@ Alice -&gt;&gt; Bob: asynchronous call
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: TANG ZhiXiong</p>
-<p class="date">Created: 2017-10-02 Mon 11:16</p>
+<p class="date">Created: 2017-10-02 Mon 13:36</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

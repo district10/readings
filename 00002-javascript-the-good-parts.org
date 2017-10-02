@@ -252,7 +252,3 @@
 * 索引
 - 译者说为了方便读者对着索引看原文, 索引不翻译... 这个解释太牵强. 我有原书, 那我也有它的索引啊.
   明明是自己懒得生成中文的索引. (或者只能手工, 搞不定)
-
-
-(setq org-html-htmlize-output-type 'css)
-(setq org-html-htmlize-font-prefix "org-")

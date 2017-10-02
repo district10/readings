@@ -74,8 +74,11 @@
 
 ;; org-mode
 (setq org-log-done t
-      org-todo-keywords '((sequence "TODO" "INPROGRESS" "DONE"))
-      org-todo-keyword-faces '(("INPROGRESS" . (:foreground "violet" :weight bold))))
+      org-todo-keywords '((sequence "TODO" "INPROGRESS" "P1" "P2" "P3" "DONE"))
+      org-todo-keyword-faces '(("P1" . (:foreground "lightcoral" :weight bold))
+                               ("P2" . (:foreground "gray" :weight bold))
+                               ("P3" . (:foreground "lightgray" :weight bold))
+                               ("INPROGRESS" . (:foreground "violet" :weight bold))))
 (global-set-key (kbd "C-c a") 'org-agenda)
 (setq org-agenda-show-log t
       org-agenda-todo-ignore-scheduled t

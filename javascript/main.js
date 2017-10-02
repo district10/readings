@@ -36,4 +36,6 @@ $(document).ready(function(){
         hljs.highlightBlock(block);
     });
 
+    var srcUrl = "https://raw.githubusercontent.com/district10/readings/gh-pages"+window.location.href.split("/readings")[1].split(".")[0]+".org"
+    $('#postamble').append( "<a class='source' href='"+srcUrl+"'>笔记源码</a>" ).find("p.validation").remove();
 });
