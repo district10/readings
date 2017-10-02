@@ -16,19 +16,71 @@
   + 例子
 * TODO 第一部分　叙述
 ** 第 1 章入门例子
+- 什么是 DSL: domain specific language
 *** 哥特式建筑安全系统
 *** 状态机模型
+- Domain driven design 中的 ubiquitous language (speak the common language)
+- 分开了公共代码和可变代码
 *** 为格兰特小姐的控制器编写程序
+- XML: 控制器的行为的任何修改都无需发布新的 JAR
+- Extensive testing 广泛测试
+- 命令式模型: imperative
+- DSL: 可能没有控制结果, 没有其他东西, 图灵不完备, 用它不能编写整个应用, 只能用来描述应用的一个小小方面, 其
+  简单性意味着它易于编辑和处理.
+- 外部 DSL, 内部 DSL
+- 内部 DSL 中的一个概念是 fluent interface (连贯性接口), 和 DSL 联系紧密
+- 非连贯性接口: command-query API
 *** 语言和语义模型
+- almost always
+- 设计良好的 DSL, 语义模型至关重要
+- DSL 只是模型的一个薄薄的 "门面" (facade), (tip: SLFJ 是各种 logging 库的 facade)
 *** 用代码生成
+- interpretation 解释
+- code generation 代码生成, 笨拙: 需要额外的编译步骤; 优势: 解析器和生成代码可以用不同的语言
 *** 使用语言工作台
+- 语言工作台, 一个专用的 IDE, 可能带有图形界面 (程序员怀疑这种玩具式的工具)
+- 类似于语言工作台, 提供文本编辑器. 后 IntelliJ 的能力: 为基于文本的语言提供类似语法指导的编辑, 自动补全及其他类似的功能
+- 许多人不把电子表格当做编程环境: 把工具紧密地集成到了编程环境
+- 说明性编程 illustrative programming
 *** 可视化
+- 类似 dot (graphviz) 的界面
 ** 第 2 章　使用 DSL
 *** 定义 DSL
+- domain specific languages 的四个关键因素:
+  + computer programming language (计算机程序设计语言), 可以执行
+  + language nature (语言性), 连贯的表达能力
+  + limited expressiveness (受限的表达), 只支持特定领域所需特性的最小集 (MVP: minimum viable product)
+  + domain focus (针对领域), 明确性
+- 分类:
+  + 外部 DSL
+  + 内部 DSL
+  + 语言工作台
+- command-query API 定义了抽象领域的词汇, 内部 DSL 在此基础上添加了语法
+- 内部 DSL 给人的感觉是一个整句, 而非无关命令的序列
+- 有限的表达性让 DSL 产生了独特性
+- 片段 DSL 和独立 DSL
+  + 片段 DSL 是和其他语言整合在一起的, 比如 regex
+  + sql 可以看成片段, 也可以看成独立 DSL
+*** 为何需要 DSL
+- 提高开发效率
+- 与领域专家的沟通
+- 执行环境的改变: 参考 XML 帮助 JAR 包配置不同的运行方式这一点
+- 提高开发效率
+- 其他计算模型 (比如状态机模型, 网络依赖模型, etc)
 *** DSL 的问题
-*** 2.4 广义的语言处理
+- 语言噪音
+- 构建成本 (可维护性)
+- 集中营语言 (ghetto language): 小心 DSL 演变成通用语言
+- 一叶障目的抽象: 应当视 DSL 为一种 "不断演化, 尚未完结" 的事务
+*** 广义的语言处理
 *** DSL 的生命周期
+- 先描述一个框架: command-query API -> 构建一层 DSL 来简化
+- 先定义 DSL: 从场景开始 (最好和领域专家 pair)
+- 从最简单的用例开始, 采用测试驱动的方式开发
+- 基于模型发展 DSL: 模型生长 (model-seeded), 语言生长 (language-seeded)
 *** 设计优良的 DSL 从何而来
+- DSL 的总体目标: 对读者要清晰
+- trick: 采用日常生活里的通用约定 (一个例子是 JSON 采用了程序员都见过的 [l,i,s,t], {object}, key:value 这几个符号标记法)
 ** 第 3 章实现 DSL
 *** DSL 处理之架构
 *** 解析器的工作方式

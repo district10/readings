@@ -1,8 +1,14 @@
 @media all
 {
-    table: {
-        overflow-y: auto;
+    div.table-container {
+        overflow-x: scroll;
+        overflow-y: scroll;
         max-width: 100%;
+    }
+
+    blockquote {
+        border-left: 2px solid #887ddd;
+        padding-left: 10px;
     }
 
     div.tzx-summary {

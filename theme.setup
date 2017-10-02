@@ -2,25 +2,20 @@
 
 #+AUTHOR: TANG ZhiXiong
 
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/htmlize.css"/>
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/bigblow.css"/>
-#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="http://www.pirilampo.org/styles/bigblow/css/hideshow.css"/>
-
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/htmlize.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/bigblow.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/hideshow.css"/>
+#+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/github-gist.min.css">
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/main.css"/>
-
-#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-1.11.0.min.js"></script>
-#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery-ui-1.10.2.min.js"></script>
-
-#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.localscroll-min.js"></script>
-#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.scrollTo-1.4.3.1-min.js"></script>
-#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/jquery.zclip.min.js"></script>
-#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/bigblow.js"></script>
-#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/bigblow/js/hideshow.js"></script>
-#+HTML_HEAD: <script type="text/javascript" src="http://www.pirilampo.org/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-
-#+HTML_HEAD: <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github-gist.min.css">
-#+HTML_HEAD: <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
-
+#+HTML_HEAD: <script type="text/javascript" src="javascript/jquery-1.11.0.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="javascript/jquery-ui-1.10.2.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="javascript/jquery.zclip.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="javascript/jquery.localscroll-min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="javascript/jquery.scrollTo-1.4.3.1-min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="javascript/jquery.stickytableheaders.min.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="javascript/bigblow.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="javascript/hideshow.js"></script>
+#+HTML_HEAD: <script type="text/javascript" src="javascript/highlight.min.js"></script>
 #+HTML_HEAD: <script type="text/javascript" src="javascript/main.js"></script>
 
 #+MACRO: begin-summary #+HTML: <div class="tzx-summary"><strong>Summary</strong>

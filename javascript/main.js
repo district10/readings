@@ -1,5 +1,7 @@
 $(document).ready(function(){
 
+    $('table').wrap('<div class="table-container"></div>');
+
     $('.tzx-folder > .tzx-foldable').hide();
     $('.tzx-folder').click(function(e) {
         if(getSelection().toString()){ return; }
