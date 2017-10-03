@@ -2,12 +2,23 @@
 #+SETUPFILE: theme.setup
 #+INCLUDE: ./nav.org
 
-* TODO Methodology
+* Writing Rules
+- 参考 [[https://github.com/sparanoid/chinese-copywriting-guidelines][Chinese copywriting guidelines for better written communication／中文文案排版指北]]
+- 其他
+  + 标点: 使用英文标点
+  + 缩进:
+    - markdown 使用四个空格, 使用 ~-~ 来做 bullet
+    - org-mode 使用两个空格 (虽然我喜欢四个), 使用 ~-~ 和 ~+~  交替来做 bullet
+  + 空行:
+    - markdown 多加空行, e.g. 在块元素前后加空行 (但不能有连续空行)
+    - org-mode 少加空行, e.g. 在块元素前后不加空行 (能少则少, 不同 chap/sec/subsec 之间也不加空行)
 
+      Why? 因为 org-mode 的折叠可能会把空行折叠进去, 也可能不. 这样很不 consistent. 所以直接去掉.
+* TODO Methodology
 #+BEGIN_QUOTE
   有困难解决困难。没有困难创造困难，然后解决困难。
 #+END_QUOTE
-
 ** Project-based Learning
 ** Structured Thinking
 ** Deliberate Practice
+* TODO MISC
