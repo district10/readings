@@ -47,4 +47,6 @@
     div.tzx-show { display: auto; border: 1px solid red; }
 
     span.section-number-3, span.section-number-4, span.section-number-5 {color: lightgray; }
+
+    .highlighted { background-color: yellow; }
 }

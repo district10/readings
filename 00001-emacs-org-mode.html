@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacs/Org-mode Notes</title>
-<!-- 2017-10-02 Mon 14:56 -->
+<!-- 2017-10-03 Tue 13:11 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="TANG ZhiXiong" />
@@ -605,58 +605,54 @@ found so far at any choice point along the path in the
 <h4 id="sec-2-2-3"><span class="section-number-4">2.2.3</span> Code Blocks</h4>
 <div class="outline-text-4" id="text-2-2-3">
 </div><ol class="org-ol"><li><a id="sec-2-2-3-1" name="sec-2-2-3-1"></a>多语言高亮<br  /><div class="outline-text-5" id="text-2-2-3-1">
-<ul class="org-ul">
-<li>Translate this code from a <code>for</code> loop into a <code>while</code> loop that does
+<p>
+用 <code>&lt;s TAB</code> 插入代码, 后面跟语言, 比如 js, python. 用 <code>c-c '</code> 编辑代码 (新窗口并打开相应的 mode)
+</p>
+
+<p>
+Translate this code from a <code>for</code> loop into a <code>while</code> loop that does
 the same thing.
+</p>
 <div class="org-src-container">
 
-<pre class="src src-python"><span class="linenr">1: </span>for i in range(1,100):
-<span class="linenr">2: </span>    print "i = ", i
+<pre class="src src-python">for i in range(1,100):
+    print "i = ", i
 </pre>
 </div>
 
 <p>
-<b>注意，这里的 <code>BEGIN_SRC</code> 啥的不用手输，用 <code>&lt; s TAB</code> 就能补全</b>
-然后用 <code>C-{c c}</code> 来 evaluate。
+还可以用 <code>C-{c c}</code> 来 evaluate。
 </p>
-</li>
-<li>Translate this code from a <code>while</code> loop into a <code>for</code> loop that does
-the same thing:
-<div class="org-src-container">
-
-<pre class="src src-python">i = 20
-while (i &gt; 0):
-    print "i = ", i
-    i -= 1
-</pre>
 </div>
 </li>
-<li>索引
+<li><a id="sec-2-2-3-2" name="sec-2-2-3-2"></a>行号, 指示 (referencing)<br  /><div class="outline-text-5" id="text-2-2-3-2">
 <div class="org-src-container">
 
 <pre class="src src-c"><span class="linenr">1: </span>#include &lt;stdio.h&gt;
 <span class="linenr">2: </span>
 <span id="coderef-argv" class="coderef-off"><span class="linenr">3: </span>int main( int argc, char **argv)</span>
 <span class="linenr">4: </span>{
-<span id="coderef-atoi" class="coderef-off"><span class="linenr">5: </span>    int a = atoi( argv[1] );</span>
-<span class="linenr">6: </span>    int b = atoi( argv[2] );
-<span class="linenr">7: </span>    printf( "a + b = %d + %d = %d\n", a, b, a+b );
+<span id="coderef-h1" class="coderef-off"><span class="linenr">5: </span>    int a = atoi( argv[1] );</span>
+<span id="coderef-h2" class="coderef-off"><span class="linenr">6: </span>    int b = atoi( argv[2] );</span>
+<span id="coderef-h3" class="coderef-off"><span class="linenr">7: </span>    printf( "a + b = %d + %d = %d\n", a, b, a+b );</span>
 <span class="linenr">8: </span>    return 0;
 <span class="linenr">9: </span>}
 </pre>
 </div>
-
 <ul class="org-ul">
-<li><a href="#coderef-argv"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-argv');" onmouseout="CodeHighlightOff(this, 'coderef-argv');">第 3 行</a> 的 <code>argc</code> 是 count of args (arguments), <code>argv</code> 是
+<li><a href="#coderef-argv"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-argv');" onmouseout="CodeHighlightOff(this, 'coderef-argv');">第 3 行</a> 的 <code>argc</code> 是 count of args (arguments), <code>argv</code> 是 arguments 数组.
 </li>
 </ul>
+
 <p>
-arguments 数组.
+使用方法:
 </p>
 <ul class="org-ul">
-<li><a href="#coderef-atoi"class="coderef" onmouseover="CodeHighlightOn(this, 'coderef-atoi');" onmouseout="CodeHighlightOff(this, 'coderef-atoi');">第 5 行</a> 的 <code>atoi</code> 把 <code>char *</code> 转化为 <code>int</code>.
+<li><code>-n</code> 加上行号
 </li>
-</ul>
+<li><code>-r</code> 加上 ref, 代码后面加上 <code>(ref:reflink)</code> 后面用 link 来找到它: <code>(reflink)</code>
+</li>
+<li>用 <code>(ref:h)</code> 开头的 ref 来常亮一行.
 </li>
 </ul>
 </div>
@@ -1473,6 +1469,30 @@ Alice -&gt;&gt; Bob: asynchronous call
 (setq-default indent-tabs-mode nil)
 (add-hook 'before-save-hook 'delete-trailing-whitespace)
 
+;; insert filename easily (Vim: c-[x f])
+(defun insert-file-name (filename &amp;optional args)
+  "Insert name of file FILENAME into buffer after point.
+
+  Prefixed with \\[universal-argument], expand the file name to
+  its fully canocalized path.  See `expand-file-name'.
+
+  Prefixed with \\[negative-argument], use relative path to file
+  name from current directory, `default-directory'.  See
+  `file-relative-name'.
+
+  The default with no prefix is to insert the file name exactly as
+  it appears in the minibuffer prompt."
+  ;; Based on insert-file in Emacs -- ashawley 20080926
+  (interactive `(,(ido-read-file-name "File Name: ")
+                 ,current-prefix-arg))
+  (cond ((eq '- args)
+         (insert (expand-file-name filename)))
+        ((not (null args))
+         (insert filename))
+        (t
+         (insert (file-relative-name filename)))))
+(global-set-key (kbd "M-]") 'insert-file-name)
+
 ;; This HAS to come before (require 'org)
 (setq org-emphasis-regexp-components
       '("     ('\"{“”"
@@ -1572,7 +1592,7 @@ Alice -&gt;&gt; Bob: asynchronous call
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: TANG ZhiXiong</p>
-<p class="date">Created: 2017-10-02 Mon 14:56</p>
+<p class="date">Created: 2017-10-03 Tue 13:11</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

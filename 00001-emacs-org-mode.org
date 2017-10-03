@@ -136,42 +136,37 @@
   #+TBLFM: $2=$1^2::$3=$1^3::$4=$1^4::$5=sqrt($1)::$6=sqrt(sqrt(($1)))
 *** Code Blocks
 **** 多语言高亮
-- Translate this code from a =for= loop into a =while= loop that does
-  the same thing.
-  #+BEGIN_SRC python -n
-  for i in range(1,100):
-      print "i = ", i
-  #+END_SRC
+用 =<s TAB= 插入代码, 后面跟语言, 比如 js, python. 用 =c-c '= 编辑代码 (新窗口并打开相应的 mode)
 
-  #+RESULTS:
-  : None
+Translate this code from a =for= loop into a =while= loop that does
+the same thing.
+#+BEGIN_SRC python
+for i in range(1,100):
+    print "i = ", i
+#+END_SRC
 
-  *注意，这里的 =BEGIN_SRC= 啥的不用手输，用 =< s TAB= 就能补全*
-  然后用 =C-{c c}= 来 evaluate。
-- Translate this code from a =while= loop into a =for= loop that does
-  the same thing:
-  #+BEGIN_SRC python
-  i = 20
-  while (i > 0):
-      print "i = ", i
-      i -= 1
-  #+END_SRC
-- 索引
-    #+BEGIN_SRC c -n -r
-    #include <stdio.h>
+#+RESULTS:
+: None
 
-    int main( int argc, char **argv)                    (ref:argv)
-    {
-        int a = atoi( argv[1] );                        (ref:atoi)
-        int b = atoi( argv[2] );
-        printf( "a + b = %d + %d = %d\n", a, b, a+b );
-        return 0;
-    }
-    #+END_SRC
+还可以用 =C-{c c}= 来 evaluate。
+**** 行号, 指示 (referencing)
+#+BEGIN_SRC c -n -r
+  #include <stdio.h>
 
-    - [[(argv)][第 (argv) 行]] 的 ~argc~ 是 count of args (arguments), ~argv~ 是
-    arguments 数组.
-    - [[(atoi)][第 (atoi) 行]] 的 ~atoi~ 把 ~char *~ 转化为 ~int~.
+  int main( int argc, char **argv)                    (ref:argv)
+  {
+      int a = atoi( argv[1] );                        (ref:h1)
+      int b = atoi( argv[2] );                        (ref:h2)
+      printf( "a + b = %d + %d = %d\n", a, b, a+b );  (ref:h3)
+      return 0;
+  }
+#+END_SRC
++ [[(argv)][第 (argv) 行]] 的 ~argc~ 是 count of args (arguments), ~argv~ 是 arguments 数组.
+
+使用方法:
++ ~-n~ 加上行号
++ ~-r~ 加上 ref, 代码后面加上 ~(ref:reflink)~ 后面用 link 来找到它: ~(reflink)~
++ 用 =(ref:h)= 开头的 ref 来常亮一行.
 ** MISC
 - untabify
 * 公式
@@ -220,7 +215,7 @@ From [[http://en.m.wikipedia.org/wiki/File:3D_Convolution_Animation.gif][Wikiped
 ** TODO hide 宏
 {{{begin-hide}}}
 显示/隐藏部分内容。使用方法：
-#+BEGIN_SRC 
+#+BEGIN_SRC
 {{{begin-hide}}}
 内容添加到这里
 {{{end-hide}}}
@@ -228,7 +223,7 @@ From [[http://en.m.wikipedia.org/wiki/File:3D_Convolution_Animation.gif][Wikiped
 {{{end-hide}}}
 ** summary 宏
 用来生成一个特定格式的总结块。使用方法：
-#+BEGIN_SRC 
+#+BEGIN_SRC
 {{{begin-summary}}}
 内容添加到这里
 {{{end-summary}}}
@@ -249,7 +244,7 @@ From [[http://en.m.wikipedia.org/wiki/File:3D_Convolution_Animation.gif][Wikiped
 {{{end-summary}}}
 ** fold 宏
 折叠部分内容。使用方法：
-#+BEGIN_SRC 
+#+BEGIN_SRC
 {{{begin-fold(标题写在这里)}}}
 内容添加到这里
 {{{end-fold}}}
@@ -429,14 +424,14 @@ foobar(1, [1, 1, 1]). % --> false
 - M-up/down: move up/down list item, M-S-up/down: move up/down tree stem
 - c-[c x v]: toggle preview image
 - 注释，不显示在页面上的内容：
-  
+
   #+BEGIN_EXAMPLE
   example
   #+BEGIN_COMMENT
-  aoeit aoientr 
+  aoeit aoientr
   #+END_COMMENT
   #+END_EXAMPLE
-  
+
   =<e: example, <c: code, <q: quote=
 - nav.org 里面的内容：
   #+INCLUDE: nav.org src org
@@ -452,20 +447,20 @@ foobar(1, [1, 1, 1]). % --> false
   #+END_SRC
 - Easy templates
   #+BEGIN_EXAMPLE
-    s   #+BEGIN_SRC ... #+END_SRC 
-    e   #+BEGIN_EXAMPLE ... #+END_EXAMPLE 
-    q   #+BEGIN_QUOTE ... #+END_QUOTE 
-    v   #+BEGIN_VERSE ... #+END_VERSE 
-    c   #+BEGIN_CENTER ... #+END_CENTER 
-    C   #+BEGIN_COMMENT ... #+END_COMMENT 
+    s   #+BEGIN_SRC ... #+END_SRC
+    e   #+BEGIN_EXAMPLE ... #+END_EXAMPLE
+    q   #+BEGIN_QUOTE ... #+END_QUOTE
+    v   #+BEGIN_VERSE ... #+END_VERSE
+    c   #+BEGIN_CENTER ... #+END_CENTER
+    C   #+BEGIN_COMMENT ... #+END_COMMENT
     l   #+BEGIN_EXPORT latex ... #+END_EXPORT
-    L   #+LATEX: 
-    h   #+BEGIN_EXPORT html ... #+END_EXPORT 
-    H   #+HTML: 
+    L   #+LATEX:
+    h   #+BEGIN_EXPORT html ... #+END_EXPORT
+    H   #+HTML:
     a   #+BEGIN_EXPORT ascii ... #+END_EXPORT
-    A   #+ASCII: 
-    i   #+INDEX: line 
-    I   #+INCLUDE: line 
+    A   #+ASCII:
+    i   #+INDEX: line
+    I   #+INCLUDE: line
   #+END_EXAMPLE
 ** Special SRC: Images
 #+BEGIN_SRC dot :file images/graphviz-example.png :exports both
