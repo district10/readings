@@ -1,7 +1,10 @@
+// universal
 $(document).ready(function(){
 
+    // wrap table inside a div (scroll view)
     $('table').wrap('<div class="table-container"></div>');
 
+    // MACRO: fold
     $('.tzx-folder > .tzx-foldable').hide();
     $('.tzx-folder').click(function(e) {
         if(getSelection().toString()){ return; }
@@ -9,17 +12,7 @@ $(document).ready(function(){
         e.stopPropagation();
     });
 
-    $('a').each(function(index){
-        var anchor = $(this).attr('href');
-        if (/^[^:]*\.md$/.test(anchor)) { $(this).attr({ href: anchor.substring(0, anchor.length-3)+".html" }); }
-        if (/^[^:]*\.org$/.test(anchor)) { $(this).attr({ href: anchor.substring(0, anchor.length-4)+".html" }); }
-    });
-
-    if (/(.html|\/)$/.test(window.location.href)) {
-        $('#ui-id-2').click();
-        setTimeout(function() { $(window).scrollTop(0); }, 100);
-    }
-
+    // toggle hide & show
     $('#postamble > p.author').click((function() {
         toggleHideShow = (function() {
             var isHiding = true;
@@ -34,11 +27,14 @@ $(document).ready(function(){
         return function() { if(getSelection().toString() === 'TANG'){ toggleHideShow(); } };
     })());
 
+    // highlight code
     $('div.org-src-container pre.src').each(function(i, block) {
-        hljs.highlightBlock(block);
+        if (hljs && hljs.highlightBlock) {
+            hljs.highlightBlock(block);
+        }
     });
 
-
+    // highlight code with line-wise highlights
     $('.coderef-off').each(function(){
         var $this = $(this);
         if ($this.attr('id').startsWith("coderef-h")) {
@@ -46,6 +42,31 @@ $(document).ready(function(){
         }
     });
 
-    var srcUrl = "https://raw.githubusercontent.com/district10/readings/gh-pages"+window.location.href.split("/readings")[1].split(".")[0]+".org"
-    $('#postamble').append( "<a class='source' href='"+srcUrl+"'>笔记源码</a>" ).find("p.validation").remove();
 });
+
+//
+var addSourceLink = function() {
+    var path = window.location.href.split("/readings")[1] || "/index.org";
+    var srcUrl = "https://raw.githubusercontent.com/district10/readings/gh-pages"+path.split(".")[0]+".org"
+    $('#postamble').append( "<a class='source' href='"+srcUrl+"'>笔记源码</a>" ).find("p.validation").remove();
+    return this;
+};
+
+//
+var useHtmlRef = function() {
+    $('a').each(function(index){
+        var anchor = $(this).attr('href');
+        if (/^[^:]*\.md$/.test(anchor)) { $(this).attr({ href: anchor.substring(0, anchor.length-3)+".html" }); }
+        if (/^[^:]*\.org$/.test(anchor)) { $(this).attr({ href: anchor.substring(0, anchor.length-4)+".html" }); }
+    });
+    return this;
+};
+
+// nav to second tab
+var navToSecondTab = function() {
+    if (/(.html|\/)$/.test(window.location.href)) {
+        $('#ui-id-2').click();
+        setTimeout(function() { $(window).scrollTop(0); }, 100);
+    }
+    return this;
+};
