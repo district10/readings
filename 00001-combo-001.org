@@ -1,0 +1,373 @@
+#+TITLE: Book Reading Combo #1
+#+SETUPFILE: theme.setup
+#+INCLUDE: ./nav.org
+
+* #Combo in Combo#
+** 码农: 进击的 Java
+- 码农; 图灵社区. 码农·进击的Java（总第16期） (Kindle Location 21). 人民邮电出版社. Kindle Edition.
+- 一个不错的点: 读源码不要一行一行读, 要带着目标, 追主线.
+** 科技之巅 《麻省理工科技评论》50大全球突破性技术深度剖析
+- tzx: 感觉太空, 电池, 基因, AI 是热点
+- 原来除了 SpaceX, Jeff Bezos 也有一个太空相关的公司, 叫 Blue Origin, 而且比 SpaceX 提前成功发射可以降落的火箭
+- Slack 是一种智能沟通机器人
+- 虚拟现实, 自动驾驶, 车对车通信 (V2V communication), 基因工程, 太阳能, 风能
+- 在“ 液体 活 检”（ liquid biopsy）
+- 支付, apple pay
+- Microscale 3- D Printing 微型 3D 打印
+- Mobile Collaboration 移动协作: quip
+- blue ocean
+- Neuromorphic Chips 神经 形态 芯片
+- Agricultural Drones 农用 无 人机
+- Prenatal DNA Sequencing 产前 DNA 测 序
+- Supergrids 超级 电网
+- Light- Field Photography 光 场 摄影 术
+- High-Speed Materials Discovery 高速筛选电池材料
+* 金字塔原理
+** 中文版序
+{{{begin-summary}}}
+《金字塔原理》介绍了一种能清晰地展现思路的有效方法。掌握了金字塔原理，
+就能重点突出，逻辑清晰。不管是在政界、商界、学界，还是在企事业单位，所
+有高、中、基层职场人士，只要你需要思考和沟通，就会从金字塔原理受益。金
+字塔结构思考力是领导力的必要素质，本书是训练思考、使表达呈现逻辑性的实
+用宝典。
+
+金字塔原理的基本概念:
+
+- 金字塔原理是一种重点突出、逻辑清晰、层次分明、简单易懂的思考方式、沟通方式、规范动作。
+- 金字塔原理的基本结构是：结论先行，以上统下，归类分组，逻辑递进。先重要后次要，先总结后具体，先框架后细节，先结论后原因，先结果后过程，先论点后论据。
+- 金字塔原理训练表达者：关注、挖掘受众的意图、需求点、利益点、关注点和兴趣点，想清说什么（内容），怎么说（思路、结构），掌握沟通的标准结构、规范动作。
+- 金字塔能够达到的沟通效果：观点鲜明、重点突出、思路清晰、层次分明、简单易懂，让受众有兴趣，能理解，记得住。
+- 搭建金字塔结构的具体做法是：自上而下表达，自下而上思考，纵向总结概括，横向归类分组，序言讲故事，标题提炼思想精华。
+{{{end-summary}}}
+** 前言
+1967 年还很少有人接受我的理论，但是麦肯锡公司的一些智者却慷慨地指出了
+我的理论中存在的问题，帮助我改进。现在，金字塔原理已经成为麦肯锡公司的
+标准，并被麦肯锡看做是其公司理念和规范的重要组成部分。
+
+实际应用金字塔原理需要相当的毅力。但是，如果你有意地以书中介绍的方法强迫自己“先想后写”，你的写作能力肯定能够得到惊人的改善，使你能够：
+
+- 缩短完成最终一稿通常所需的时间；
+- 提高文章的条理性；
+- 缩短文章的长度。最终的结果是，使你能够在最短的时间内写出简明扼要、思路清晰的文章。
+** 第 1 篇 表达的逻辑
+文章条理不清还有一个比上面提到的原因更常见、但也更容易改进的原因，即文
+章的结构（structure）——也就是句子的组织顺序（不管句子本身写得是好是坏）。
+
+金字塔结构中，思想之间的联系方式可以是纵向的（vertically）——即任何一个
+层次上的思想都是对其下面一个层次上思想的总结；也可以是横向的
+（horizontally）——即多个思想因共同组成同一个逻辑推理过程，而被并列排在一起。
+*** 第 1 章 为什么要用金字塔结构
+如果你的文章结构呈金字塔形，文章的思路自金字塔顶部开始逐渐向下展开，那
+么读者肯定会觉得你的文章比较容易读懂。
+
+- 你可以通过检查你的思想是否用金字塔结构相互关联，从而确定你是否正确地构建了文章的结构。 ::
+    - 金字塔中的思想以 3 种方式互相关联——向上、向下和横向。位于一组思想的上一个层次的思想是对这一组思想的概括，这一组思想则是对其上一层次思想的解释和支持。
+    - 文章中任一层次上的思想必须是对其下一层次思想的总结概括
+    - 每组中的思想必须属于同一逻辑范畴
+    - 每组中的思想必须按照逻辑顺序组织 \\
+    组织思想基本上只可能有4种逻辑顺序：
+    + 演绎顺序：大前提、小前提、结论
+    + 时间（步骤）顺序：第一、第二、第三
+    + 结构（空间）顺序：波士顿、纽约、华盛顿
+    + 程度（重要性）顺序：最重要、次重要，等等
+**** 归类分组，将思想组织成金字塔
+- 逻辑关系
+- 7
+- 归类分组, 搭建金字塔
+- 找出逻辑关系, 抽象概括
+**** 自上而下表达，结论先行
+**** 自下而上思考，总结概括
+*** 第 2 章 金字塔内部的结构
+金字塔中的子结构，能够加快你梳理思想的过程：
+- 主题与子主题之间的纵向关系
+- 各子主题之间的横向关系
+- 序言的叙述方式
+**** 纵向关系
+- 这种表述之所以清晰，是因为其思想的组织一直紧紧围绕着回答由主题引发的读者的疑问。
+- 金字塔结构的巨大价值就在于它迫使你在理清思路时，从视觉上使纵向的疑问／回答式对话关系清晰化。
+**** 横向关系
+- 演绎性思想组合是由几个承前启后的论述组成的。
+- 归纳性思想组合中的思想互相关联，
+**** 序言的结构
+问题的起源和发展必然以叙述的形式出现，因此也应当按照典型的叙述模式发展。
+序言的开头应向读者说明“背景”（situation）的时间和地点。
+在这一背景中应当发生了某件事情，可称为“冲突”（complication），
+使读者提出（或将使读者提出）你的文章将要“回答”（answer）的“疑问”（question）。
+*** 第 3 章 如何构建金字塔
+**** 自上而下法
+自上而下法构建金字塔的步骤：
+- 提出主题思想。
+- 设想受众的主要疑问。
+- 写序言：背景－冲突－疑问－回答。
+- 与受众进行疑问/回答式对话。
+- 对受众的新疑问，重复进行疑问/回答式对话。
+**** 自下而上法
+自下而上思考：
+- 列出你想表达的所有思想要点。
+- 找出各要点之间的逻辑关系。
+- 得出结论。
+**** 初学者注意事项
+- 一定先搭结构，先尝试自上而下法
+- 序言先写背景，将背景作为序言的起点
+- 先多花时间思考序言，不要省略
+- 将历史背景放在序言中
+- 序言仅涉及读者不会对其真实性提出质疑的内容
+- 在关键句层次上，更宜选择归纳推理法而非演绎论证法 (interesting)
+*** 第 4 章 序言的具体写法
+文章的序言（前言、引言、导言）概述读者已知的信息，并将这些信息与文章将
+要回答的疑问建立联系，然后作者就可以将全部精力放在提供回答疑问的答案上。
+如果是写文章，就是“序言”； *如果是演讲，就是“开场白”。*
+**** 序言的讲故事结构
+序言要用讲故事形式，是为了让读者抛开复杂的思想，专注于你的话题。激发读
+者兴趣，吸引注意力：新奇、悬念、与读者本人相关。
+
+序言必须采取“*背景—冲突—疑问—解决方案*”的结构，但是，各部分的顺序可以有所变化，以创造不同的文章风格。
+基本结构:
+- 背景（S, Situation）＝业务多元化研究服务在过去5年中增长了40％。
+- 冲突（C, Complication）＝无法证明我们的工作对客户有明显益处。
+- 疑问（Q, Question）＝如何确保多元化研究确实对客户有明显益处？
+- 回答（A, Answer）＝实施“公司发展项目”，以研究该问题。
+**** 序言的常见模式
+你写文章的目的通常是回答以下 4 类问题之一：
+- 我们应该做什么？
+- 我们应该如何做（将如何做／是如何做的）？
+- 我们是否应该这样做？
+- 为什么会发生这种情况？
+
+当然，你常用的文章模式取决于你工作的内容。下面我将逐个介绍在商务文章中最常见的 4 种模式：
+- 发出指示式（针对“我们应该做什么”或“我们应该如何做”等问句）
+- 请求支持式（针对“我们是否应该这样做”等问句）
+- 解释做法式（针对“我们应该如何做”等问句）
+- 比较选择式（针对“我们应该做什么”等问句）
+**** 序言的常见模式——以咨询为例
+*** 第 5 章 演绎推理与归纳推理 (easy)
+- 归纳推理
+- 演绎推理与归纳推理的区别
+** 第 2 篇 思考的逻辑
+首先，要找出将这些思想联系起来的逻辑框架，并确定其逻辑顺序（见第6章“应
+用逻辑顺序”），然后概括总结出各组思想的隐含意义——即所谓的归纳跃进
+（inductive leap）（见第7章“概括各组思想”）。
+
+这一过程称为冷静思考（Hard-Headed Thinking）。学习和应用这一步骤都有一
+定的难度；但是，如果你确实想了解自己的思维，就必须掌握冷静思考的技巧。
+因此，希望你多花一点时间，了解和掌握思考的技巧。
+*** 第 6 章 应用逻辑顺序
+金字塔原理的第二条规则规定：所有列入同一组中的思想必须具有某种逻辑顺序。
+**** 时间顺序
+- 根据结果寻找原因
+- 揭示隐含的逻辑思路
+**** 结构顺序
+结构顺序就是当你使用示意图、地图、图画或照片想象某事务时的顺序。
+- 创建逻辑结构 (MECE: Mutually exclusive, collectively exhaustive)
+- 描述逻辑结构 (一旦建立起逻辑结构，就可以按照自上而下、自左而右的顺序依次描述各个部分)
+- 修改逻辑结构 (用结构顺序概念检查思路)
+**** 程度顺序 (重要性顺序)
+- 创建分组
+- 识别, 调整不适当的分组
+*** 第 7 章 概括各组思想
+**** 总结句避免使用 “缺乏思想” 的句子
+思想的表达方式与其分组基础无关，可以是行动性语句，即告诉读者要做什么事；也可以是描述性语句，即告诉读者关于某些事的情况。
+- 概括行动性思想（介绍采取的行动、行为、动作、步骤、流程）时，应说明采取行动后取得的结果（效果、达到的目标）。
+- 概括描述性思想（介绍背景、信息）时，应说明这些思想具有的共同点的含义（共同点的意义）。
+**** 总结句要说明行动产生的结果／目标
+- 该组行动、步骤之间必须相互独立不重叠，完全穷尽无遗漏。
+- 总结概括的语句，必须说明完成各行动步骤后导致的直接结果，且措辞必须明确、具体。
+- 先用明确的语句表述各行动、步骤、流程等，然后区分不同的抽象层次，再直接从各行动、步骤、流程等总结概括出行动的结果。
+**** 找出各结论之间的共性
+- 找出结构上的共性
+- 为什么只有这 4 个变量，而没有其他变量？这 4 个变量之间有哪些共同点，使作者把它们列在一起？
+  如果你试图用更明确的语言表达这些思想，以找出其中的逻辑顺序，你就会发现原作者实际上谈论的是 4 个步骤，
+** 第 3 篇 解决问题的逻辑
+一个理想的流程：
+- 界定问题→结构化→分析/找到→组成金字塔
+- (分析问题/解决方案/与他人交流)
+提高写咨询报告效率的秘诀是：
+1. 界定问题
+2. 有条理地搜集和分析数据，转换为金字塔的形式
+*** TODO 第 8 章 界定问题
+判断 问题 是否 存在， 通常 要看 经过 努力 得到 的 结果（ 现状）， 与 希望 得到 的 结果（ 目标） 之间 是否 有 差距。
+
+由 某一 特定 背景 导致 的 某一 特定 结果， 称为 非 期望 结果（ R1, 即 现状， Undesired Result）。 “问题” 是指 你 不喜欢 某一 结果（ 比如 销售额 降低）， 想得到 其他 结果（ 比如 销售额 增长）， 称为 期望 结果（ R2, 即 目标， DesiredResult）。 解决 方案 则是 指 如何 从 现状 R1 到 目标 R2，
+**** 界定问题的框架
+- 展开说明框中的各要素
+- 把 "界定的问题" 写成序言
+**** 展开问题的各要素
+- 切入点/序幕（Starting Point/Opening Scene）
+- 困扰／困惑（Disturbing Event）
+- 现状，非期望结果（R1, Undesired Result）
+- 目标，期望结果（R2, Desired Result）
+**** 发掘读者的疑问
+**** 开始写序言
+**** 实战案例
+*** TODO 第 9 章 结构化分析问题
+分析问题的标准流程是：收集信息→描述发现→得出结论→提出方案
+**** 从信息资料入手
+**** 设计诊断框架
+**** 使用诊断框架
+**** 建立逻辑树
+**** 是非问题分析
+** 第 4 篇 演示的逻辑
+*** 第 10 章 在书面上呈现金字塔
+写作长篇文章时，在页面上呈现金字塔层级的方法很多，最常见的有：
+- 多级标题法
+- 下划线法
+- 数字编号法
+- 行首缩进法
+- 项目符号法
+**** 突出显示文章的框架结构
+Emacs Org-mode wins here.
+**** 上下文之间要有过渡
+*** 第 11 章 在 PPT 演示文稿中呈现金字塔
+**** 设计文字 PPT 幻灯片
+- 每次只演示和说明一个论点
+- 用逐级展开呈现，提高趣味性
+**** 设计图表 PPT 幻灯片
+图表标题标明论点，还能最大限度地减少混淆，因为不同的观众有不同的观点、
+背景和兴趣，关注问题的角度也不同。好的图表标题能立刻让观众的注意力集中
+在你希望强调的数据方面。
+**** 故事梗概                                                          :best:
+1) 序言尽量写得详细，把每个你想说的词汇按照你希望的顺序写下来。这样做不仅可以保证没有遗漏，还可以再次检查你回答的问题是否仍然是受众想问的。
+2) 用写故事梗概的形式。每张幻灯片写作的顺序，从上往下依次为序言各要素、关键句要点和关键句下一层次的论点。
+3) 初步决定你准备采用的呈现方法。这时你可能还没有准确的数据，但只要知道数据的类型和想要表现何种关系即可。
+4) 准备好每张幻灯片的讲稿，确保整个演示像讲故事一样流畅。
+5) 完成幻灯片的设计和绘图。
+6) 排练，排练，再排练！
+*** 第 12 章 在字里行间呈现金字塔
+**** 画脑图（在大脑中画图像）
+**** 把图像复制成文字
+** 附录 1 在无结构情况下解决问题的方法
+** 附录 2 序言结构范例
+** TODO 附录 3 本书要点汇总
+*** 第 1 章: 为什么要用金字塔结构
+1. 为了交流方便，必须将思想（观点、结论、要点、论点、论据、建议、行动、步骤等）归类分组。
+2. 将分组后的思想，按照不同层次，进行抽象提炼、总结概括，搭建金字塔。
+3. 向读者介绍（传递、阐述、论证）思想最有效的途径，是结论先行，自上而下表达。
+4. 金字塔中的思想，应遵守 4 个基本原则。
+5. 条理清晰的关键，是把你的思想组织成金字塔结构，并在写作前用金字塔原理检查。
+{{{begin-summary}}}
+金字塔原理 的 4 个基本原则:
+- 结论先行：每篇文章只有一个中心思想，并放在文章的最前面。
+- 以上统下：每一层次上的思想必须是对下一层次思想的总结概括。
+- 归类分组：每一组中的思想必须属于同一逻辑范畴。
+- 逻辑递进：每一组中的思想必须按照逻辑顺序排列。
+{{{end-summary}}}
+*** 第 2 章: 金字塔内部的结构
+1. 金字塔结构的各个层级上包括各种思想；思想使受众（包括读者、听众、观众或学员）产生疑问。
+2. 在纵向方向上，各分支、各层级上的思想，与读者进行疑问/回答式对话。
+3. 在横向方向上，各种思想以演绎推理或归纳推理方式回答读者的疑问，但两种方式不可同时使用。
+4. 序言的讲故事形式是为了提醒读者，文章将回答的读者最初的疑问。
+5. 序言包括背景、冲突、读者的疑问和作者的回答。冲突因背景而产生，背景和冲突都是读者已知的事实。
+6. 冲突导致读者提出疑问，而文章将回答读者的疑问。
+{{{begin-summary}}}
+- 金字塔结构中的逻辑关系
+- 各种思想纵向相关（疑问／回答式对话）
+- 各种思想横向相关（演绎／归纳，MECE 原则）
+- 金字塔顶端思想回答的疑问，来自读者已知的事实
+- 序言引出读者最初的疑问
+{{{end-summary}}}
+*** 第 3 章: 如何构建金字塔
+- 自上而下法
+  1. 确定作者想论述的主题
+  2. 设想读者的疑问
+  3. 给出答案
+  4. 检查背景和冲突是否引发读者提出疑问
+  5. 证实答案
+  6. 填写关键句要点
+- 自下而上法
+  1. 列出所有作者想表达的要点
+  2. 找出各要点之间的关系
+  3. 得出结论
+  4. 倒推出序言
+{{{begin-summary}}}
+构建金字塔:
+- 确定主题
+- 设想疑问
+- 给出答案
+- 检查背景和冲突是否引发读者提出疑问
+- 证实答案
+- 填写关键句要点
+{{{end-summary}}}
+** 参考文献
+* TODO Beast Machines: Transformers (cartoon)
+** Introduction
+- http://tfwiki.net/wiki/Beast_Machines:_Transformers_(cartoon) ::
+  The show follows the adventures of the core Beast Wars cast upon their
+  return home to Cybertron; there, Optimus Primal and his crew find that
+  the whole planet is abandoned, and the streets are patrolled by
+  mindless Vehicon drones serving Megatron, who somehow escaped his
+  captivity.
+
+  Worse still, they learn that they are infected with a deadly virus
+  that will kill them in a matter of hours. Salvation (我已经忘了救赎有
+  拯救的含义在里面...) comes from the mysterious supercomputer known as
+  the Oracle, who sees them fit to complete its mission of a planetwide
+  "reformatting", and turns them into *technorganic warriors*, a perfect
+  blend of organic and technological matter.
+
+  As the show progresses, Primal and his fellow Maximals learn to
+  balance their technological side with their newly introduced organic
+  aspects, mastery coming in slow stages. Unlike the previous conflict,
+  where sides had been roughly equal, the four original Maximals were
+  quite *outnumbered by their Vehicon enemies*, and the battles took on a
+  "*guerilla warfare*" feel, with the Maximals using sewers and
+  underground levels to their advantage and avoiding surface levels
+  unless for combat purposes. As the show progresses, two brand-new
+  Maximals and a returning face boost their numbers.
+
+  Initially, Optimus is driven by a crusade to restore the organic above
+  the technological and to right his failure to stop Megatron. Over
+  time, it becomes increasingly clear that he's becoming obsessed and
+  overzealous. At the midpoint, after Cybertron is almost destroyed, he
+  realises that the point should be to *create a balance of organic and
+  technological, not a supremacy*. Under this new, saner cause, the
+  Maximals eventually turn Cybertron into an technorganic paradise,
+  though at the cost of their leader's life.
+  (最后那也叫天堂... 一片荒地啊. 好遗憾 Megatron 失败了)
+** Quotes
+- http://www.imdb.com/title/tt0189315/quotes ::
+  + Optimus Primal: What's wrong, Megatron? Is your"single elegant machine" having trouble multitasking?
+  + Tankorr: Oh, I'm sorry. Were you happier when my vocabulary was limited to,'TANKORR SMASH'?
+** Season 1
+Season 1 largely centers on the Maximals' efforts to find out what has
+happened to them, as they arrive on Cybertron with no memories. In
+addition to Megatron and the core Maximal cast, three new Vehicon
+generals are introduced, as well as the new Maximal Nightscream. By
+the end of the season, Optimus Primal has been driven down a road of
+extremism, and an apocalyptic confrontation marks the season finale...
+*** The Reformatting
+Escaping from strange new foes (敌人) and unable to transform, the four
+surviving Maximals encounter a mysterious supercomputer which remakes
+them into a new kind of Transformer.
+*** Master of the House
+*** Fires of the Past
+*** Mercenary Pursuits
+*** Forbidden Fruit
+*** The Weak Component
+*** Revelations Part I: Discovery
+*** Revelations Part II: Descent
+*** Revelations Part III: Apocalypse
+*** Survivor
+*** The Key
+*** The Catalyst
+*** End of the Line
+** Season 2: Battle for the Spark
+The ultimate face-off (对峙) at the end of Season 1 is resolved in a most
+unusual and cerebral manner, setting the tone for Season 2 as Primal
+realizes his mission is one of balance, not extremism. Silverbolt
+rejoins the Maximal ranks, a new Maximal arrives from off-world, and
+two dangerous new generals join Megatron's side as the Maximals search
+for the lost Sparks of their brethren and battle to regain control of
+Cybertron.
+*** Fallout
+*** Savage Noble
+*** Prometheus Unbound
+*** In Darkest Knight
+*** A Wolf in the Fold
+*** Home Soil
+*** Sparkwar Pt. I: The Strike
+*** Sparkwar Pt. II: The Search
+*** Sparkwar Pt. III: The Siege
+*** Spark of Darkness
+*** Endgame Pt. I: The Downward Spiral
+*** Endgame Pt. II: When Legends Fall
+*** Endgame Pt. III: Seeds of the Future
