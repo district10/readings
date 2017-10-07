@@ -137,3 +137,11 @@
              (list "p" (concat ":PROPERTIES:\n"
                                "?\n"
                                ":END:")))
+
+;; capture
+(global-set-key (kbd "C-c c ") 'org-capture)
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/git/org/gtd.org" "Tasks")
+         "* TODO %?\n %i\n %a")
+        ("j" "Journal" entry (file+datetree "~/git/org/journal.org")
+         "* %?\nEntered on %U\n %i\n %a")))

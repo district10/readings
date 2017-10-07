@@ -1,6 +1,7 @@
 # -*- mode: org; -*-
 
 #+AUTHOR: TANG ZhiXiong
+#+STARTUP: overview
 
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/htmlize.css"/>
 #+HTML_HEAD: <link rel="stylesheet" type="text/css" href="css/bigblow.css"/>
@@ -22,6 +23,9 @@
 
 #+MACRO: begin-summary #+HTML: <div class="tzx-summary"><strong>Summary</strong>
 #+MACRO: end-summary #+HTML: </div>
+
+#+MACRO: begin-block #+HTML: <div class="tzx-block tzx-summary"><strong>$1</strong>
+#+MACRO: end-block #+HTML: </div>
 
 #+MACRO: begin-fold #+HTML: <div class="tzx-folder"><strong>$1</strong><div class="tzx-foldable">
 #+MACRO: end-fold #+HTML: </div></div>
