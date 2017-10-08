@@ -400,6 +400,12 @@ foobar(1, [1, 1, 1]). % --> false
 12. =C-x v a=: (vc-update-change-log), Git 不可用.
 13. =(vc-clear-context)=: 重启 VC
 14. =(ediff-revision)=
+* GTD
+- =c-[c x i]= : check in time
+- =c-[c x o]= : check out time
+- =c-[c x e]= : edit effort
+- =c-[c x j]= : goto clock!
+- =c-[c x r]= : time expense report
 * Extras
 ** Hotkeys (c -> f,b,u)                                        :best:orgmode:
 - [[http://orgmode.org/orgcard.pdf][Org-mode Cheatsheet]]
