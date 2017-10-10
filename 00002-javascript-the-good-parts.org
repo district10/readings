@@ -61,14 +61,14 @@
         }
     }
   #+END_SRC
-- 一层一层从 ~.proto~ 找, 直到 Object.
+- 一层一层从 ~.__proto__~ 找, 直到 Object.
 ** 反射 / Reflection
-- typeof flight.constructor ('function')
-- flight.hasOwnProperty(prop)
+- =typeof flight.constructor= ('function')
+- =flight.hasOwnProperty(prop)=
 ** 枚举 / Enumeration
 - for (prop in flight)
 ** 删除 / Delete
-- delete flight.name (set to ~undefined~), 如果是数组, 形成空洞
+- =delete flight.name= (set to ~undefined~), 如果是数组, 形成空洞
 ** 减少全局变量污染 / Global Abatement
 - 通过绑定到属性的方法, 把一堆杂七杂八的变量统领到一个变量下
 * 第 4 章 函数 / Functions
@@ -92,7 +92,7 @@
 - arguments is 'array-like'
 ** 返回 / Return
 - 函数总是返回, 如果没有返回值, 就返回 undefined
-- new Func(), 如果 Func 返回的不是对象, 则返回 this (一个新对象)
+- =new Func()=, 如果 Func 返回的不是对象, 则返回 this (一个新对象)
 ** 异常 / Exceptions
 ** 给类型增加方法 / Augmenting Types
 - Function.prototype.<method> = function(...) {...}
@@ -156,10 +156,10 @@
 - 很容易形成空洞
 ** 删除 / Delete
 - delete array[index]
-- inplace cut off: array.splice(startPos, nElementToCutOff)
+- inplace cut off: =array.splice(startPos, nElementToCutOff)=
 ** 枚举 / Enumeration
 ** 混淆的地方 / Confusion
-- [].constructor === Array
+- ~[].constructor === Array~ (true)
 ** 方法 / Methods
 - reduce
   #+BEGIN_SRC js
@@ -196,10 +196,10 @@
 - \b: boundry
 - \1: captured group #1
 ** 正则表达式分组 / Regexp Group
-- capturing
-- noncapturing
-- positive lookahead
-- negative lookahead
+- *capturing*
+- *noncapturing*
+- *positive lookahead*
+- *negative lookahead*
 * TODO 第 8 章 方法
 - 这部分查文档
 * 第 9 章 代码风格 / Style
@@ -212,7 +212,7 @@
 - unicode
 - typeof: ~typeof null === object~
 - parseInt, 小心进制问题, 尤其在处理时间上
-- + 不仅还是个单目运算符, 可以转化字符串成数字
+  + 不仅还是个单目运算符, 可以转化字符串成数字
 - Floating point
 - NaN: 是 number, isFinite
 - Phony arrays

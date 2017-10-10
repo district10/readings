@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>JavaScript: The Good Parts</title>
-<!-- 2017-10-02 Mon 22:27 -->
+<!-- 2017-10-11 Wed 00:31 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="TANG ZhiXiong" />
@@ -103,6 +103,7 @@
 <script type="text/javascript" src="javascript/hideshow.js"></script>
 <script type="text/javascript" src="javascript/highlight.min.js"></script>
 <script type="text/javascript" src="javascript/main.js"></script>
+<script type="text/javascript">$(function(){ addSourceLink().useHtmlRef().navToSecondTab(); });</script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -331,6 +332,8 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="./00004-domain-specific-languages.html">Domain Specific Languages</a>
 </li>
+<li><a href="./00001-combo-001.html">Combo #1</a>
+</li>
 </ul>
 </div>
 </div>
@@ -501,7 +504,7 @@ for the JavaScript code in this tag.
 </pre>
 </div>
 </li>
-<li>一层一层从 <code>.proto</code> 找, 直到 Object.
+<li>一层一层从 <code>.__proto__</code> 找, 直到 Object.
 </li>
 </ul>
 </div>
@@ -510,9 +513,9 @@ for the JavaScript code in this tag.
 <h3 id="sec-5-6"><span class="section-number-3">5.6</span> 反射 / Reflection</h3>
 <div class="outline-text-3" id="text-5-6">
 <ul class="org-ul">
-<li>typeof flight.constructor ('function')
+<li><code>typeof flight.constructor</code> ('function')
 </li>
-<li>flight.hasOwnProperty(prop)
+<li><code>flight.hasOwnProperty(prop)</code>
 </li>
 </ul>
 </div>
@@ -530,7 +533,7 @@ for the JavaScript code in this tag.
 <h3 id="sec-5-8"><span class="section-number-3">5.8</span> 删除 / Delete</h3>
 <div class="outline-text-3" id="text-5-8">
 <ul class="org-ul">
-<li>delete flight.name (set to <code>undefined</code>), 如果是数组, 形成空洞
+<li><code>delete flight.name</code> (set to <code>undefined</code>), 如果是数组, 形成空洞
 </li>
 </ul>
 </div>
@@ -613,7 +616,7 @@ for the JavaScript code in this tag.
 <ul class="org-ul">
 <li>函数总是返回, 如果没有返回值, 就返回 undefined
 </li>
-<li>new Func(), 如果 Func 返回的不是对象, 则返回 this (一个新对象)
+<li><code>new Func()</code>, 如果 Func 返回的不是对象, 则返回 this (一个新对象)
 </li>
 </ul>
 </div>
@@ -776,7 +779,7 @@ String.method('trim', function() {
 <ul class="org-ul">
 <li>delete array[index]
 </li>
-<li>inplace cut off: array.splice(startPos, nElementToCutOff)
+<li>inplace cut off: <code>array.splice(startPos, nElementToCutOff)</code>
 </li>
 </ul>
 </div>
@@ -788,7 +791,7 @@ String.method('trim', function() {
 <h3 id="sec-8-5"><span class="section-number-3">8.5</span> 混淆的地方 / Confusion</h3>
 <div class="outline-text-3" id="text-8-5">
 <ul class="org-ul">
-<li>[].constructor <code>=</code> Array
+<li><code>[].constructor === Array</code> (true)
 </li>
 </ul>
 </div>
@@ -901,13 +904,13 @@ String.method('trim', function() {
 <h3 id="sec-9-4"><span class="section-number-3">9.4</span> 正则表达式分组 / Regexp Group</h3>
 <div class="outline-text-3" id="text-9-4">
 <ul class="org-ul">
-<li>capturing
+<li><b>capturing</b>
 </li>
-<li>noncapturing
+<li><b>noncapturing</b>
 </li>
-<li>positive lookahead
+<li><b>positive lookahead</b>
 </li>
-<li>negative lookahead
+<li><b>negative lookahead</b>
 </li>
 </ul>
 </div>
@@ -1041,7 +1044,7 @@ x === undefined
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: TANG ZhiXiong</p>
-<p class="date">Created: 2017-10-02 Mon 22:27</p>
+<p class="date">Created: 2017-10-11 Wed 00:31</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

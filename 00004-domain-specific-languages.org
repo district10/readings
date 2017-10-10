@@ -22,7 +22,7 @@
 - Domain driven design 中的 ubiquitous language (speak the common language)
 - 分开了公共代码和可变代码
 *** 为格兰特小姐的控制器编写程序
-- XML: 控制器的行为的任何修改都无需发布新的 JAR
+- *XML: 控制器的行为的任何修改都无需发布新的 JAR*
 - Extensive testing 广泛测试
 - 命令式模型: imperative
 - DSL: 可能没有控制结果, 没有其他东西, 图灵不完备, 用它不能编写整个应用, 只能用来描述应用的一个小小方面, 其
@@ -45,12 +45,12 @@
 *** 可视化
 - 类似 dot (graphviz) 的界面
 ** 第 2 章　使用 DSL
-*** 定义 DSL
+*** 定义 DSL                                                           :best:
 - domain specific languages 的四个关键因素:
-  + computer programming language (计算机程序设计语言), 可以执行
-  + language nature (语言性), 连贯的表达能力
-  + limited expressiveness (受限的表达), 只支持特定领域所需特性的最小集 (MVP: minimum viable product)
-  + domain focus (针对领域), 明确性
+  + *computer programming language* (计算机程序设计语言), 可以执行
+  + *language nature (语言性)*, 连贯的表达能力
+  + *limited expressiveness (受限的表达)*, 只支持特定领域所需特性的最小集 (MVP: minimum viable product)
+  + *domain focus (针对领域)*, 明确性
 - 分类:
   + 外部 DSL
   + 内部 DSL
