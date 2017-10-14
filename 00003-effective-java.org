@@ -18,20 +18,54 @@
 * 第 1 章 引言
 * 第 2 章 创建和销毁对象
 ** 第 1 条：考虑用静态工厂方法代替构造器
+- static factory method 的一大优势
+  + 有名字
+  + 可以不必每次都创建一个对象, 比如 =Collections.emptyList()= 每次都是取一个静态变量, 这个变量的类型还是一个简化的 List.
+  + 可以返回子类型
+  + 如果 type inference 做得好, 还可以让代码更简洁. 比如 =new ArrayList<>()= 这样的语法
+- 当然也有缺点, 1) 不能被继承; 2) 与其他静态方法没区别, 从语法上不像构造函数那样与众不同;
 ** 第 2 条：遇到多个构造器参数时要考虑用构建器
+- 构造参数多了, 说明要配置的地方多, 用 builder 加上 fluent API 要简便得多
+- 与其弄一个大而全的 ctor, 不如每次都只配置一个点, 最后再 build 出来一个对象
+- 而且... 这种 builder 还能通过 lomock 之类的库, 加一个 annotation 就能自动生成 builder, 方便极了
 ** 第 3 条：用私有构造器或者枚举类型强化 Singleton 属性
-** 第 4 条：通过私有构造器强化不可实例化的能力
+- 静态 final public 对象可能被篡改
+- 静态 private 加上一个 public 接口函数 (optionally 加上 lazy 初始化) 要靠谱些
+- 比上面更靠谱的是 Enum 对象, 一个 Enum 和 Class, 定义上没啥区别, 都可以有函数, 但 Enum 里面可以定义一个对象 (像是一个 label)
+** TODO 第 4 条：通过私有构造器强化不可实例化的能力
 ** 第 5 条：避免创建不必要的对象
+- Boolean.valueOf(ref) 几乎总是优于 new Boolean(ref), 字面量则更好
+- lazily initialling
+- map 对象返回 keySet 的时候总是返回同一个 object (不用担心性能问题)
+- 小心 autoboxing, autounboxing
 ** 第 6 条：消除过期的对象引用
+- weak reference
 ** 第 7 条：避免使用终结方法
+- 如题
 * 第 3 章 对于所有对象都通用的方法
 ** 第 8 条：覆盖 equals 时请遵守通用约定
+- 这个 IDE 会帮你, 有一些原则
+- 非空, reflexive (自反), symmetric (对称), transitive (传递性), consistent (一致性)
+- TODO liskov substitution principle
 ** 第 9 条：覆盖 equals 时总要覆盖 hashCode
+- equals 的东西, hashCode 应当一致
+- hashCode 一致的 object, 不一定 equals
+- 小心计算 hashCode 时候偷懒可能引起的性能问题, 比如 string 的 hashCode 以前用的是前 16 个字符 (Java 1.2 以前), 这样用来放 url 就严重地冲突了
 ** 第 10 条：始终要覆盖 toString
+- 如题
 ** 第 11 条：谨慎地覆盖 clone
+- 写成 VO 最好
+- 提供 from 函数最好
+- 用 copy ctor 也不错
+- clone 大多数情况写没必要
+- 不要试图实现这个接口, 麻烦死
 ** 第 12 条：考虑实现 Comparable 接口
+- 泛型函数可能用到
+- 其实看情况, 我觉得没必要实现, 因为 sort (举个例子) 的时候, 每次用到的 compare 原则可能不一样啊, 临时写一个也行的
+- o1 < o2 / o1.compareTo(o2) < 0, 会升序排列
 * 第 4 章 类和接口
 ** 第 13 条：使类和成员的可访问性最小化
+- information hiding / encapsulation
 ** 第 14 条：在公有类中使用访问方法而非公有域
 ** 第 15 条：使可变性最小化
 ** 第 16 条：复合优先于继承

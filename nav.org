@@ -3,7 +3,8 @@
 ** Meta Notes
 - [[./00001-emacs-org-mode.org][Emacs/Org-mode Notes]]
 ** Books
-- [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]]
+- DONE: [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]]
+- DONE: [[./00004-domain-specific-languages.org][Domain Specific Languages]]
 - [[./00003-effective-java.org][Effective Java]]
-- [[./00004-domain-specific-languages.org][Domain Specific Languages]]
+- [[./00005-dont-make-me-think.org][Don't Make Me Think]]
 - [[./00001-combo-001.org][Combo #1]]
