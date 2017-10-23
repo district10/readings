@@ -13,7 +13,8 @@
     - markdown 多加空行, e.g. 在块元素前后加空行 (但不能有连续空行)
     - org-mode 少加空行, e.g. 在块元素前后不加空行 (能少则少, 不同 chap/sec/subsec 之间也不加空行)
 
-      Why? 因为 org-mode 的折叠可能会把空行折叠进去, 也可能不. 这样很不 consistent. 所以直接去掉.
+      Why? 因为 org-mode 的折叠可能会把空行折叠进去, 也可能不. 这样很
+      不 consistent. 所以直接去掉.
 * TODO Methodology
 #+BEGIN_QUOTE
   有困难解决困难。没有困难创造困难，然后解决困难。
@@ -23,12 +24,17 @@
 ** Deliberate Practice
 * TODO MISC
 ** Code Reading
-- https://github.com/4ker/JavaAOP ::
+- DONE https://github.com/4ker/JavaAOP ::
   AOP 的一个实现, 大致逻辑是:
   + 用 Java 的反射功能可以拿到一个对象的 method 和 field (还可以包括继承来的)
   + 然后用 Java 的 Proxy 给原来的对象封装一层, 在函数调用的时候插入逻辑
   + 插入的逻辑标记在 annotation 里面
-- https://github.com/4ker/gradle-build-scan-quickstart ::
+- DONE https://github.com/4ker/gradle-build-scan-quickstart ::
   内容主要有:
   + gradle 相关命令
   + groovy 语法
+- TODO https://github.com/4ker/Photo-Sphere-Viewer ::
+  Photo Sphere Viewer is a JavaScript library that allows you to
+  display 360×180 degrees panoramas on any web page. Panoramas must
+  use the equirectangular projection and can be taken with the Google
+  Camera, the Ricoh Theta or any 360° camera.
