@@ -1,0 +1,46 @@
+#+TITLE: Book Reading Combo #1
+#+SETUPFILE: theme.setup
+#+INCLUDE: ./nav.org
+
+* https://github.com/4ker/Photo-Sphere-Viewer
+* https://guide.freecodecamp.org/
+** JavaScript
+- 'let' has block scope, 'const' is const
+- default parameters
+- break, continue, continue with label 我不觉得这是很好的特性, pass
+- Array.prototype
+  + concat, filter, forEach, find, includes,
+  + indexOf, lastIndexOf, map, pop, push, reduce, reduceRight,
+  + reverse, shift (shift to the left)
+  + every
+    - if callback return false, then stop and return false
+    - not mutating the array
+    - callback(element, index, array)
+  + some,
+  + sort,
+  + splice, TODO
+- map, 顾名思义就可以用
+  + clear,
+  + forEach,
+  + size,
+  + get,
+  + set,
+  + delete,
+  + has,
+  + entries,
+  + keys,
+  + values,
+- object
+  + keys
+  + hasOwnProperty
+- promise TODO
+- RegExp TODO
+- string
+  + fromCharCode
+  + prototpy
+    - concot
+    - indexOf
+    - replace
+    - repeat
+    - slice
+** Java

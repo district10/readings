@@ -30,11 +30,31 @@
   + 然后用 Java 的 Proxy 给原来的对象封装一层, 在函数调用的时候插入逻辑
   + 插入的逻辑标记在 annotation 里面
 - DONE https://github.com/4ker/gradle-build-scan-quickstart ::
+  + 很多有用的文档:
+    - Learn groovy in y minutes ::
+      + https://github.com/adambard/learnxinyminutes-docs/blob/master/groovy.html.markdown
+      + IntelliJ: Tools -- Groovy Console
+      + [l, i, s, t], [m: a, p: map]
+      + {function block}
   内容主要有:
   + gradle 相关命令
   + groovy 语法
+    #+BEGIN_SRC shell
+      gradle tasks
+      gradle help --task checkStyleMain
+      gradle properties
+    #+END_SRC
 - TODO https://github.com/4ker/Photo-Sphere-Viewer ::
   Photo Sphere Viewer is a JavaScript library that allows you to
   display 360×180 degrees panoramas on any web page. Panoramas must
   use the equirectangular projection and can be taken with the Google
   Camera, the Ricoh Theta or any 360° camera.
+- TODO https://github.com/4ker/gtor ::
+  https://github.com/kriskowal/gtor/blob/master/presentation/README.md
+- DONE https://github.com/kriskowal/q ::
+  这个文档很赞. 可以多读几遍.
+- TODO https://github.com/reactnativecn/react-native-guide ::
+  ing
+    [[http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html][Flex 布局教程：语法篇]]
+- TODO [[https://book.douban.com/subject/10745151/][Async JavaScript (豆瓣)]]
+- [[http://paperjs.org/][Paper.js]], THREE.js, [[https://github.com/callemall/material-ui][callemall/material-ui: React Components that Implement Google's Material Design.]]
