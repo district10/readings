@@ -58,3 +58,4 @@
     [[http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html][Flex 布局教程：语法篇]]
 - TODO [[https://book.douban.com/subject/10745151/][Async JavaScript (豆瓣)]]
 - [[http://paperjs.org/][Paper.js]], THREE.js, [[https://github.com/callemall/material-ui][callemall/material-ui: React Components that Implement Google's Material Design.]]
+- [[https://github.com/mishoo/UglifyJS2][mishoo/UglifyJS2: JavaScript parser / mangler / compressor / beautifier toolkit]]
