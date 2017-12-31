@@ -1,4 +1,4 @@
-;; Usage: ln ~/git/readings/.emacs .emacs
+;; Usage: rm ~/.emacs; ln ~/git/readings/.emacs ~/.emacs
 
 ;; How to Install Package? (if not sure, better check out EmacsWiki)
 ;;      M-x package-refresh-contents
@@ -111,6 +111,8 @@
                              "~/Documents/GoogleDriveSync/review.org"))
 (setq org-src-fontify-natively t
       org-confirm-babel-evaluate nil)
+;; change font size: c-x c-+, c-x c-- (then press '+', '-', '0')
+
 (setq org-ditaa-jar-path "~/git/readings/vendor/ditaa0_9.jar")
 (setq org-plantuml-jar-path "~/git/readings/vendor/plantuml.1.2017.16.jar")
 (require 'ob)
@@ -132,7 +134,7 @@
 (setq org-confirm-babel-evaluate nil)
 (add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
 
-;; < p TAB to expand
+;; <p TAB to expand
 (add-to-list 'org-structure-template-alist
              (list "p" (concat ":PROPERTIES:\n"
                                "?\n"

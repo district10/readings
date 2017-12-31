@@ -8,8 +8,13 @@ Just make myself noting easily.
 Clone this repo, install Emacs 25+, then create soft link:
 
 ```
-$ ln ~/git/readings/.emacs .emacs
+$ rm ~/.emacs; ln ~/git/readings/.emacs ~/.emacs
 ```
+
+Tips:
+
+- option-x: org-html-export-to-html
+- c-x c-[+,-] to increase/descrease font size
 
 ---
 
