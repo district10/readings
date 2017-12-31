@@ -15,6 +15,7 @@ Tips:
 
 - option-x: org-html-export-to-html
 - c-x c-[+,-] to increase/descrease font size
+- <s TAB, c-c ' to edit code
 
 ---
 
