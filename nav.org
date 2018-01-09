@@ -9,3 +9,4 @@
 - [[./00005-dont-make-me-think.org][Don't Make Me Think]]
 - [[./00001-combo-001.org][Combo #1]]
 - [[./00006-combo-002.org][Combo #2]]
+- [[./00007-clean-code.html][Clean Code]]
