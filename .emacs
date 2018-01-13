@@ -111,7 +111,9 @@
                              "~/Documents/GoogleDriveSync/review.org"))
 (setq org-src-fontify-natively t
       org-confirm-babel-evaluate nil)
-;; change font size: c-x c-+, c-x c-- (then press '+', '-', '0')
+;; change font size:
+;;     - c-+, c--
+;;     - c-x c-+, c-x c-- (then press '+', '-', '0')
 
 (setq org-ditaa-jar-path "~/git/readings/vendor/ditaa0_9.jar")
 (setq org-plantuml-jar-path "~/git/readings/vendor/plantuml.1.2017.16.jar")
