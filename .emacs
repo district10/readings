@@ -7,6 +7,11 @@
 (setq user-full-name "TANG ZhiXiong")
 (setq user-mail-address "tang.zhi.xiong@qq.com")
 
+(require 'package)
+(setq package-archives '(("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+                         ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")))
+(package-initialize)
+
 (setq inhibit-startup-screen t)
 (setq make-backup-files nil)
 (require 'linum)
@@ -58,10 +63,10 @@
 (global-set-key (kbd "C-x C-M-g") 'keyboard-quit)
 (global-set-key (kbd "C-+") 'text-scale-increase)
 (global-set-key (kbd "C--") 'text-scale-decrease)
+;; change font size:
+;;     - c-+, c--
+;;     - c-x c-+, c-x c-- (then press '+', '-', '0')
 
-(require 'package)
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(package-initialize)
 (custom-set-variables
  ;; custom-set-variables was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -111,9 +116,6 @@
                              "~/Documents/GoogleDriveSync/review.org"))
 (setq org-src-fontify-natively t
       org-confirm-babel-evaluate nil)
-;; change font size:
-;;     - c-+, c--
-;;     - c-x c-+, c-x c-- (then press '+', '-', '0')
 
 (setq org-ditaa-jar-path "~/git/readings/vendor/ditaa0_9.jar")
 (setq org-plantuml-jar-path "~/git/readings/vendor/plantuml.1.2017.16.jar")

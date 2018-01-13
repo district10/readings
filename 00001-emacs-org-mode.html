@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Emacs/Org-mode Notes</title>
-<!-- 2017-10-03 Tue 13:57 -->
+<!-- 2018-01-13 Sat 13:21 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="TANG ZhiXiong" />
@@ -103,7 +103,7 @@
 <script type="text/javascript" src="javascript/hideshow.js"></script>
 <script type="text/javascript" src="javascript/highlight.min.js"></script>
 <script type="text/javascript" src="javascript/main.js"></script>
-<script type="text/javascript">$(function(){ addLinkToSource().useHtmlRef().navToSecondTab(); });</script>
+<script type="text/javascript">$(function(){ addSourceLink().useHtmlRef().navToSecondTab(); });</script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -243,19 +243,20 @@ for the JavaScript code in this tag.
 <li><a href="#sec-6-6">6.6. Version Control</a></li>
 </ul>
 </li>
-<li><a href="#sec-7">7. Extras</a>
+<li><a href="#sec-7">7. GTD</a></li>
+<li><a href="#sec-8">8. Extras</a>
 <ul>
-<li><a href="#sec-7-1">7.1. Hotkeys (c -&gt; f,b,u)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="best">best</span>&#xa0;<span class="orgmode">orgmode</span></span></a></li>
-<li><a href="#sec-7-2">7.2. Special SRC: Images</a></li>
-<li><a href="#sec-7-3">7.3. Draw Images</a>
+<li><a href="#sec-8-1">8.1. Hotkeys (c -&gt; f,b,u)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="best">best</span>&#xa0;<span class="orgmode">orgmode</span></span></a></li>
+<li><a href="#sec-8-2">8.2. Special SRC: Images</a></li>
+<li><a href="#sec-8-3">8.3. Draw Images</a>
 <ul>
-<li><a href="#sec-7-3-1">7.3.1. <span class="todo TODO">TODO</span> code snippets</a></li>
-<li><a href="#sec-7-3-2">7.3.2. <span class="todo TODO">TODO</span> draw images</a></li>
+<li><a href="#sec-8-3-1">8.3.1. <span class="todo TODO">TODO</span> code snippets</a></li>
+<li><a href="#sec-8-3-2">8.3.2. <span class="todo TODO">TODO</span> draw images</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-8">8. 配置 Emacs</a></li>
+<li><a href="#sec-9">9. 配置 Emacs</a></li>
 </ul>
 </div>
 </div>
@@ -280,11 +281,19 @@ for the JavaScript code in this tag.
 <h3 id="sec-1-2"><span class="section-number-3">1.2</span> Books</h3>
 <div class="outline-text-3" id="text-1-2">
 <ul class="org-ul">
-<li><a href="./00002-javascript-the-good-parts.html">JavaScript: The Good Parts</a>
+<li>DONE: <a href="./00002-javascript-the-good-parts.html">JavaScript: The Good Parts</a>
+</li>
+<li>DONE: <a href="./00004-domain-specific-languages.html">Domain Specific Languages</a>
 </li>
 <li><a href="./00003-effective-java.html">Effective Java</a>
 </li>
-<li><a href="./00004-domain-specific-languages.html">Domain Specific Languages</a>
+<li><a href="./00005-dont-make-me-think.html">Don't Make Me Think</a>
+</li>
+<li><a href="./00001-combo-001.html">Combo #1</a>
+</li>
+<li><a href="./00006-combo-002.html">Combo #2</a>
+</li>
+<li><a href="./00007-clean-code.html">Clean Code</a>
 </li>
 </ul>
 </div>
@@ -318,20 +327,20 @@ for the JavaScript code in this tag.
 </li>
 <li>run cmd: <code>M-!</code>, or <code>ESC !</code>
 </li>
-<li>=M-h=: mark paragraph, 超级好用!!!
+<li><code>M-h</code> : mark paragraph, 超级好用!!!
 </li>
-<li><code>M-h M-| tr -d ' ' RET=: (shell-command-on-region) sort &amp; output to mini buffer
-    比如 =M-h M-| wc -c</code> 可以统计字符数目。
+<li><code>M-h M-| tr -d ' ' RET</code> : (shell-command-on-region) sort &amp; output to mini buffer
+比如 <code>M-h M-| wc -c</code> 可以统计字符数目。
 </li>
-<li><code>C-u ESC ! date +%s RET=: 1454333299, 就像 Vim 里的 =:r!date +%s</code>
+<li><code>C-u ESC ! date +%s RET</code> : 1454333299, 就像 Vim 里的 <code>:r!date +%s</code>
 </li>
 <li>综上,
 <ul class="org-ul">
-<li><b><code>M-!</code> (exclamation 对比 execute)是 shell 脚本</b>
+<li><code>M-!</code> <b>(exclamation 对比 execute)是 shell 脚本</b>
 </li>
-<li><b><code>M-&amp;</code> (ampersand 对比 async) 是异步的</b>
+<li><code>M-&amp;</code> <b>(ampersand 对比 async) 是异步的</b>
 </li>
-<li><b><code>M-|</code> (bar 对比 buffer) 会把选中的 region 重定向作为输入</b>
+<li><code>M-|</code> <b>(bar 对比 buffer) 会把选中的 region 重定向作为输入</b>
 </li>
 </ul>
 </li>
@@ -364,35 +373,35 @@ for the JavaScript code in this tag.
 <li><code>i</code> 和 <code>RET</code> 不一样。=i= 是在当前 dired buffer 里打开子目录,
 而 <code>ENTER</code> 是新建一个 新建一个 buffer 打开
 </li>
-<li><code>Z=: compressing &amp; uncompressing (in place),
-    =(auto-compression-mode)</code> (这个命令太粗暴)
+<li><code>Z</code> : compressing &amp; uncompressing (in place),
+<code>(auto-compression-mode)</code> (这个命令太粗暴)
 </li>
-<li><code>!=: execute command, e.g. =!sort</code>, <code>!sort * &gt; output</code>, <code>*</code> 是当前选中的文件的文件名
+<li><code>!</code> : execute command, e.g. <code>!sort</code>, <code>!sort * &gt; output</code>, <code>*</code> 是当前选中的文件的文件名
 </li>
-<li><code>#=: flag emacs autosaved file, 类似 =#filename#</code>, 方便地处理 Emacs 自己的"垃圾",
+<li><code>#</code> : flag emacs autosaved file, 类似 <code>#filename#</code>, 方便地处理 Emacs 自己的"垃圾",
 同理还有 <code>~</code> 文件
 </li>
-<li>=dpu=: delete, up, undo (撤销删除标记)
+<li><code>dpu</code> : delete, up, undo (撤销删除标记)
 </li>
 <li>几中标记
 </li>
-<li>=**=: mark executable, 这几个 mark 很有意思
+<li><code>**</code> : mark executable, 这几个 mark 很有意思
 </li>
-<li>=*/=: mark dir
+<li><code>*/</code> : mark dir
 </li>
-<li>=*@=: mark symbolic
+<li><code>*@</code> : mark symbolic
 </li>
-<li>=%m=: mark reg match files (filename), 按照文件名 reg 择取
+<li><code>%m</code> : mark reg match files (filename), 按照文件名 reg 择取
 </li>
-<li>=%g=: mark reg match files (file content), 按照内容 reg 择取, 这个太刁
+<li><code>%g</code> : mark reg match files (file content), 按照内容 reg 择取, 这个太刁
 </li>
-<li><code>+=: create dir, 新建目录, 好像没有 create file 的命令, 可以考虑用 =!touch file</code>
+<li><code>+</code> : create dir, 新建目录, 好像没有 create file 的命令, 可以考虑用 <code>!touch file</code>
 </li>
-<li>=R=: multiple files? then mv (to a dir)
+<li><code>R</code> : multiple files? then mv (to a dir)
 </li>
-<li>=M-x print-buffer=: send to printer (好像没什么用&#x2026;)
+<li><code>M-x print-buffer</code> : send to printer (好像没什么用&#x2026;)
 </li>
-<li>=M-x man=: man page
+<li><code>M-x man</code> : man page
 </li>
 <li>别看多，其实都是简单的内容。
 </li>
@@ -406,19 +415,19 @@ for the JavaScript code in this tag.
 </li>
 <li><b><code>C-h {a, c/k, f, v, i, m}</code> 帮助!!! Emacs 必知必会.</b>
 <ol class="org-ol">
-<li>*a*: search for command
+<li><b>a</b> : search for command
 </li>
-<li>*c*: describe key briefly
+<li><b>c</b> : describe key briefly
 </li>
-<li>*k*: describe key
+<li><b>k</b> : describe key
 </li>
-<li>*f*: describe function
+<li><b>f</b> : describe function
 </li>
-<li>*v*: describe varible
+<li><b>v</b> : describe varible
 </li>
-<li>*i*: info doc
+<li><b>i</b> : info doc
 </li>
-<li>*m*: describe mode
+<li><b>m</b> : describe mode
 </li>
 </ol>
 </li>
@@ -434,7 +443,7 @@ for the JavaScript code in this tag.
 <li><code>{C,M}-{f/b}</code> (char, word), <code>{C,M}-{a/e}</code> (line, sentence), <code>{C,M}-{n/p}</code> (line, ?), <b>M 比 C 层次更粗/高</b>
 </li>
 <li>鉴于你是用的是 neo 键盘布局， <code>C-{f/b}</code> （等于 <code>left/right</code> ）和 <code>C-{a/e}</code> （等于 <code>home/end</code> ）没什么卵用。
-而且，你用了 evil-mode 后，用 vim 的特性就行。如果不知道自己的键绑定是怎样的，用 <code>C-h c</code> 来查看。
+而且，你用了 evil-mode 后，用 vim 的特性就行。 <b>如果不知道自己的键绑定是怎样的，用 <code>C-h c</code> 来查看。</b>
 </li>
 <li><code>M-{f/b}</code> 移动单词倒是可以，不过相比 <code>C-left/right</code> 也没啥优势。
 </li>
@@ -532,6 +541,59 @@ found so far at any choice point along the path in the
 </blockquote>
 </li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-org">*** Basic Emphasis
+- *加粗*
+- /斜体/
+- _下划线_
+- ~代码~
+- =verbatim=
+- +删除+
+- 定义
+    + \alpha :: the utility of the best (highest-value) choice we have
+            found so far at any choice point along the path in the
+            "max" mode of minimax
+    + \beta :: the utility of the best (lowest-value) choice for the
+            "min" mode of minimax
+- [[http://orgmode.org][超链接]] (font-lock-mode), (org-toggle-link-display)
+
+    [[https://emacs.stackexchange.com/questions/5387/show-org-mode-hyperlink-as-plain-text/5390#5390?newreg%3Db7ea4e63da8f488eb517fda77f4561b6][Show org-mode hyperlink as plain text]]
+
+    用 =C-[c l]= 来插入链接。
+- 引用
+    #+BEGIN_QUOTE
+    绝望之为虚妄, 正与希望相同.
+                    --- 鲁迅
+    #+END_QUOTE
+
+- *加粗*
+- /斜体/
+- _下划线_
+- ~代码~
+- =verbatim=
+- +删除+
+- 定义
+    + \alpha :: the utility of the best (highest-value) choice we have
+            found so far at any choice point along the path in the
+            "max" mode of minimax
+    + \beta :: the utility of the best (lowest-value) choice for the
+            "min" mode of minimax
+- [[http://orgmode.org][超链接]] (font-lock-mode), (org-toggle-link-display)
+
+    [[https://emacs.stackexchange.com/questions/5387/show-org-mode-hyperlink-as-plain-text/5390#5390?newreg%3Db7ea4e63da8f488eb517fda77f4561b6][Show org-mode hyperlink as plain text]]
+
+    用 =C-[c l]= 来插入链接。
+- 引用
+    #+BEGIN_QUOTE
+    绝望之为虚妄, 正与希望相同.
+                    --- 鲁迅
+    #+END_QUOTE
+</pre>
+</div>
+<p>
+插入 org 代码: <code>&lt;s&lt;TAB&gt;</code> 然后输入 org, 然后 <code>c-c '</code>
+</p>
 </div>
 </div>
 <div id="outline-container-sec-2-2-2" class="outline-4">
@@ -617,7 +679,7 @@ the same thing.
 <div class="org-src-container">
 
 <pre class="src src-python">for i in range(1,100):
-    print "i = ", i
+    print ("i = ", i)
 </pre>
 </div>
 
@@ -656,6 +718,22 @@ the same thing.
 <li>用 <code>(ref:h)</code> 开头的 ref 来常亮一行.
 </li>
 </ul>
+<div class="org-src-container">
+
+<pre class="src src-org">#+BEGIN_SRC c -n -r
+  #include &lt;stdio.h&gt;
+
+<span id="coderef-argv" class="coderef-off">  int main( int argc, char **argv) (argv)</span>
+  {
+<span id="coderef-h1" class="coderef-off">      int a = atoi( argv[1] ); (h1)</span>
+<span id="coderef-h2" class="coderef-off">      int b = atoi( argv[2] ); (h2)</span>
+<span id="coderef-h3" class="coderef-off">      printf( "a + b = %d + %d = %d\n", a, b, a+b ); (h3)</span>
+      return 0;
+  }
+#+END_SRC
++ [[(argv)][第 (argv) 行]] 的 ~argc~ 是 count of args (arguments), ~argv~ 是 arguments 数组.
+</pre>
+</div>
 </div>
 </li></ol>
 </div>
@@ -723,6 +801,15 @@ n/2,  & \text{if \(n\) is even} \\
 <p><img src="./images/lena.jpg" alt="lena.jpg" />
 </p>
 </div>
+</div>
+<div class="org-src-container">
+
+<pre class="src src-org">#+BEGIN_CENTER
+
+#+BEGIN_CENTER
+[[./images/lena.jpg]]
+#+END_CENTER
+</pre>
 </div>
 </div>
 </div>
@@ -1184,11 +1271,28 @@ entry，否则是上面。
 </div>
 </div>
 <div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> Extras</h2>
+<h2 id="sec-7"><span class="section-number-2">7</span> GTD</h2>
 <div class="outline-text-2" id="text-7">
-</div><div id="outline-container-sec-7-1" class="outline-3">
-<h3 id="sec-7-1"><span class="section-number-3">7.1</span> Hotkeys (c -&gt; f,b,u)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="best">best</span>&#xa0;<span class="orgmode">orgmode</span></span></h3>
-<div class="outline-text-3" id="text-7-1">
+<ul class="org-ul">
+<li><code>c-[c x i]</code> : check in time
+</li>
+<li><code>c-[c x o]</code> : check out time
+</li>
+<li><code>c-[c x e]</code> : edit effort
+</li>
+<li><code>c-[c x j]</code> : goto clock!
+</li>
+<li><code>c-[c x r]</code> : time expense report
+</li>
+</ul>
+</div>
+</div>
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><span class="section-number-2">8</span> Extras</h2>
+<div class="outline-text-2" id="text-8">
+</div><div id="outline-container-sec-8-1" class="outline-3">
+<h3 id="sec-8-1"><span class="section-number-3">8.1</span> Hotkeys (c -&gt; f,b,u)&#xa0;&#xa0;&#xa0;<span class="tag"><span class="best">best</span>&#xa0;<span class="orgmode">orgmode</span></span></h3>
+<div class="outline-text-3" id="text-8-1">
 <ul class="org-ul">
 <li><a href="http://orgmode.org/orgcard.pdf">Org-mode Cheatsheet</a>
 </li>
@@ -1275,9 +1379,13 @@ aoeit aoientr
 ** Meta Notes
 - [[./00001-emacs-org-mode.org][Emacs/Org-mode Notes]]
 ** Books
-- [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]]
+- DONE: [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]]
+- DONE: [[./00004-domain-specific-languages.org][Domain Specific Languages]]
 - [[./00003-effective-java.org][Effective Java]]
-- [[./00004-domain-specific-languages.org][Domain Specific Languages]]
+- [[./00005-dont-make-me-think.org][Don't Make Me Think]]
+- [[./00001-combo-001.org][Combo #1]]
+- [[./00006-combo-002.org][Combo #2]]
+- [[./00007-clean-code.html][Clean Code]]
 </pre>
 </div>
 </li>
@@ -1319,9 +1427,9 @@ I   #+INCLUDE: line
 </ul>
 </div>
 </div>
-<div id="outline-container-sec-7-2" class="outline-3">
-<h3 id="sec-7-2"><span class="section-number-3">7.2</span> Special SRC: Images</h3>
-<div class="outline-text-3" id="text-7-2">
+<div id="outline-container-sec-8-2" class="outline-3">
+<h3 id="sec-8-2"><span class="section-number-3">8.2</span> Special SRC: Images</h3>
+<div class="outline-text-3" id="text-8-2">
 <div class="org-src-container">
 
 <pre class="src src-dot">digraph G {
@@ -1391,20 +1499,20 @@ I   #+INCLUDE: line
 </div>
 </div>
 </div>
-<div id="outline-container-sec-7-3" class="outline-3">
-<h3 id="sec-7-3"><span class="section-number-3">7.3</span> Draw Images</h3>
-<div class="outline-text-3" id="text-7-3">
-</div><div id="outline-container-sec-7-3-1" class="outline-4">
-<h4 id="sec-7-3-1"><span class="section-number-4">7.3.1</span> <span class="todo TODO">TODO</span> code snippets</h4>
-<div class="outline-text-4" id="text-7-3-1">
+<div id="outline-container-sec-8-3" class="outline-3">
+<h3 id="sec-8-3"><span class="section-number-3">8.3</span> Draw Images</h3>
+<div class="outline-text-3" id="text-8-3">
+</div><div id="outline-container-sec-8-3-1" class="outline-4">
+<h4 id="sec-8-3-1"><span class="section-number-4">8.3.1</span> <span class="todo TODO">TODO</span> code snippets</h4>
+<div class="outline-text-4" id="text-8-3-1">
 <p>
 <a href="http://orgmode.org/worg/org-contrib/babel/languages.html">Babel Languages: emacs-lisp, C, awk, etc</a>
 </p>
 </div>
 </div>
-<div id="outline-container-sec-7-3-2" class="outline-4">
-<h4 id="sec-7-3-2"><span class="section-number-4">7.3.2</span> <span class="todo TODO">TODO</span> draw images</h4>
-<div class="outline-text-4" id="text-7-3-2">
+<div id="outline-container-sec-8-3-2" class="outline-4">
+<h4 id="sec-8-3-2"><span class="section-number-4">8.3.2</span> <span class="todo TODO">TODO</span> draw images</h4>
+<div class="outline-text-4" id="text-8-3-2">
 <div class="org-src-container">
 
 <pre class="src src-ditaa">/-------------+-------------\
@@ -1439,15 +1547,15 @@ Alice -&gt;&gt; Bob: asynchronous call
 </div>
 </div>
 </div>
-<div id="outline-container-sec-8" class="outline-2">
-<h2 id="sec-8"><span class="section-number-2">8</span> 配置 Emacs</h2>
-<div class="outline-text-2" id="text-8">
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9"><span class="section-number-2">9</span> 配置 Emacs</h2>
+<div class="outline-text-2" id="text-9">
 <p>
 我的 <code>.emacs</code> 文件：
 </p>
 <div class="org-src-container">
 
-<pre class="src src-emacs-lisp">;; Usage: ln ~/git/readings/.emacs .emacs
+<pre class="src src-emacs-lisp">;; Usage: rm ~/.emacs; ln ~/git/readings/.emacs ~/.emacs
 
 ;; How to Install Package? (if not sure, better check out EmacsWiki)
 ;;      M-x package-refresh-contents
@@ -1560,6 +1668,10 @@ Alice -&gt;&gt; Bob: asynchronous call
                              "~/Documents/GoogleDriveSync/review.org"))
 (setq org-src-fontify-natively t
       org-confirm-babel-evaluate nil)
+;; change font size:
+;;     - c-+, c--
+;;     - c-x c-+, c-x c-- (then press '+', '-', '0')
+
 (setq org-ditaa-jar-path "~/git/readings/vendor/ditaa0_9.jar")
 (setq org-plantuml-jar-path "~/git/readings/vendor/plantuml.1.2017.16.jar")
 (require 'ob)
@@ -1581,11 +1693,19 @@ Alice -&gt;&gt; Bob: asynchronous call
 (setq org-confirm-babel-evaluate nil)
 (add-to-list 'org-src-lang-modes (quote ("plantuml" . fundamental)))
 
-;; &lt; p TAB to expand
+;; &lt;p TAB to expand
 (add-to-list 'org-structure-template-alist
              (list "p" (concat ":PROPERTIES:\n"
                                "?\n"
                                ":END:")))
+
+;; capture
+(global-set-key (kbd "C-c c ") 'org-capture)
+(setq org-capture-templates
+      '(("t" "Todo" entry (file+headline "~/git/org/gtd.org" "Tasks")
+         "* TODO %?\n %i\n %a")
+        ("j" "Journal" entry (file+datetree "~/git/org/journal.org")
+         "* %?\nEntered on %U\n %i\n %a")))
 </pre>
 </div>
 </div>
@@ -1593,7 +1713,7 @@ Alice -&gt;&gt; Bob: asynchronous call
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: TANG ZhiXiong</p>
-<p class="date">Created: 2017-10-03 Tue 13:57</p>
+<p class="date">Created: 2018-01-13 Sat 13:21</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.3.1 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
