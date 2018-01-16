@@ -2,6 +2,22 @@
 #+SETUPFILE: theme.setup
 #+INCLUDE: ./nav.org
 
+* Quick Q&A
+- save file: c-x c-s
+- open/create file: c-x c-f
+- edit openned file (buffer): c-x b, c-x c-b
+- expand/collapse: tab, shift-tab
+- goto header: c-c c-b/f/u
+- add item: c-enter, alt-enter
+- create link: c-c c-l
+- add code block: =<s<TAB>=, java, c-c '
+- add file path: alt-]
+- toggle raw input: alt-x toggle-font-lock
+- hide, summary, fold: {{{, begin-hide, end-hide, }}}
+- bookmark helper: add to boorkmark url
+  #+BEGIN_SRC html
+    javascript:(function(){prompt('','[['+location.href +']['+document.title.replace(/ [-,|].*$/,'')+']]')})()
+  #+END_SRC
 * Basics
 ** Emacs Basics
 1. =C-[x f]= (find-file), =C-[x v]= (find-alternate-file), 如果你

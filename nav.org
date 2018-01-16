@@ -3,10 +3,21 @@
 ** Meta Notes
 - [[./00001-emacs-org-mode.org][Emacs/Org-mode Notes]]
 ** Books
-- DONE: [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]]
-- DONE: [[./00004-domain-specific-languages.org][Domain Specific Languages]]
-- [[./00003-effective-java.org][Effective Java]]
-- [[./00005-dont-make-me-think.org][Don't Make Me Think]]
-- [[./00001-combo-001.org][Combo #1]]
-- [[./00006-combo-002.org][Combo #2]]
-- [[./00007-clean-code.html][Clean Code]]
+*** DONE [[./00001-combo-001.org][Combo #1]]
+**** DONE 金字塔原理
+**** TODO Beast Machines: Transformers (cartoon)
+**** DONE 论持久战
+**** DONE 一看就懂的经济常识全图解
+**** DONE 刻意练习
+**** DONE 系统之美
+**** DONE 邓小平时代
+*** INPROGRESS [[./00006-combo-002.org][Combo #2]]
+**** DONE 新经济, 新规则 (Kevin Kelly)
+**** DONE 麦肯锡问题解决方法与技巧
+*** DONE [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]]
+*** DONE [[./00004-domain-specific-languages.org][Domain Specific Languages]]
+*** INPROGRESS [[./00003-effective-java.org][Effective Java]]
+*** DONE [[./00005-dont-make-me-think.org][Don't Make Me Think]]
+*** DONE [[./00007-clean-code.html][Clean Code]]
+*** INPROGRESS [[./00008-deep-learning.org][Deep Learning]]
+*** INPROGRESS [[./00009-async-javascript.html][Async JavaScript]]

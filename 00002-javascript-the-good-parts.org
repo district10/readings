@@ -86,7 +86,7 @@
 - 四种调用模式
   + The **Method** Invocation Pattern: 方法调用: object 的 (public) method 的调用. this 绑定到了对象.
   + The **Function** Invocation Pattern: 函数调用: ~var sum = add(3,4)~, this 绑定到了全局.
-  + The **Constructor** Invocation Pattern: 构造器调用: ~new Func();~, this 绑定到了 new 出来的对象.
+  + The **Constructor** Invocation Pattern: 构造器调用: ~new Func()~, this 绑定到了 new 出来的对象.
   + The **Apply** Invocation Pattern: apply 调用: ~func.apply(context, arguments)~, this 绑定到了第一个参数.
 ** 参数 / Arguments
 - arguments is 'array-like'
@@ -192,7 +192,7 @@
 - regexp factor, regexp quantifier: x{min,max}
 *** 正则表达式转义 / Regexp Escape
 - \d: digits, \D: non-digits
-- \s: whitespaces, \S: non-whitespaces
+- =\s= : whitespaces, =\S= : non-whitespaces
 - \b: boundry
 - \1: captured group #1
 ** 正则表达式分组 / Regexp Group

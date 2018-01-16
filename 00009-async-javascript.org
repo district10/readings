@@ -1,0 +1,100 @@
+#+TITLE: Async JavaScript / JavaScript Garden / Eloquent JavaScript
+#+SETUPFILE: theme.setup
+#+INCLUDE: ./nav.org
+
+* Async JavaScript
+** Acknowledgments
+Table of Contents
+- Acknowledgments
+- Introduction
+- Understanding JavaScript Events
+- Distributing Events
+- Promises and Deferreds
+- Flow Control with Async.js
+- Multithreading with Workers .
+- Async Script Loading
+- Tools for Taming JavaScript
+** Introduction
+When did JavaScript become a respectable language? Some say the
+turning point was Gmail (2004), which showed the world that with a
+heavy dose of Ajax you could run a first-class email client in the
+browser. Others say that it was jQuery (2006), which abstracted the
+rival browser APIs of the time to create a de facto standard.
+(As of 2011, 48 percent of the top 17,000 websites use jQuery.)
+
+Thanks to the ubiquity of web browsers, JavaScript has come closer
+than any other language to fulfilling Java’s old promise of “write
+once, run any- where.”
+
+In 2007, Jeff Atwood coined Atwood’s law:
+#+BEGIN_QUOTE
+  Any application that can be written in JavaScript will eventually be written in JavaScript.
+#+END_QUOTE
+
+Keywords like ~typeof~, ~arguments~, and ~this~ shouldn't faze you.
+** Understanding JavaScript Events
+*** Scheduling Events
+*** Types of Async Functions
+*** Writing Async Functions
+*** Handling Async Errors
+*** Un-nesting Callbacks
+*** What We've Learned
+** Distributing Events
+*** PubSub
+*** Evented Models
+*** Custom jQuery Events
+*** What We've Learned
+** Promises and Deferreds
+*** A Very Brief History of Promises
+*** Making Promises
+*** Passing Data to Callbacks
+*** Progress Notifications
+*** Combining Promises
+*** Binding to the Future with pipe
+*** jQuery vs. Promises/A
+*** Replacing Callbacks with Promises
+*** What We’ve Learned
+** Flow Control with Async.js
+*** The Async Ordering Problem
+*** Async Collection Methods
+*** Organizing Tasks with Async.js
+*** Dynamic Async Queuing
+*** Minimalist Flow Control with Step
+*** What We’ve Learned
+** Multithreading with Workers .
+*** Web Workers
+*** Node Workers with cluster
+*** What We’ve Learned
+** Async Script Loading
+*** Limitations and Caveats
+*** Reintroducing the <script> Tag
+*** Programmatic Loading
+*** What We’ve Learned
+** Tools for Taming JavaScript A1.1 TameJS
+*** StratifiedJS
+*** Kaffeine
+*** Streamline.js
+*** Node-Fibers
+*** The Future of JavaScript: Generators
+* JavaScript Garden
+http://bonsaiden.github.io/JavaScript-Garden/
+- JavaScript 中所有变量都可以当作对象使用，除了两个例外 null 和 undefined。
+- 删除属性的唯一方法是使用 delete 操作符；设置属性为 undefined 或者 null 并不能真正的删除属性， 而仅仅是移除了属性和值的关联。
+  #+BEGIN_SRC js
+    var obj = {
+        bar: 1,
+        foo: 2,
+        baz: 3
+    };
+    obj.bar = undefined;
+    obj.foo = null;
+    delete obj.baz;
+
+    for(var i in obj) {
+        if (obj.hasOwnProperty(i)) {
+            console.log(i, '' + obj[i]);
+        }
+    }
+  #+END_SRC
+* Eloquent JavaScript
+http://eloquentjavascript.net/

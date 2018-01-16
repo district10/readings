@@ -20,42 +20,567 @@
   有困难解决困难。没有困难创造困难，然后解决困难。
 #+END_QUOTE
 ** Project-based Learning
+学习一定应该是“项目型的学习”（Project-based Learning）以及带着解决问
+题的目标去学习，而这目标必须是某个现实的目标，而不是一种教科书上的编造。
+
+Students learn about a subject by working for an extended period of
+time to investigate and respond to a complex question, challenge, or
+problem. It is a style of active learning and inquiry-based
+learning. PBL contrasts with paper-based, rote memorization, or
+teacher-led instruction that presents established facts or portrays a
+smooth path to knowledge by instead posing questions, problems or
+scenarios.
 ** Structured Thinking
 ** Deliberate Practice
-* TODO MISC
-** Code Reading
-- DONE https://github.com/4ker/JavaAOP ::
-  AOP 的一个实现, 大致逻辑是:
-  + 用 Java 的反射功能可以拿到一个对象的 method 和 field (还可以包括继承来的)
-  + 然后用 Java 的 Proxy 给原来的对象封装一层, 在函数调用的时候插入逻辑
-  + 插入的逻辑标记在 annotation 里面
-- DONE https://github.com/4ker/gradle-build-scan-quickstart ::
-  + 很多有用的文档:
-    - Learn groovy in y minutes ::
-      + https://github.com/adambard/learnxinyminutes-docs/blob/master/groovy.html.markdown
-      + IntelliJ: Tools -- Groovy Console
-      + [l, i, s, t], [m: a, p: map]
-      + {function block}
-  内容主要有:
-  + gradle 相关命令
-  + groovy 语法
-    #+BEGIN_SRC shell
-      gradle tasks
-      gradle help --task checkStyleMain
-      gradle properties
+* Code Reading
+** DONE https://github.com/4ker/JavaAOP
+AOP 的一个实现, 大致逻辑是:
+- 用 Java 的反射功能可以拿到一个对象的 method 和 field (还可以包括继承来的)
+- 然后用 Java 的 Proxy 给原来的对象封装一层, 在函数调用的时候插入逻辑
+- 插入的逻辑标记在 annotation 里面
+** DONE https://github.com/4ker/gradle-build-scan-quickstart
+很多有用的文档:
+_ Learn groovy in y minutes ::
+  + https://github.com/adambard/learnxinyminutes-docs/blob/master/groovy.html.markdown
+  + IntelliJ: Tools -- Groovy Console
+  + [l, i, s, t], [m: a, p: map]
+  + {function block}
+内容主要有:
+(setq-default tab-width 2)
++ gradle 相关命令
++ groovy 语法
+#+BEGIN_SRC shell
+    gradle tasks
+    gradle help --task checkStyleMain
+    gradle properties
+#+END_SRC
+** TODO https://github.com/4ker/Photo-Sphere-Viewer
+Photo Sphere Viewer is a JavaScript library that allows you to display
+360×180 degrees panoramas on any web page. Panoramas must use the
+equirectangular projection and can be taken with the Google Camera,
+the Ricoh Theta or any 360° camera.
+** TODO https://github.com/4ker/gtor
+[[https://github.com/4ker/gtor/blob/master/presentation/README.md]]
+** DONE [[https://github.com/4ker/q]]
+   CLOSED: [2018-01-13 Sat 15:09]
+    CLOCK: [2018-01-13 Sat 14:02]--[2018-01-13 Sat 15:09] =>  1:07
+这个文档很赞. 可以多读几遍.
+*** 啥是 promise
+A promise is an object that represents the return value or the thrown
+exception that the function may eventually provide. A promise can also
+be used as a proxy for a remote object to overcome latency.
+就是一个许诺返回的对象. 当然, 值返回不成功, 就返回一个异常.
+#+BEGIN_SRC js
+  Q.fcall(promisedStep1)
+  .then(promisedStep2)
+  .then(promisedStep3)
+  .then(promisedStep4)
+  .then(function (value4) {
+      // Do something with value4
+  })
+  .catch(function (error) {
+      // Handle any error from all above steps
+  })
+  .done();
+#+END_SRC
+常规使用方法是, 一个 promise 可以 =.then= 来处理.
+then 方法的输入是两个函数, 一个 resolver, 一个 rejector.
+#+BEGIN_SRC js
+  promiseMeSomething()
+      .then(function (value) {
+          ...
+      }, function (reason) {
+          ...
+      });
+#+END_SRC
+而且 then 返回的也是一个 promise, 这样就能不断 propagate 出去. bubble out.
+
+=fail= 是一种 =then(null, resolver)= 的语法糖.
+*** chaining
+#+BEGIN_SRC js
+  // nested chaining
+  return getUsername()
+      .then(function (username) {
+          return getUser(username)
+              .then(function (user) {
+                  // if we get here without an error,
+                  // the value returned here
+                  // or the exception thrown here
+                  // resolves the promise returned
+                  // by the first line
+              })
+      });
+
+  // handler
+  return getUsername()
+      .then(function (username) {
+          return getUser(username);
+      })
+      .then(function (user) {
+          // if we get here without an error,
+          // the value returned here
+          // or the exception thrown here
+          // resolves the promise returned
+          // by the first line
+      });
+
+  // 按情况混用
+  function authenticate() {
+      return getUsername()
+          .then(function (username) {
+              return getUser(username);
+          })
+          // chained because we will not need the user name in the next event
+          .then(function (user) {
+              return getPassword()
+                  // nested because we need both user and password next
+                  .then(function (password) {
+                      if (user.passwordHash !== hash(password)) {
+                          throw new Error("Can't authenticate");
+                      }
+                  });
+          });
+  }
+#+END_SRC
+*** combination
+#+BEGIN_SRC js
+  return Q.all([
+      eventualAdd(2, 2),
+      eventualAdd(10, 20)
+  ]);
+#+END_SRC
+*** sequential
+#+BEGIN_SRC js
+  // 对 initialVal 进行一系列操作, 怎么写?
+  return foo(initialVal).then(bar).then(baz).then(qux);
+
+  // 输入是 initialVal 和 funcs
+  var funcs = [foo, bar, baz, qux];
+
+  // 一般实现
+  var result = Q(initialVal);
+  funcs.forEach(function (f) {
+      result = result.then(f);
+  });
+  return result;
+
+  // 用 reduce
+  return funcs.reduce(function (soFar, f) {
+      return soFar.then(f);
+  }, Q(initialVal));
+
+  // 用 compact 的实现
+  return funcs.reduce(Q.when, Q(initialVal));
+
+  // TODO: check Q.when 是否就是 Q.when = p => p.then
+#+END_SRC
+The when function is the static equivalent for then.
+
+#+BEGIN_SRC js
+  return Q.when(valueOrPromise, function (value) {
+  }, function (error) {
+  });
+#+END_SRC
+*** then end
+#+BEGIN_SRC js
+  // return it
+  return foo()
+      .then(function () {
+          return "bar";
+      });
+
+  // end it
+  return foo()
+      .then(function () {
+          return "bar";
+      });
+  // either return it
+  return foo()
+      .then(function () {
+          return "bar";
+      });
+
+  // or end it
+  foo()
+      .then(function () {
+          return "bar";
+      })
+      .done();
+#+END_SRC
+*** create a promise
+#+BEGIN_SRC js
+  // from a func that returns
+  return Q.fcall(function () {
+      return 10;
+  });
+
+
+  // from a func that throws
+  return Q.fcall(function () {
+      throw new Error("Can't do it");
+  });
+
+  // from a fcall
+  return Q.fcall(eventualAdd, 2, 2);
+#+END_SRC
+*** deferred
+callback to promise:
+#+BEGIN_SRC js
+  // wrap it
+  var deferred = Q.defer();
+  FS.readFile("foo.txt", "utf-8", function (error, text) {
+      if (error) {
+          deferred.reject(new Error(error));
+      } else {
+          deferred.resolve(text);
+      }
+  });
+  return deferred.promise;
+
+  // use it
+  deferred.reject(new Error("Can't do it"));
+#+END_SRC
+*** the promise
+#+BEGIN_SRC js
+  function requestOkText(url) {
+      return Q.Promise(function(resolve, reject, notify) {
+          var request = new XMLHttpRequest();
+
+          request.open("GET", url, true);
+          request.onload = onload;
+          request.onerror = onerror;
+          request.onprogress = onprogress;
+          request.send();
+
+          function onload() {
+              if (request.status === 200) {
+                  resolve(request.responseText);
+              } else {
+                  reject(new Error("Status code was " + request.status));
+              }
+          }
+
+          function onerror() {
+              reject(new Error("Can't XHR " + JSON.stringify(url)));
+          }
+
+          function onprogress(event) {
+              notify(event.loaded / event.total);
+          }
+      });
+  }
+#+END_SRC
+** DONE https://github.com/district10/You-Dont-Need-jQuery
+   CLOSED: [2018-01-13 Sat 15:08]
+#+BEGIN_SRC js
+  // jQuery -------------------------------------------
+  $('selector');
+
+  // Native
+  document.querySelectorAll('selector');
+
+  document.getElementsByClassName('class');
+  document.getElementById('id');
+
+  // jQuery -------------------------------------------
+  $el.css({ color: '#f01' });
+
+  // Native
+  el.style.color = '#f01';
+
+  // jQuery -------------------------------------------
+  $el.addClass(className);
+  $el.removeClass(className);
+  $el.toggleClass(className);
+
+  // Native
+  el.classList.add(className);
+  el.classList.remove(className);
+  el.classList.toggle(className); // 这些东西不是 list 操作.
+
+  // jQuery -------------------------------------------
+  $el.remove();
+
+  // Native
+  el.parentNode.removeChild(el);
+
+  // jQuery -------------------------------------------
+  $el.append('<div id="container">Hello World</div>');
+
+  // Native (HTML string)
+  el.insertAdjacentHTML('beforeend', '<div id="container">Hello World</div>');
+
+  // Native (Element)
+  el.appendChild(newEl);
+
+  // jQuery -------------------------------------------
+  $el.prepend('<div id="container">Hello World</div>');
+
+  // Native (HTML string)
+  el.insertAdjacentHTML('afterbegin', '<div id="container">Hello World</div>');
+
+  // Native (Element)
+  el.insertBefore(newEl, el.firstChild);
+
+  // jQuery -------------------------------------------
+  $(selector).load(url, completeCallback)
+
+  // Native
+  fetch(url).then(data => data.text()).then(data => {
+    document.querySelector(selector).innerHTML = data
+  }).then(completeCallback)
+
+  // jQuery -------------------------------------------
+  $(document).ready(eventHandler);
+
+  // Native
+  // Check if the DOMContentLoaded has already been completed
+  if (document.readyState === 'complete' || document.readyState !== 'loading') {
+    eventHandler();
+  } else {
+    document.addEventListener('DOMContentLoaded', eventHandler);
+  }
+
+  //jQuery
+  $el.clone();
+
+  //Native
+  el.cloneNode();
+
+  //jQuery
+  $el.empty();
+
+  //Native
+  el.innerHTML = '';
+
+  // jQuery -------------------------------------------
+  $('.inner').unwrap();
+
+  // Native
+  Array.prototype.forEach.call(document.querySelectorAll('.inner'), (el) => {
+    Array.prototype.forEach.call(el.childNodes, (child) => {
+      el.parentNode.insertBefore(child, el);
+    });
+    el.parentNode.removeChild(el);
+  });
+
+  //jQuery
+  $('.inner').replaceWith('<div class="outer"></div>');
+
+  //Native
+  Array.prototype.forEach.call(document.querySelectorAll('.inner'),(el) => {
+    const outer = document.createElement("div");
+    outer.className = "outer";
+    el.parentNode.insertBefore(outer, el);
+    el.parentNode.removeChild(el);
+  });
+
+  // jQuery -------------------------------------------
+  $el.on(eventName, eventHandler);
+
+  // Native
+  el.addEventListener(eventName, eventHandler);
+
+  // jQuery -------------------------------------------
+  $(el).trigger('custom-event', {key1: 'data'});
+
+  // Native
+  if (window.CustomEvent) {
+    const event = new CustomEvent('custom-event', {detail: {key1: 'data'}});
+  } else {
+    const event = document.createEvent('CustomEvent');
+    event.initCustomEvent('custom-event', true, true, {key1: 'data'});
+  }
+
+  el.dispatchEvent(event);
+
+  // jQuery -------------------------------------------
+  $.isArray(range);
+
+  // Native
+  Array.isArray(range);
+
+  // jQuery -------------------------------------------
+  $.inArray(item, array);
+
+  // Native
+  array.indexOf(item) > -1;
+
+  // ES6-way
+  array.includes(item);
+
+  // jQuery -------------------------------------------
+  $.extend({}, defaultOpts, opts);
+
+  // Native
+  Object.assign({}, defaultOpts, opts);
+
+  // jQuery -------------------------------------------
+  $.each(array, (index, value) => {
+  });
+
+  // Native
+  array.forEach((value, index) => {
+  });
+
+  // jQuery -------------------------------------------
+  $promise.done(doneCallback).fail(failCallback).always(alwaysCallback)
+
+  // Native
+  promise.then(doneCallback, failCallback).then(alwaysCallback, alwaysCallback)
+  // 这个 hack 也是醉了... 不一样吧. 第二个 then 可能返回了东西的
+
+  // jQuery -------------------------------------------
+  $.when($promise1, $promise2).done((promise1Result, promise2Result) => {
+  });
+
+  // Native
+  Promise.all([$promise1, $promise2]).then([promise1Result, promise2Result] => {});
+
+  // Deferred 是创建 promises 的一种方式。
+  // jQuery -------------------------------------------
+  function asyncFunc() {
+    const defer = new $.Deferred();
+    setTimeout(() => {
+      if(true) {
+        defer.resolve('some_value_computed_asynchronously');
+      } else {
+        defer.reject('failed');
+      }
+    }, 1000);
+
+    return defer.promise();
+  }
+
+  // Native
+  function asyncFunc() {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (true) {
+          resolve('some_value_computed_asynchronously');
+        } else {
+          reject('failed');
+        }
+      }, 1000);
+    });
+  }
+
+  // Deferred way
+  function defer() {
+    const deferred = {};
+    const promise = new Promise((resolve, reject) => {
+      deferred.resolve = resolve;
+      deferred.reject = reject;
+    });
+
+    deferred.promise = () => {
+      return promise;
+    };
+
+    return deferred;
+  }
+
+  function asyncFunc() {
+    const defer = defer();
+    setTimeout(() => {
+      if(true) {
+        defer.resolve('some_value_computed_asynchronously');
+      } else {
+        defer.reject('failed');
+      }
+    }, 1000);
+
+    return defer.promise();
+  }
+#+END_SRC
+** INPROGRESS https://guide.freecodecamp.org/
+*** DONE JavaScript
+    CLOSED: [2018-01-13 Sat 18:25]
+- 'let' has block scope, 'const' is const
+- default parameters
+- break, continue, continue with label 我不觉得这是很好的特性, pass
+- Array.prototype
+  + concat, filter, forEach, find, includes,
+  + indexOf, lastIndexOf, map, pop, push, reduce, reduceRight,
+  + reverse, shift (shift to the left)
+  + every
+    - if callback return false, then stop and return false
+    - not mutating the array
+    - callback(element, index, array)
+  + some,
+  + sort,
+  + slice: [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/slice][Array.prototype.slice()]]
+    #+BEGIN_SRC js
+      var animals = ['ant', 'bison', 'camel', 'duck', 'elephant'];
+
+      console.log(animals.slice(2));
+      // expected output: Array ["camel", "duck", "elephant"]
+
+      console.log(animals.slice(2, 4));
+      // expected output: Array ["camel", "duck"]
+
+      console.log(animals.slice(1, 5));
+      // expected output: Array ["bison", "camel", "duck", "elephant"]
     #+END_SRC
-- TODO https://github.com/4ker/Photo-Sphere-Viewer ::
-  Photo Sphere Viewer is a JavaScript library that allows you to
-  display 360×180 degrees panoramas on any web page. Panoramas must
-  use the equirectangular projection and can be taken with the Google
-  Camera, the Ricoh Theta or any 360° camera.
-- TODO https://github.com/4ker/gtor ::
-  https://github.com/kriskowal/gtor/blob/master/presentation/README.md
-- DONE https://github.com/kriskowal/q ::
-  这个文档很赞. 可以多读几遍.
-- TODO https://github.com/reactnativecn/react-native-guide ::
-  ing
-    [[http://www.ruanyifeng.com/blog/2015/07/flex-grammar.html][Flex 布局教程：语法篇]]
-- TODO [[https://book.douban.com/subject/10745151/][Async JavaScript (豆瓣)]]
-- [[http://paperjs.org/][Paper.js]], THREE.js, [[https://github.com/callemall/material-ui][callemall/material-ui: React Components that Implement Google's Material Design.]]
-- [[https://github.com/mishoo/UglifyJS2][mishoo/UglifyJS2: JavaScript parser / mangler / compressor / beautifier toolkit]]
+  + splice: [[https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice][Array.prototype.splice()]]
+    #+BEGIN_SRC js
+      // syntax:
+      //     array.splice(start[, deleteCount[, item1[, item2[, ...]]]])
+
+      var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+
+      myFish.splice(2, 0, 'drum'); // insert 'drum' at 2-index position
+      // myFish is ["angel", "clown", "drum", "mandarin", "sturgeon"]
+
+      myFish.splice(2, 1); // remove 1 item at 2-index position (that is, "drum")
+      // myFish is ["angel", "clown", "mandarin", "sturgeon"]
+
+      var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      var removed = myFish.splice(-2, 1);
+      // myFish is ["angel", "clown", "sturgeon"]
+      // removed is ["mandarin"]
+
+      var myFish = ['angel', 'clown', 'mandarin', 'sturgeon'];
+      var removed = myFish.splice(2);
+
+      // myFish is ["angel", "clown"]
+      // removed is ["mandarin", "sturgeon"]
+    #+END_SRC
+- map, 顾名思义就可以用
+  + clear,
+  + forEach,
+  + size,
+  + get,
+  + set,
+  + delete,
+  + has,
+  + entries,
+  + keys,
+  + values,
+- object
+  + keys
+  + hasOwnProperty
+- promise TODO
+- RegExp TODO
+- string
+  + fromCharCode
+  + prototpy
+    - concot
+    - indexOf
+    - replace
+    - repeat
+    - slice
+*** SQL
+**** Basic Operations
+- mysql-cli
+- create db
+- create table/view, modify table
+- insert data
+- queries
+- update
+- create index
+**** DataGrip
+- config db
+- open db console, eval script
+- copy insert scripts to file/clipboard
+- set autoincrement

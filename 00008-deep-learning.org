@@ -1,0 +1,7 @@
+#+TITLE: Deep Learning
+#+SETUPFILE: theme.setup
+#+INCLUDE: ./nav.org
+
+* An MIT Press book in preparation
+Ian Goodfellow, Yoshua Bengio and Aaron Courville
+** Lectures
