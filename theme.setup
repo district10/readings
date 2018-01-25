@@ -21,6 +21,8 @@
 
 #+HTML_HEAD: <script type="text/javascript">$(function(){ addSourceLink().useHtmlRef().navToSecondTab(); });</script>
 
+#+HTML_MATHJAX:  path:"https://cdn.bootcss.com/mathjax/2.7.2/latest.js"
+
 #+MACRO: begin-summary #+HTML: <div class="tzx-summary"><strong>Summary</strong>
 #+MACRO: end-summary #+HTML: </div>
 

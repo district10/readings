@@ -54,11 +54,64 @@ _ Learn groovy in y minutes ::
     gradle help --task checkStyleMain
     gradle properties
 #+END_SRC
-** TODO https://github.com/4ker/Photo-Sphere-Viewer
+** INPROGRESS https://github.com/4ker/Photo-Sphere-Viewer
+*** Intro & Compare with Pannellum
 Photo Sphere Viewer is a JavaScript library that allows you to display
 360×180 degrees panoramas on any web page. Panoramas must use the
 equirectangular projection and can be taken with the Google Camera,
 the Ricoh Theta or any 360° camera.
+
+I forked the original Photo Sphere Viewer by Jérémy Heleine to provide
+a better JS architecture and a bunch of new features.
+
+很明确, 是 folk 了别人的代码, 提供了更好的模块化. 所以这个代码值得看.
+
+之前看了另一份代码: https://github.com/mpetroff/pannellum/, 这份代码 star 数量更多,
+但是几乎没啥模块化, 而且去掉了 three.js 的依赖 (我觉得要想不仅仅是全景浏览, three.js 是必要的).
+pannellum (破耐乐目), 接口很有意思, 可以参考, 尤其是用了 Google 街景全景图的指定方式:
+[[https://developers.google.com/streetview/spherical-metadata]].
+
+再有 pannellum 里面给了一个 python 脚本来生成 multires panoramas,
+全 equirectangular 投影不同的是, 这个用了 box projection, 而且每个方形都用了金字塔.
+这个投影很规整. 数据看上去也比较清晰, 而且用 CSS 3D 就能渲染, 挺牛逼.
+
+pannellum 的图片也不错, 都是 svg sprites, 然后用 css 引进来用. 页面做的赏心悦目. 简洁 页面做的赏心悦目. 简洁.
+移动端重力感应和触屏拖拽也处理的很好. 它把自己定位为一个嵌 iframe 的加载器. 可惜.
+
+multires panoramas 文档:
+- https://krpano.com/docu/multires/
+- https://krpano.com/html5multires/ 老师之前给看过这个 45 GB 的全景图, 太清晰
+
+*** Usage
+#+BEGIN_SRC html
+  <link rel="stylesheet" href="Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.css">
+
+  <script src="three.js/three.min.js"></script>
+  <script src="D.js/lib/D.min.js"></script>
+  <script src="uevent/uevent.min.js"></script>
+  <script src="doT/doT.min.js"></script>
+  <script src="Photo-Sphere-Viewer/dist/photo-sphere-viewer.min.js"></script>
+
+  <script>
+    var viewer = PhotoSphereViewer({
+      container: 'container-id',
+      panorama: 'path/to/panorama.jpg'
+    });
+  </script>
+#+END_SRC
+其中
+- doT 是一个模板引擎, 其实现在用 es6 的 `template` 就行. pass.
+- uEvent 是作者 folk 并修改了了 jeromeetienne 的 event emitter microlibrary - 20lines -for node and browser;
+  后者是 three.js 网红, 原来写过 tQuery 啥的 (个人感觉没啥使用的意义), 还有 VR.js.
+- D.js 是 tiny promise/A+ implementation
+{{{begin-fold(史上最易读懂的 Promise/A+ 完全实现)}}}
+[[https://zhuanlan.zhihu.com/p/21834559][史上最易读懂的 Promise/A+ 完全实现]]
+Promise/A+ 是 promise 的一个 spec. 在 spec 里,
+Promise 只有一个 then 方法 (两个参数, 一个 resolve, 一个 reject, then 返回一个新的 promise),
+没有 catch，race，all 等方法, 甚至没有构造函数 promise 的三种状态.
+不同 Promise 的实现需要可以相互调用 (interoperable).
+Promise 的三种状态: pending, fulfilled, rejected.
+{{{end-fold}}}
 ** TODO https://github.com/4ker/gtor
 [[https://github.com/4ker/gtor/blob/master/presentation/README.md]]
 ** DONE [[https://github.com/4ker/q]]
@@ -271,7 +324,6 @@ callback to promise:
   }
 #+END_SRC
 ** DONE https://github.com/district10/You-Dont-Need-jQuery
-   CLOSED: [2018-01-13 Sat 15:08]
 #+BEGIN_SRC js
   // jQuery -------------------------------------------
   $('selector');
@@ -584,3 +636,90 @@ callback to promise:
 - open db console, eval script
 - copy insert scripts to file/clipboard
 - set autoincrement
+** TODO [[https://github.com/parro-it/awesome-micro-npm-packages][Awesome Micro NPM Packages]]
+*** TODO Articles
+- One-line node modules
+- Build small single purpose modules
+- Module best practices
+- Evaluating Packages Part 1 - Turn to community
+- Evaluating Packages Part 2 - Review repository
+- Small modules: it’s not quite that simple
+- Hyper Modular Packages: A Crazy Cult or a Reasonable Practice?
+- In Defense of Hyper Modular JavaScript
+- Tiny npm package: Guidelines to create a Node.js module following the small package philosophy
+- The cost of small modules
+- Why I think "micro-packages" are a good thing.
+*** Modules
+**** DONE Array
+- is-sorted - A small module to check if an Array is sorted.
+  #+BEGIN_SRC js
+    function defaultComparator (a, b) {
+      return a - b
+    }
+
+    module.exports = function checksort (array, comparator) {
+      comparator = comparator || defaultComparator
+
+      for (var i = 1, length = array.length; i < length; ++i) {
+        if (comparator(array[i - 1], array[i]) > 0) return false
+      }
+
+      return true
+    }
+  #+END_SRC
+- :sad: array-first - Get the first element or first n elements of an array.
+- array-last - Return the last element in an array. Faster than `slice`
+  #+BEGIN_SRC js
+     var isNumber = require('is-number');
+
+    module.exports = function last(arr, n) {
+      if (!Array.isArray(arr)) {
+        throw new Error('expected the first argument to be an array');
+      }
+
+      var len = arr.length;
+      if (len === 0) {
+        return null;
+      }
+
+      n = isNumber(n) ? +n : 1;
+      if (n === 1) {
+        return arr[len - 1];
+      }
+
+      var res = new Array(n);
+      while (n--) {
+        res[n] = arr[--len];
+      }
+      return res;
+    };
+  #+END_SRC
+- arr-flatten - Recursively flatten an array or arrays.
+  作者说是最快的 array flatten, 但... 真的看不到快的理由.
+  #+BEGIN_SRC js
+     'use strict';
+
+    module.exports = function (arr) {
+      return flat(arr, []);
+    };
+
+    function flat(arr, res) {
+      var i = 0, cur;
+      var len = arr.length;
+      for (; i < len; i++) {
+        cur = arr[i];
+        Array.isArray(cur) ? flat(cur, res) : res.push(cur);
+      }
+      return res;
+    }
+  #+END_SRC
+- dedupe - Remove duplicates from an array.
+- array-range - Creates a new array with given range.
+- arr-diff - Returns an array with only the unique values from the first array, by excluding all values from additional arrays using strict equality for comparisons.
+- filled-array - Returns an array filled with the specified input
+- map-array - Map object keys and values into an array.
+- in-array - Return true if any of passed values exists in array - faster than using indexOf.
+- unordered-array-remove - Efficiently remove an element from an unordered array without doing a splice.
+- array-swap - Swap position of two items in an array.
+- mirrarray - Creates a keymirror object from an array of valid keys.
+- group-array - Group array of objects into lists.

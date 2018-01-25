@@ -1,7 +1,7 @@
 * ☰
 - [[./index.org][Main Entry]]
 ** Meta Notes
-- [[./00001-emacs-org-mode.org][Emacs/Org-mode Notes]]
+- [[./00000-emacs-org-mode.org][Emacs/Org-mode Notes]]
 ** Books
 *** DONE [[./00001-combo-001.org][Combo #1]]
 **** DONE 金字塔原理

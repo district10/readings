@@ -76,6 +76,7 @@
 ;; evil for editing
 (require 'evil)
 (evil-mode 1)
+;; (fset 'evil-visual-update-x-selection 'ignore)
 
 ;; ido
 (ido-mode t)
@@ -95,9 +96,12 @@
 
 ;; org-mode
 (setq org-log-done t
-      org-todo-keywords '((sequence "TODO" "INPROGRESS" "DONE" "DITCHED"))
-      org-todo-keyword-faces '(("DITCHED" . (:foreground "gray" :weight bold))
-                               ("INPROGRESS" . (:foreground "violet" :weight bold))))
+      org-todo-keywords '((sequence "TODO" "INPROGRESS" "|" "DONE" "DITCHED"))
+      org-todo-keyword-faces '(
+                               ("INPROGRESS" . (:foreground "violet" :weight bold))
+                               ("DONE" . (:foreground "green" :weight bold))
+                               ("DITCHED" . (:foreground "gray" :weight bold))
+                               ))
 (global-set-key (kbd "C-c a") 'org-agenda)
 (setq org-agenda-show-log t
       org-agenda-todo-ignore-scheduled t
@@ -141,3 +145,13 @@
          "* TODO %?\n %i\n %a")
         ("j" "Journal" entry (file+datetree "~/git/org/journal.org")
          "* %?\nEntered on %U\n %i\n %a")))
+
+(defun unicode-for-org-html-checkbox (checkbox)
+  "Format CHECKBOX into Unicode Characters."
+  (case checkbox (on "&#x22A0;")
+        (off "&#x25FB;")
+        (trans "&#x22A1;")
+        (t "")))
+(defadvice org-html-checkbox (around unicode-checkbox activate)
+  (setq ad-return-value (unicode-for-org-html-checkbox (ad-get-arg 0))))
+(setq org-html-checkbox-type 'unicode)

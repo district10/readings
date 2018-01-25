@@ -49,4 +49,5 @@
     span.section-number-3, span.section-number-4, span.section-number-5 {color: lightgray; }
 
     .highlighted { background-color: yellow; }
+    pre.src { overflow-x: auto; }
 }

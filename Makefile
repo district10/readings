@@ -1,7 +1,7 @@
 .PHONY: all clean include
 
 EDITOR ?= gvim
-ORG:=$(wildcard *.org)
+ORG:=$(wildcard 0*.org index.org)
 DST:=$(ORG:%.org=%.html)
 all: $(DST)
 
@@ -10,7 +10,7 @@ watch: jwatch.jar
 jwatch.jar:
 	curl http://whudoc.qiniudn.com/2016/jwatch.jar > jwatch.jar
 clean:
-	rm *\* *~ *#
+	rm *\* *~ *# *.html
 gh:
 	git add -A; git commit -m "`uname`"; git push;
 %.html: %.org nav.org theme.setup
