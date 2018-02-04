@@ -1,0 +1,3 @@
+#+TITLE: Ng-book2
+#+SETUPFILE: theme.setup
+#+INCLUDE: ./nav.org

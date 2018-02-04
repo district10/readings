@@ -76,6 +76,8 @@
 ;; evil for editing
 (require 'evil)
 (evil-mode 1)
+(setq x-select-enable-clipboard nil)
+(setq save-interprogram-paste-before-kill t)
 ;; (fset 'evil-visual-update-x-selection 'ignore)
 
 ;; ido

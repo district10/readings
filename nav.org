@@ -21,3 +21,4 @@
 *** DONE [[./00007-clean-code.html][Clean Code]]
 *** INPROGRESS [[./00008-deep-learning.org][Deep Learning]]
 *** INPROGRESS [[./00009-async-javascript.html][Async JavaScript]]
+*** INPROGRESS [[./00010-ng-book.html][ng-book2]]
