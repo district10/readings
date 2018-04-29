@@ -4,6 +4,8 @@
 ;;      M-x package-refresh-contents
 ;;      M-x package-install RET evil
 
+;; 中文输入法无法使用？在 .profile 里加上 export LC_CTYPE=zh_CN.UTF-8
+
 (setq user-full-name "TANG ZhiXiong")
 (setq user-mail-address "tang.zhi.xiong@qq.com")
 

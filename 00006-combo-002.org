@@ -185,3 +185,232 @@ new rules for the new economy
     自己能够做什么, 并且积极地采取行动
 - 转换心情的 "解忧笔记"
 ** epilogue: 走向世界
+*
+* 国产遥感卫星进展与应用
+[[https://www.amazon.cn/dp/B016V2Z5V4][《国产遥感卫星进展与应用实例》]]
+** 第一篇 遥感卫星及其地面系统
+#+BEGIN_SRC
+遥感卫星
+- 陆地卫星：中巴地球资源卫星系列，资源卫星系列，高分辨率对滴观测卫星系统
+- 气象卫星：风云极轨卫星，风云静止卫星系列
+- 海洋卫星
+#+END_SRC
+*** 第 1 章 遥感卫星系统组成
+**** 陆地卫星
+***** 资源一号 02C 星
+- 2011
+- 10m 分辨率全色多光谱相机；2.36m 数据幅宽 54km
+- 重返周期 3~5 天
+- 地面站：北京，喀什，三亚
+- 每天 130~145 万平方公里
+***** 中巴资源卫星 04 星
+- 2014
+- 5m/10m 全色/多光谱相机，20m 多光谱相机，40m/80m 红外相机
+- 用于国土资源调查，环保，农作物估产，防灾减灾
+- 中巴（巴西）共同使用
+- The CBERS Satellite Series is a cooperative program between
+  CAST (Chinese Academy of Space Technology) of the People's Republic of China, and
+  INPE (Instituto de Pesquisas Espaciais) of Brazil.
+  The program was signed in July 1988 to establish
+  a complete remote sensing system (space and ground segment)
+  to supply both countries with multispectral remotely sensed imagery.
+***** 资源三号卫星
+- 2012
+- 五天重访
+- 506km 太阳同步圆轨
+***** 环境一号 C 星
+- 2012
+- 环境与灾害检测预报小卫星星座中的“雷达成像卫星”
+- 合成孔径雷达
+- 5m 分辨率
+- 条带、扫描两种工作模式：40km，100km 的成像带宽度
+- SAR：对生态环境全天候、全天时成像；不受云层恶劣天气影响，夜间也能成像
+***** 高分一号卫星
+- 2013
+- 重返周期 4 天
+- 全色（PAN, Panchromatic） 2m，多光谱（MUX, Multispectral） 8m
+- 地面覆盖宽度 70km
+#+BEGIN_SRC
+- Spectral bands
+        Blue, Green, Red,  (400 nm -> 700 nm)
+        Near infrared (NIR), Mid-infrared (MIR), Far-infrared (FIR), (700 nm -> 2400 nm)
+        Thermal infrared, Radar (12000 nm)
+- True-color (rgb -> man-made objects)
+- Green-red-infrared (detect vegetation and camouflage)
+- Blue-NIR-MIR
+#+END_SRC
+***** 高分二号卫星
+- 2014
+- 民用，高分，大幅宽
+- 全色 0.81m，多光谱 3.24m
+- 幅宽 45km
+- 定位精度 50m
+- 动态监测
+**** 气象卫星
+***** 静止气象卫星
+- 1997
+- 高质量云图
+***** 极轨气象卫星
+- 全球，全天候，三维，定量，高精度
+**** 海洋卫星
+- 2011
+- 覆盖范围大，时空分辨率高，可连续观测
+- 海表温度，海面矢量风，海面高度，海冰，海上风暴
+- 海上降水
+*** 第 2 章 陆地卫星数据接收系统
+- 密云站 (1999，中巴地球资源一号卫星)
+- 喀什站 (2008)
+- 三亚站 (2010)
+*** 第 3 章 陆地观测卫星数据处理与分发
+*** 第 4 章 高分辨率遥感卫星系统
+**** 高分专项
+**** 高分一号卫星
+**** 高分二号卫星 （2015 投入使用）
+*** 第 5 章 风云气象卫星系统
+- 北京，广州，乌鲁木齐，佳木斯，瑞典基律纳
+- 风云二号静止气象卫星 FY-2：三分钟资料处理，
+- 风云三号极轨气象卫星 FY-3：10 分钟：质检、定位、定标预处理后得到一级产品；15 分钟，二级产品（地球物理参数，基本图像，环境监测）
+- 气象卫星数据全球共享的国际惯例
+*** 第 6 章 国产海洋卫星系统
+**** 海洋系列卫星
+**** 卫星地面应用系统
+- 北京数据处理中心
+- 北京海洋卫星地面接收站、牡丹江海洋卫星地面接收站、海南海洋卫星地面接收站
+** 第二篇 行 业 应 用
+*** 第 7 章 农业应用
+*** 第 8 章 林业应用
+- 高分辨率极化雷达森林类型识别与分类技术研究
+- 全国荒漠化和沙化宏观监测
+- 陆地干湿状况遥感监测
+- 碳监测
+- 国产遥感影像在森林资源调查和灾害应急评估中应用高技术产业化示范工程
+- 全国森林资源清查及全国林地“一张图” 数据库建设
+- 遥感数据处理与图像制作服务
+*** 第 9 章 水利应用
+- 水利遥感应用与国产卫星数据的使用
+- 国产遥感卫星在洪涝灾害监测中的应用
+- 国产遥感卫星在干旱监测中的应用
+- 国产遥感卫星在水资源管理中的应用
+- 国产遥感卫星在湖泊执法中的应用
+*** 第 10 章 全国土地变更调查监测应用
+土地变更调查监测主要内容：
+- 遥感监测
+- 变更调查
+- 成果核查
+- 数据库更新
+*** 第 11 章 地质矿产勘查应用
+*** 第 12 章 地质环境监测应用
+*** 第 13 章 气象应用
+*** 第 14 章 卫星海洋应用
+*** 第 15 章 环境保护应用
+*** 第 16 章 防灾减灾应用
+遥感数据获取方式
+- 国内遥感数据获取机制
+- 国际遥感数据获取机制
+*** 第 17 章 云南鲁甸地震应急应用
+*** 第 18 章 测绘应用
+*** 第 19 章 教学应用
+**** 国际
+- landsat ::
+    The Landsat program is the longest-running enterprise for
+            acquisition of satellite imagery of Earth. On July 23,
+            1972 the Earth Resources Technology Satellite was
+            launched. This was eventually renamed to Landsat. The
+            most recent, Landsat 8, was launched on February
+            11, 2013. The instruments on the Landsat satellites have
+            acquired millions of images. The images, archived in the
+            United States and at Landsat receiving stations around the
+            world, are a unique resource for global change research
+            and applications in agriculture, cartography, geology,
+            forestry, regional planning, surveillance and education,
+            and can be viewed through the U.S. Geological Survey
+            (USGS) 'EarthExplorer' website. Landsat 7 data has eight
+            spectral bands with spatial resolutions ranging from 15 to
+            60 meters; the temporal resolution is 16 days. Landsat
+            images are usually divided into scenes for easy
+            downloading. Each Landsat scene is about 115 miles long
+            and 115 miles wide (or 100 nautical miles （nautical mile n. 海里（合 1.852 公里））
+            long and 100 nautical miles wide, or 185 kilometers long and 185
+            kilometers wide).
+
+            It’s a very specific question, but I think of nautical
+            miles in this way. One minute of latitude is one nautical
+            mile, so 60 nautical miles is 1º of latitude. So, 600
+            nautical miles is 10º of latitude. This is useful for
+            finding distances on the globe.
+- spot ::
+    SPOT (French: Satellite Pour l’Observation de la Terre, lit.
+         "Satellite for observation of Earth") is a commercial
+         high-resolution optical imaging Earth observation satellite
+         system operating from space. It is run by Spot Image, based
+         in Toulouse, France. It was initiated by the CNES (Centre
+         national d'études spatiales – the French space agency) in
+         the 1970s and was developed in association with the SSTC
+         (Belgian scientific, technical and cultural services) and the
+         Swedish National Space Board (SNSB). It has been designed to
+         improve the knowledge and management of the Earth by
+         exploring the Earth's resources, detecting and forecasting
+         phenomena involving climatology and oceanography, and
+         monitoring human activities and natural phenomena. The SPOT
+         system includes a series of satellites and ground control
+         resources for satellite control and programming, image
+         production, and distribution. Earlier satellites were
+         launched using the European Space Agency's Ariane 2, 3, and 4
+         rockets, while SPOT 6 and SPOT 7 were launched by the Indian
+         PSLV.
+- modis ::
+    The Moderate Resolution Imaging Spectroradiometer (MODIS) is a
+          payload scientific instrument built by Santa Barbara Remote
+          Sensing that was launched into Earth orbit by NASA in
+          1999 on board the Terra (EOS AM) Satellite, and in 2002 on
+          board the Aqua (EOS PM) satellite. The instruments capture
+          data in 36 spectral bands ranging in wavelength from 0.4 µm
+          to 14.4 µm and at varying spatial resolutions (2 bands at
+          250 m, 5 bands at 500 m and 29 bands at 1 km). Together the
+          instruments image the entire Earth every 1 to 2 days. They
+          are designed to provide measurements in large-scale global
+          dynamics including changes in Earth's cloud cover, radiation
+          budget and processes occurring in the oceans, on land, and
+          in the lower atmosphere. MODIS utilizes four on-board
+          calibrators in addition to the space view in order to
+          provide in-flight calibration: solar diffuser (SD), solar
+          diffuser stability monitor (SDSM), spectral radiometric
+          calibration assembly (SRCA), and a v-groove black body.
+          MODIS has used the marine optical buoy for vicarious
+          calibration. MODIS is succeeded by the VIIRS instrument on
+          board the Suomi NPP satellite launched in 2011 and future
+          Joint Polar Satellite System (JPSS) satellites.
+- IKONOS ::
+    IKONOS is a commercial Earth observation satellite, and was the
+           first to collect publicly available high-resolution imagery
+           at 1- and 4-meter resolution. It collected multispectral
+           (MS) and panchromatic (PAN) imagery. The capability to
+           observe Earth via space-based telescope has been called
+           "one of the most significant developments in the history of
+           the space age", and IKONOS brought imagery rivaling that of
+           military spy satellites to the commercial market. IKONOS
+           imagery began being sold on 1 January 2000, and the
+           spacecraft was retired in 2015.
+- quickbird ::
+    QuickBird was a high-resolution commercial earth observation
+              satellite, owned by DigitalGlobe launched in 2001
+              and  decayed in 2015. It was the first satellite
+              in a constellation of three scheduled to be in orbit
+              by 2008. QuickBird used Ball Aerospace's Global Imaging
+              System 2000 (BGIS 2000). The satellite collected
+              panchromatic (black and white) imagery at 61 centimeter
+              resolution and multispectral imagery at 2.44- (at 450
+              km) to 1.63-meter (at 300 km) resolution, as orbit
+              altitude is lowered during the end of mission life.
+**** 国内
+- 中巴地球资源卫星 01 星
+- CBERS-02
+- 风云
+- 高分
+**** 遥感图像处理方法
+- 图像恢复
+- 图像增强
+- 图像变换
+- 几何精纠正
+- 土地利用分类
+- 植被指数等地表参数提取
