@@ -14,6 +14,7 @@
 *** INPROGRESS [[./00006-combo-002.org][Combo #2]]
 **** DONE 新经济, 新规则 (Kevin Kelly)
 **** DONE 麦肯锡问题解决方法与技巧
+**** DONE 国产遥感卫星进展与应用
 *** DONE [[./00002-javascript-the-good-parts.org][JavaScript: The Good Parts]]
 *** DONE [[./00004-domain-specific-languages.org][Domain Specific Languages]]
 *** INPROGRESS [[./00003-effective-java.org][Effective Java]]
