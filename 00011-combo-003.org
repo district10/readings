@@ -39,4 +39,202 @@
 *** Appendix 7. Some special plane projective transformations;
 *** Bibliography;
 * State Estimation for Robotics
-TODO
+** 1. Introduction (1~3)
+*** A Little History
+*** Sensors, Measurements, and Problem Definition
+*** How This Book is Organized
+*** Relationship to Other Books
+{{{Part I: Estimation Machinery
+** 2. Primer on Probability Theory (1~3)
+*** Probability Density Functions
+**** Definitions
+**** Bayes' Rule and Inference
+**** Moments
+**** Sample Mean and Covariance
+**** Statistically Independent, Uncorrelated
+**** Normalized Product
+**** Shannon and Mutual Information
+**** Cramer-Rao Lower Bound and Fisher Information
+
+*** Gaussian Probability Density Functions
+**** Definitions
+**** Isserlis' Theorem
+**** Joint Gaussian PDFs, Their Factors ,and Inferecnce
+**** Statistically Independent, Uncorrelated
+**** Linear Change of Variables
+**** Normalized Product of Gaussians
+**** Sherman-Morrison-Woodbury Identity
+**** Passing a Gausion throught a Nonlinearity
+**** Shannon Information of a Gaussian
+**** Mutual Information of a Joint Gaussian PDF
+**** Cramer-Rao Lower Bound Applied to Gaussion PDFs
+*** Gaussian Processes
+*** Summary
+*** Exercies
+** 3. Linear-Gaussian Estimation (1~3)
+*** Batch Discrete-Time Estimation
+**** Problem Setup
+**** Maximum A Posteriori
+**** Bayesian Inference
+**** Existence,Uniqueness , and Observability
+**** MAP Convariance
+*** Recursive Discrete-Time Smoothing
+**** Exploiting Sparsity in the Batch Solution
+**** Cholesky Smoother
+**** Rauch-Tung-Strieble Smoother
+*** Recursice Discrete-Time Filtering
+**** Factoring the Batch Solution
+**** Kalman Fileter via MAP
+**** Kalman Filter via Bayesian Inference
+**** Kalman Filter via Gain Optimization
+**** Kalman Filter Discussion
+**** Error Dynamics
+**** Existence, Uniqueness, and Observability
+*** Batch Continuous-Time Estimation
+**** Gaussian Process Regression
+**** A Class of Exactly Sparse Gaussian Process Priors
+**** Linear Time-Invariant Case
+**** Relationship to Batch Discrete-Tme Estimation
+*** Summary
+*** Exercises
+** 4. Nonlinear Non-Gaussian Estimation (4~7)
+*** Introduction
+**** Full Bayesian Estimation
+**** Maximum a Posteriori Estimation
+*** Recursive Discrete-Time Estimation
+**** Problem Setup
+**** Bayes Filter
+**** Extended Kalman Filter
+**** Generalized Gaussian Filter
+**** Iterated Extented Kalman Filter
+**** IEKF Is a MAP Estimator
+**** Alternatives for Passing PDFs through Nonlinearities
+**** Particle Filter
+**** Sigmapoint Kalman Filter
+**** Iterated Sigmapoint Kalman Filter
+**** ISPKF Seeks the Posterior Mean
+**** Taxonomy of Filters
+*** Batch Discrete-Time Estimation
+**** Maximum A Posteriori
+**** Bayessian Inference
+**** Maximum A Posteriori
+**** Discussion
+*** Batch Continuous-Time Estimation
+**** Motion Model
+**** Observation Model
+**** Bayesian Inference
+**** Algorithm Summary
+*** Summary
+*** Exercises
+** 5. Biases, Correspondences, and Outliers (4~7)
+*** Handling Input/Measurement Biases
+**** Bias Effects on the Kalman Filter
+**** Unknown Input Bias
+**** Unknown Measurment Bias
+*** Data Association
+**** External Data Association
+**** Internal Data Association
+*** Handling Outliers
+**** RANSAC
+**** M-Estimation
+**** Covariance Estimation
+*** Summary
+*** Exercises
+
+
+Part II Three-Dimensional machery
+
+{{{Part II: Three-Dimensional machinery
+** 6. Primer on Three-Dimensional Geometry (4~7)
+*** Vectors and Renference Frames
+**** Reference Frames
+**** Dot Product
+**** Cross Product
+*** Rotations
+**** Rotation Matrices
+**** Principal Rotations
+**** Alternate Rotation Representations
+**** Rotational Kinematics
+**** Perturbing Rotations
+*** Poses
+**** Transformation Matrices
+**** Robotcs Conventions
+**** Frenet-Serret Frame
+*** Senor Models
+**** Perspective Camera
+**** Stereo Camera
+**** Range-Azimuth-Elevation
+**** Inertial Measument Unit
+*** Summary
+*** Exercises
+
+** 7. Matrix Lie Groups (4~7)
+*** Geometry
+**** Special Orthogonal and Special Euclidean Groups
+**** Lie Algebras
+**** Exponentials Map
+**** Adjoints
+**** Baker-Compbell-Hausdorff
+**** Distance, Volume, Integration
+**** Interpolation
+**** Homogeneous Points
+**** Calculus and Optimation
+**** Identities
+*** Kinematics
+**** Rotations
+**** Poses
+**** Linearized Rotations
+**** Linearized Poses
+*** Probabilty and Statistics
+**** Gaussian Random Variables and PDFs
+**** Uncertainty on a Rotated Vector
+**** Compounding Poses
+**** Fusing Poses
+**** Propagating Uncertainty through a Nonlinear Camera Model
+*** Summary
+*** Exercises
+
+Part III Applications
+
+{{{Part III: Applications
+** 8. Pose Estimation Problems (8~10)
+*** Point-Cloud Alignment
+**** Problem Setup
+**** Unit-Length Quaternion Solution
+**** Rotation Matrix Solution
+**** Transformation Matrix Solution
+*** Point-Clound Tracking
+**** Problem Setup
+**** Motion Priors
+**** Measumement Model
+**** Batch Maximum a Posteriori Solution
+*** Pose-Graph Relaxation
+**** Problem Setup
+**** Batch Maximum Likelihood Solution
+**** Initialization
+**** Exploiting Sparsity
+**** Chain Example
+
+** 9. Pose-and-Point Estimation Problems (8~10)
+*** Bundle Adjustment
+**** Problem Setup
+**** Mealument Model
+**** Maxmim Likelihood Solution
+**** Exploiting Sparsity
+**** Interpolation Example
+*** Simultaneous Localization and Mapping
+**** Problem Setup
+**** Batch maxmimum a Posteriori Solution
+**** Exploiting Sparsity
+**** Example
+** 10. Continuous-Time Estimation (8~10)
+*** Motion Prior
+**** General
+**** Simplification
+*** Simultaneous Trajectory Estimation and Mapping
+**** Problem Setup
+**** Measurement Model
+**** Batch Maximum a Posteriori Solution
+**** Exploiting Sparsity
+**** Interpolation
+**** Postscript
