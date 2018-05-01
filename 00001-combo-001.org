@@ -4,7 +4,7 @@
 
 * #Combo in Combo#
 ** Youtube Videos
-- [[https://www.youtube.com/watch?v=7K5IyVJSmN0][Being an Autodidact]] ::
+- [[https://www.youtube.com/watch?v%3D7K5IyVJSmN0][Being an Autodidact]] ::
   + you need a textbook
   + focus on your passion
   + watched the video only once, the main source is your textbook!
@@ -21,11 +21,11 @@
 - Microscale 3- D Printing 微型 3D 打印
 - Mobile Collaboration 移动协作: quip
 - blue ocean
-- Neuromorphic Chips 神经 形态 芯片
-- Agricultural Drones 农用 无 人机
+- *Neuromorphic Chips 神经 形态 芯片*
+- Agricultural Drones 农用 无人机
 - Prenatal DNA Sequencing 产前 DNA 测 序
 - Supergrids 超级 电网
-- Light- Field Photography 光 场 摄影 术
+- Light-Field Photography 光 场 摄影 术
 - High-Speed Materials Discovery 高速筛选电池材料
 * 金字塔原理
 ** 中文版序

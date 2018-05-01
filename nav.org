@@ -23,3 +23,4 @@
 *** INPROGRESS [[./00008-deep-learning.org][Deep Learning]]
 *** INPROGRESS [[./00009-async-javascript.html][Async JavaScript]]
 *** INPROGRESS [[./00010-ng-book.html][ng-book2]]
+*** INPROGRESS [[./00011-combo-003.html][Combo #3: SLAM]]

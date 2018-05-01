@@ -1,0 +1,42 @@
+#+TITLE: SLAM
+#+SETUPFILE: theme.setup
+#+INCLUDE: ./nav.org
+
+* Multiple View Geometry in Computer Vision
+** 1. Introduction - a tour of multiple view geometry;
+** Part 0. The Background: Projective Geometry, Transformations and Estimation: (2018-05-01 ~ 2018-05-05)
+*** 2. Projective geometry and transformations of 2D;
+*** 3. Projective geometry and transformations of 3D;
+*** 4. Estimation - 2D projective transforms;
+*** 5. Algorithm evaluation and error analysis;
+** Part I. Camera Geometry and Single View Geometry: (2018-05-06 ~ 2018-05-12)
+*** 6. Camera models;
+*** 7. Computation of the camera matrix;
+*** 8. More single view geometry;
+** Part II. Two-View Geometry: (2018-05-13 ~ 2018-05-19)
+*** 9. Epipolar geometry and the fundamental matrix;
+*** 10. 3D reconstruction of cameras and structure;
+*** 11. Computation of the fundamental matrix F;
+*** 12. Structure computation;
+*** 13. Scene planes and homographies;
+*** 14. Affine epipolar geometry;
+** Part III. Three-View Geometry: (2018-05-20 ~ 2018-05-26)
+*** 15. The trifocal tensor;
+*** 16. Computation of the trifocal tensor T;
+** Part IV. N -View Geometry: (2018-05-27 ~ 2018-06-02)
+*** 17. N-linearities and multiple view tensors;
+*** 18. N-view computational methods;
+*** 19. Auto-calibration;
+*** 20. Duality; 21. Chirality;
+*** 22. Degenerate configurations;
+** Part V. Appendices:
+*** Appendix 1. Tensor notation;
+*** Appendix 2. Gaussian (normal) and chi-squared distributions;
+*** Appendix 3. Parameter estimation.
+*** Appendix 4. Matrix properties and decompositions;
+*** Appendix 5. Least-squares minimization;
+*** Appendix 6. Iterative Estimation Methods;
+*** Appendix 7. Some special plane projective transformations;
+*** Bibliography;
+* State Estimation for Robotics
+TODO
