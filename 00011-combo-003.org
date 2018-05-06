@@ -2,6 +2,7 @@
 #+SETUPFILE: theme.setup
 #+INCLUDE: ./nav.org
 
+* [[https://github.com/GeekLiB/Lee-SLAM-source][GeekLiB/Lee-SLAM-source: SLAM 开发学习资源与经验分享]]
 * Multiple View Geometry in Computer Vision
 ** 1. Introduction - a tour of multiple view geometry;
 ** Part 0. The Background: Projective Geometry, Transformations and Estimation: (2018-05-01 ~ 2018-05-05)
